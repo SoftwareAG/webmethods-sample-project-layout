@@ -13,6 +13,3 @@ Fork the repository to easily create fundament for you webMethods project.
 Jenkinsfiles.win and Jenkinfiles.unix in the root of the project contain Jenkins Pipeline declaration. With these and our [DevOps asset library for version 9.x and 10.0](https://github.com/SoftwareAG/sagdevops-ci-assets) you will be able to set up you CI in a matter of minutes.
 
 
-## Notice
-
-When forking the project - please note to change the git ULR in the Jenkinfile.*
