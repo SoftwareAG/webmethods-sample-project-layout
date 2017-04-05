@@ -30,7 +30,7 @@
         	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true"/>
 	</target>
 
-	<target name="buildAndZip" depends="build">
+	<target name="buildAndZip" depends="build" description="invokes ABE and zips the resulting file based repository">
 		<echo message="Using build output dir ${workspace.dir}/target/${projectName}/build"/>
 		<property name="build.dir" value="${workspace.dir}/target/${projectName}/build"/>
 		<zip destfile="${build.dir}/fbr/artifact.zip" basedir="${build.dir}"/>
@@ -40,7 +40,7 @@
         	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true"/>
 	</target>
 
-        <target name="deployFromZip" >
+        <target name="deployFromZip" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
                 <echo message="Deploying from fbr zip ${fbrZipLocation}"/>
                 <property name="fbr" location="./fbr"/>
                 <unzip src="${fbrZipLocation}" dest="${fbr}"/>
@@ -49,7 +49,7 @@
                 </ant>
         </target>
 
-	<target name="deployFromZipGroovy" >
+	<target name="deployFromZipGroovy"  description="unzips a archived FBR and executes the deployment target pointing to the unzip dir" >
 		<echo message="Deploying from fbr zip ${fbrZipLocation}"/>
 		<property name="fbr" location="./fbr"/>
 		<unzip src="${fbrZipLocation}" dest="${fbr}"/>
