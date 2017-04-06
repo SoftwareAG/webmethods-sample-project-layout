@@ -5,7 +5,7 @@
 	
 	<property environment="env" />
 
-        <property name="workspace.dir" location="${WORKSPACE}"/>
+        <property name="workspace.dir" location="${env.WORKSPACE}"/>
 
         <!-- remap the VCS structure defined in project.properties to have absolute paths -->
         <property name="isProjectsDir" location="${isPackages}"/>
@@ -15,8 +15,6 @@
         <property name="rulesProjectsDir" location="${rulesProjects}"/>
         <property name="umProjectsDir" location="${umExport}"/>
         
-        <property name="buildOutputDir" value="${workspace.dir}/target/${projectName}/build"/>
-        <property name="repositoryName" value="${projectName}Repo"/>
         <property name="testPackageNamePattern" value="*_Test"/>
         <property name="jenkinsReportDir" value="${workspace.dir}/report"/>
 
@@ -31,13 +29,13 @@
 	</target>
 
 	<target name="buildAndZip" depends="build" description="invokes ABE and zips the resulting file based repository">
-		<echo message="Using build output dir ${workspace.dir}/target/${projectName}/build"/>
-		<property name="build.dir" value="${workspace.dir}/target/${projectName}/build"/>
+		<echo message="Using build output dir ${workspace.dir}/target/${bda.projectName}/build"/>
+		<property name="build.dir" value="${workspace.dir}/target/${bda.projectName}/build"/>
 		<zip destfile="${build.dir}/fbr/artifact.zip" basedir="${build.dir}"/>
 	</target>
 
         <target name="deploy" depends="">
-        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true"/>
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true"/>
 	</target>
 
         <target name="deployFromZip" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
@@ -45,7 +43,7 @@
                 <property name="fbr" location="./fbr"/>
                 <unzip src="${fbrZipLocation}" dest="${fbr}"/>
                 <ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true">
-                        <property name="buildOutputDir" value="${fbr}"/>
+                        <property name="config.build.fbrDir" value="${fbr}"/>
                 </ant>
         </target>
 
@@ -54,7 +52,7 @@
 		<property name="fbr" location="./fbr"/>
 		<unzip src="${fbrZipLocation}" dest="${fbr}"/>
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true">
-			<property name="buildOutputDir" value="${fbr}"/>
+			<property name="config.build.fbrDir" value="${fbr}"/>
 		</ant>
 	</target>
 
