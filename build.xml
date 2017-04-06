@@ -1,64 +1,66 @@
 <?xml version="1.0"?>
-<project name="testBuild" default="buildDeployTest" basedir="." >
-        <!-- project.properties -->
-	<property file="project.properties"/>
-	
+<project name="testBuild" default="buildDeployTest" basedir=".">
+	<!-- project.properties -->
+	<property file="project.properties" />
+
 	<property environment="env" />
 
-        <property name="workspace.dir" location="${env.WORKSPACE}"/>
+	<property name="workspace.dir" location="${env.WORKSPACE}" />
 
-        <!-- remap the VCS structure defined in project.properties to have absolute paths -->
-        <property name="isProjectsDir" location="${isPackages}"/>
-        <property name="isTestDir" location="${isTests}"/>
-        <property name="bpmProjectsDir" location="${bpmProjects}"/>
-        <property name="mwsProjectsDir" location="${mwsProjects}"/>
-        <property name="rulesProjectsDir" location="${rulesProjects}"/>
-        <property name="umProjectsDir" location="${umExport}"/>
-        
-        <property name="testPackageNamePattern" value="*_Test"/>
-        <property name="jenkinsReportDir" value="${workspace.dir}/report"/>
+	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
+	<property name="isProjectsDir" location="${isPackages}" />
+	<property name="isTestDir" location="${isTests}" />
+	<property name="bpmProjectsDir" location="${bpmProjects}" />
+	<property name="mwsProjectsDir" location="${mwsProjects}" />
+	<property name="rulesProjectsDir" location="${rulesProjects}" />
+	<property name="umProjectsDir" location="${umExport}" />
+	
+	<property name="environmentsDefinition" location="${config.environments}"/>
+
+	<property name="testPackageNamePattern" value="*_Test" />
+	<property name="jenkinsReportDir" value="${workspace.dir}/report" />
 
 
 	<target name="buildDeployTest" depends="">
-        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="buildDeployTest" inheritAll="true"/>
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="buildDeployTest" inheritAll="true" />
 	</target>
 
-        <target name="build" depends="">
-		<echo message="---- ${SAG_CI_HOME} ${env.SAG_CI_HOME}"/>
-        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true"/>
+	<target name="build" depends="">
+		<echo message="---- ${SAG_CI_HOME} ${env.SAG_CI_HOME}" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true" />
 	</target>
 
 	<target name="buildAndZip" depends="build" description="invokes ABE and zips the resulting file based repository">
-		<echo message="Using build output dir ${workspace.dir}/target/${bda.projectName}/build"/>
-		<property name="build.dir" value="${workspace.dir}/target/${bda.projectName}/build"/>
-		<zip destfile="${build.dir}/fbr/artifact.zip" basedir="${build.dir}"/>
+		<echo message="Using build output dir ${workspace.dir}/target/${bda.projectName}/build" />
+		<property name="build.dir" value="${workspace.dir}/target/${bda.projectName}/build" />
+		<zip destfile="${build.dir}/fbr/artifact.zip" basedir="${build.dir}" />
 	</target>
 
-        <target name="deploy" depends="">
-        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true"/>
+	<target name="deploy" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true" />
 	</target>
 
-        <target name="deployFromZip" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
-                <echo message="Deploying from fbr zip ${fbrZipLocation}"/>
-                <property name="fbr" location="./fbr"/>
-                <unzip src="${fbrZipLocation}" dest="${fbr}"/>
-                <ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true">
-                        <property name="config.build.fbrDir" value="${fbr}"/>
-                </ant>
-        </target>
-
-	<target name="deployFromZipGroovy"  description="unzips a archived FBR and executes the deployment target pointing to the unzip dir" >
-		<echo message="Deploying from fbr zip ${fbrZipLocation}"/>
-		<property name="fbr" location="./fbr"/>
-		<unzip src="${fbrZipLocation}" dest="${fbr}"/>
-		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true">
-			<property name="config.build.fbrDir" value="${fbr}"/>
+	<target name="deployFromZip" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
+		<echo message="Deploying from fbr zip ${fbrZipLocation}" />
+		<property name="fbr" location="./fbr" />
+		<unzip src="${fbrZipLocation}" dest="${fbr}" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true">
+			<property name="config.build.fbrDir" value="${fbr}" />
 		</ant>
 	</target>
 
-        <target name="test" depends="">
-        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true"/>
+	<target name="deployFromZipGroovy" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
+		<echo message="Deploying from fbr zip ${fbrZipLocation}" />
+		<property name="fbr" location="./fbr" />
+		<unzip src="${fbrZipLocation}" dest="${fbr}" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true">
+			<property name="config.build.fbrDir" value="${fbr}" />
+		</ant>
 	</target>
-	
+
+	<target name="test" depends="">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true" />
+	</target>
+
 </project>
 
