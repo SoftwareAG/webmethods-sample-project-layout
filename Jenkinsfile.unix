@@ -2,64 +2,30 @@ pipeline {
 	agent any
 	
 	environment {
-		currentDir = "/home/waa/cce/henning_webmethods-sample-project-layout"
+		currentDir = "."
 	}
 	
 	stages {
 		stage('Build'){
 			steps {
+			    echo "Build stage"
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} build"
 			}
 		}
-		stage('Deploy') {
+		stage('DeployToTest') {
 			steps {
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=DEV deploy"
-			}
-		}
-		stage('Test') {
-			steps {
+			    echo "Deploy stage"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST deploy"
+				echo "Executing tests"
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} test"
 				junit 'report/'
 			}
 		}
+		stage('QA') {
+			steps {
+			    echo "QA stage"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA deploy"
+			}
+		}
 	}
 }
-//
-//
-//node {
-//	def currentDir = "/home/waa/cce/henning_webmethods-sample-project-layout"
-//	//def currentDir = "."
-//
-//	stage('Build'){
-//			sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} build"
-//	}
-//	stage('Deploy') {
-//			sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=DEV deploy"
-//	}
-//	stage('Test') {
-//			sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} test"
-//			junit 'report/'
-//	}
-//}
-
-//node {
-//	def checkoutAndBuildbda.projectName = "checkout_and_build"
-//	def fbrArtifactName = "artifact.zip"
-//	stage("build") {
-//       		//build("checkout_and_build")
-//	}
-//	stage("deployToTest") {
-//        	echo "deploy to Test"
-//        	step ([$class: 'CopyArtifact',
-//        	bda.projectName: checkoutAndBuildbda.projectName,
-//        	filter: "target/**/fbr/${fbrArtifactName}"]);
-//        	build job: 'deployBuildGroovy', parameters: [string(name: 'target_env', value: "TEST"), string(name: 'fbr_location', value: "${env.WORKSPACE}/target/${checkoutAndBuildbda.projectName}/build/fbr/${fbrArtifactName}")]
-//	}
-//	stage("test") {
-//       		echo "test on test"
-//		build("executeTest")
-//	}
-//	stage("deployToQA") {
-//       		echo "deploy to QA"
-//   	}
-//}
