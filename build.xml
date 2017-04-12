@@ -29,7 +29,12 @@
 		<echo message="---- ${SAG_CI_HOME} ${env.SAG_CI_HOME}" />
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true" />
 	</target>
-
+	
+	<target name="prepareArtifactoryDownloadSpec">
+		<echo message="---- Preparing file spec for Deployment" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="prepareArtifactoryDownloadSpec" inheritAll="true" />
+	</target>
+	
 	<target name="buildAndZip" depends="build" description="invokes ABE and zips the resulting file based repository">
 		<echo message="Using build output dir ${workspace.dir}/target/${bda.projectName}/build" />
 		<property name="build.dir" value="${workspace.dir}/target/${bda.projectName}/build" />
