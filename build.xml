@@ -20,50 +20,32 @@
 	<property name="testPackageNamePattern" value="*_Test" />
 	<property name="jenkinsReportDir" value="${workspace.dir}/report" />
 
+	<target name="init">
+		<echo message="---- init deployment" />
+		<echo message="---- Using deployment scripts from '${SAG_CI_HOME}'"/>
+	</target>
 
-	<target name="buildDeployTest" depends="">
+	<target name="buildDeployTest" depends="init">
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="buildDeployTest" inheritAll="true" />
 	</target>
 
-	<target name="build" depends="">
-		<echo message="---- ${SAG_CI_HOME} ${env.SAG_CI_HOME}" />
+	<target name="build" depends="init">
+		<echo message="---- starting build" />
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true" />
 	</target>
 	
-	<target name="prepareArtifactoryDownloadSpec">
+	<target name="prepareArtifactoryDownloadSpec" depends="init">
 		<echo message="---- Preparing file spec for Deployment" />
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="prepareArtifactoryDownloadSpec" inheritAll="true" />
 	</target>
 	
-	<target name="buildAndZip" depends="build" description="invokes ABE and zips the resulting file based repository">
-		<echo message="Using build output dir ${workspace.dir}/target/${bda.projectName}/build" />
-		<property name="build.dir" value="${workspace.dir}/target/${bda.projectName}/build" />
-		<zip destfile="${build.dir}/fbr/artifact.zip" basedir="${build.dir}" />
-	</target>
 
-	<target name="deploy" depends="">
+	<target name="deploy" depends="init">
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true" />
 	</target>
 
-	<target name="deployFromZip" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
-		<echo message="Deploying from fbr zip ${fbrZipLocation}" />
-		<property name="fbr" location="./fbr" />
-		<unzip src="${fbrZipLocation}" dest="${fbr}" />
-		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true">
-			<property name="config.build.fbrDir" value="${fbr}" />
-		</ant>
-	</target>
 
-	<target name="deployFromZipGroovy" description="unzips a archived FBR and executes the deployment target pointing to the unzip dir">
-		<echo message="Deploying from fbr zip ${fbrZipLocation}" />
-		<property name="fbr" location="./fbr" />
-		<unzip src="${fbrZipLocation}" dest="${fbr}" />
-		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deployGroovy" inheritAll="true">
-			<property name="config.build.fbrDir" value="${fbr}" />
-		</ant>
-	</target>
-
-	<target name="test" depends="">
+	<target name="test" depends="init">
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true" />
 	</target>
 

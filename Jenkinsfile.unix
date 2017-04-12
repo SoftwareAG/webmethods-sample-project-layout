@@ -17,8 +17,8 @@ pipeline {
 			    echo "Build stage"
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} build"
 				script {
-                            def server = Artifactory.server ${artifactoryServerName}
-                            def uploadSpec = readFile ${artifactoryUploadFileSpecName}                    
+                            def server = Artifactory.server "${artifactoryServerName}"
+                            def uploadSpec = readFile "${artifactoryUploadFileSpecName}"                 
                             def buildInfo = Artifactory.newBuildInfo()
                             buildInfo.env.capture = true
                             buildInfo.env.collect()
@@ -34,8 +34,8 @@ pipeline {
 			    echo "Deploy stage"
 			    sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST prepareArtifactoryDownloadSpec"
 			    script {
-                            def server = Artifactory.server ${artifactoryServerName}
-                            def downloadSpec = readFile ${artifactoryDownloadFileSpecName}                    
+                            def server = Artifactory.server "${artifactoryServerName}"
+                            def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"                 
                             def buildInfo = Artifactory.newBuildInfo()
                             buildInfo.env.capture = true
                             buildInfo.env.collect()
@@ -56,8 +56,8 @@ pipeline {
 			    echo "QA stage"
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA prepareArtifactoryDownloadSpec"
 				script {
-							def server = Artifactory.server ${artifactoryServerName}
-							def downloadSpec = readFile ${artifactoryDownloadFileSpecName}					
+							def server = Artifactory.server "${artifactoryServerName}"
+							def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"					
 							def buildInfo = Artifactory.newBuildInfo()
 							buildInfo.env.capture = true
 							buildInfo.env.collect()
