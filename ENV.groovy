@@ -1,3 +1,36 @@
+IntegrationServer {
+	defaults =
+			[version                : "9.12",
+			 installDeployerResource: 'true',
+			 test                   : 'true',
+			 executeACL             : 'Administrators',
+			 useSSL                 : 'false']
+}
+
+ProcessModel {
+	defaults =
+			[version: '9.12',
+			 test   : 'true',
+			 useSSL : 'false']
+}
+
+MyWebmethodsServer {
+	defaults =
+			[
+					version                          : '9.12',
+					excludeCoreTaskEngineDependencies: 'true',
+					cacheTimeOut                     : 900,
+					includeSecurityDependencies      : 'true',
+					rootFolderAliases                : 'folder.public',
+					maximumFolderObjectCount         : 10000,
+					enableAddtionalLogging           : 'true',
+					maxFolderDepth                   : 25,
+					test                             : 'true',
+					useSSL                           : 'false'
+			]
+}
+
+
 environments {
 	DEV {
 		IntegrationServers {
@@ -6,48 +39,34 @@ environments {
 				port = "8094"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.12"
-				installDeployerResource  = "true"
-				test = "true"
 			}
 		}
 	}
 	TEST {
         IntegrationServers {
             is_node1 {
-                    host = "localhost"
-                    port = "8094"
-                    username = "Administrator"
-                    pwd = "manage"
-                    useSSL = "false"
-                    version = "9.12"
-                    installDeployerResource  = "true"
-                    test = "true"
+                host = "localhost"
+                port = "8094"
+                username = "Administrator"
+                pwd = "manage"
             }
         }
     }
 	QA {
 		IntegrationServers {
 			is_node1 {
-					host = "localhost"
-					port = "8094"
-					username = "Administrator"
-					pwd = "manage"
-					useSSL = "false"
-					version = "9.12"
-					installDeployerResource  = "true"
-					test = "true"
+				host = "localhost"
+				port = "8094"
+				username = "Administrator"
+                //pwd = "manage"
+				pwdHandle = "ADMIN_IS_QA"
 			}
 			is_node2 {
 				host = "localhost"
 				port = "8094"
 				username = "Administrator"
-				pwd = "manage"
-				useSSL = "false"
-				version = "9.12"
-				installDeployerResource  = "true"
-				test = "true"
+                //pwd = "manage"
+				pwdHandle = "ADMIN_IS_QA"
 			}
 		}
 	}
@@ -58,20 +77,12 @@ environments {
 				port = "8080"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				installDeployerResource  = "true"
-				test = "true"
 			}
 			is_node2 {
 				host = "localhost"
 				port = "8080"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				installDeployerResource  = "true"
-				test = "true"
 			}
 		}
 		ProcessModels {
@@ -80,18 +91,12 @@ environments {
 				port = "5555"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				test = "true"
 			}
 			bpm_node2 {
 				host = "localhost"
 				port = "5555"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				test = "true"
 			}
 		}
 		MWS {
@@ -100,16 +105,6 @@ environments {
 				port = "5555"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				test = "true"
-				excludeCoreTaskEngineDependencies = "true"
-				cacheTimeOut = "0"
-				includeSecurityDependencies = "true"
-				rootFolderAliases = "folder.public"
-				maximumFolderObjectCount = "8000"
-				enableAddtionalLogging = "true"
-				maxFolderDepth = "25"
 			}
 		}
 	}
@@ -119,23 +114,14 @@ environments {
 				host = "localhost"
 				port = "8080"
 				username = "Administrator"
-				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				installDeployerResource  = "true"
-				test = "true"
-				executeACL = "Administrator"
+				useSSL = "true"
 			}
 			is_node2 {
 				host = "localhost"
 				port = "8080"
 				username = "Administrator"
 				pwd = "manage"
-				useSSL = "false"
-				version = "9.10"
-				installDeployerResource  = "true"
-				test = "true"
-				executeACL = "Administrator"
+				useSSL = "true"
 			}
 		}
 	}

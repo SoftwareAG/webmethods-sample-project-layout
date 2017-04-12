@@ -32,19 +32,19 @@ pipeline {
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-			    sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST prepareArtifactoryDownloadSpec"
-			    script {
-                            def server = Artifactory.server "${artifactoryServerName}"
-                            def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"                 
-                            def buildInfo = Artifactory.newBuildInfo()
-                            buildInfo.env.capture = true
-                            buildInfo.env.collect()
-                            
-                            // download from Artifactory.
-                            server.download spec: downloadSpec, buildInfo: buildInfo                        
-                            server.publishBuildInfo buildInfo
-				}
-				
+//			    sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST prepareArtifactoryDownloadSpec"
+//			    script {
+//                            def server = Artifactory.server "${artifactoryServerName}"
+//                            def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"                 
+//                            def buildInfo = Artifactory.newBuildInfo()
+//                            buildInfo.env.capture = true
+//                            buildInfo.env.collect()
+//                            
+//                            // download from Artifactory.
+//                            server.download spec: downloadSpec, buildInfo: buildInfo                        
+//                            server.publishBuildInfo buildInfo
+//				}
+//				
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST deploy"
 				echo "Executing tests"
 				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST test"
