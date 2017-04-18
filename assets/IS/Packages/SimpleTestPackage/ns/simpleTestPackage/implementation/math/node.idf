@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Values version="2.0">
-  <value name="shared">DQpwcml2YXRlIHN0YXRpYyBpbnQgZmliKGludCBuICkgew0KCWlmIChuIDw9IDEpIHJldHVybiBu
-Ow0KICAgIGVsc2UgcmV0dXJuIGZpYihuLTEpICsgZmliKG4tMik7DQp9DQo=</value>
+  <value name="shared">CnByaXZhdGUgc3RhdGljIGludCBmaWIoaW50IG4gKSB7CglpZiAobiA8PSAxKSByZXR1cm4gbjsK
+ICAgIGVsc2UgcmV0dXJuIGZpYihuLTEpICsgZmliKG4tMik7Cn0K</value>
   <value name="encodeutf8">true</value>
 </Values>

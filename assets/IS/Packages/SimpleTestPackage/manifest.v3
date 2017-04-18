@@ -14,10 +14,10 @@
   <value name="listACL">Default</value>
   <value name="webappLoad">yes</value>
   <value name="name">SimpleTestPackage</value>
-  <value name="build">8.2.234</value>
+  <value name="build">1.0.110</value>
   <null name="description"/>
-  <value name="time">2014-01-30 16:06:14 CET</value>
-  <value name="jvm_version">1.6.0_27</value>
-  <value name="publisher">sagbase.eur.ad.sag</value>
+  <value name="time">2017-04-18 18:24:50 CEST</value>
+  <value name="jvm_version">1.8.0_121</value>
+  <value name="publisher">localhost.localdomain</value>
   <value name="patch_nums"></value>
 </Values>
