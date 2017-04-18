@@ -1,0 +1,36 @@
+# This file contains additional configuration settings for outbound
+# password encryption that are not contained in the Integration Server
+# Administrator. The file consists of a number of properties, some of
+# which are commented out in the default configuration.
+
+#
+#  Specify the directory and file name for storing outbound passwords.
+#
+
+outbound.password.store.field.fileName=config/txnPassStore.dat
+
+#
+#
+#  Is the master password persisted in a file?  Default is 'true'.
+#
+
+master.password.storeInFile=true
+
+#
+#  Specify other configuration information for a master password that is
+#    persisted in a file; only used when 'storeInFile' is true.
+#
+#  Specify the directory and file name and the repeat limit.
+#
+
+master.password.field.fileName=config/empw.dat
+master.password.field.repeatLimit=3
+
+#
+#
+#  Uncomment one line to choose the encryptor to be used as default.
+#
+
+default.encryptor=EntrustPbePlus
+#default.encryptor=Base64
+#default.encryptor=None
