@@ -9,6 +9,7 @@
 
 	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
 	<property name="isProjectsDir" location="${isPackages}" />
+	<property name="isConfigDir" location="${isConfig}" />
 	<property name="isTestDir" location="${isTests}" />
 	<property name="bpmProjectsDir" location="${bpmProjects}" />
 	<property name="mwsProjectsDir" location="${mwsProjects}" />
