@@ -10,7 +10,6 @@
   <null name="shutdown_services"/>
   <null name="replication_services"/>
   <record name="requires" javaclass="com.wm.util.Values">
-    <value name="WxConfig">*.*</value>
   </record>
   <value name="listACL">Default</value>
   <value name="webappLoad">yes</value>
