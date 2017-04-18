@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="enabled">yes</value>
+  <value name="system_package">no</value>
+  <value name="version">1.0</value>
+  <record name="startup_services" javaclass="com.wm.util.Values">
+    <null name="simpleTestPackage.services.config:autosetup"/>
+  </record>
+  <null name="shutdown_services"/>
+  <null name="replication_services"/>
+  <record name="requires" javaclass="com.wm.util.Values">
+    <value name="WxConfig">*.*</value>
+  </record>
+  <value name="listACL">Default</value>
+  <value name="webappLoad">yes</value>
+  <value name="name">SimpleTestPackage</value>
+  <value name="build">8.2.234</value>
+  <null name="description"/>
+  <value name="time">2014-01-30 16:06:14 CET</value>
+  <value name="jvm_version">1.6.0_27</value>
+  <value name="publisher">sagbase.eur.ad.sag</value>
+  <value name="patch_nums"></value>
+</Values>

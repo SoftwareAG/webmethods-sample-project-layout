@@ -1,0 +1,6 @@
+# This is a new config file. Please add new entries in the following format
+# key = value
+#
+simpletest.jms.connectionAlias=SimpleTest_JmsConnectionAlias
+simpletest.jms.topic.destinationName=SimpleTest_Topic
+simpletest.jms.queue.destinationName=SimpleTest_Queue

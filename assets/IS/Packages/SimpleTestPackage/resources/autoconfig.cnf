@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<autoConfig>
+		<jms>
+			<!-- Connection for performing the setup -->
+			<hostname>localhost</hostname>
+			<port>6849</port>
+			<brokerName>Broker #1</brokerName>
+
+			<!-- setup client group on broker -->
+			<clientGroup name="SimpleTest_ClientGroup" storageType="GUARANTEED"/>
+
+			<!-- setup acls for destination on broker -->
+			<aclDest name="SimpleTest_Topic">
+				<allowedClientGroups>
+					<clientGroup name="SimpleTest_ClientGroup"/>
+				</allowedClientGroups>
+			</aclDest>
+
+			<!-- setup topic on broker -->
+			<topic name="SimpleTest_Topic">
+				<allowedClientGroups>
+					<clientGroup name="SimpleTest_ClientGroup"/>
+				</allowedClientGroups>
+			</topic>
+
+			<!-- setup jndi for topic -->
+			<jndiDestination name="SimpleTest_Topic">
+				<jndiProviderUrl>wmjmsnaming://Broker #1@localhost6849</jndiProviderUrl>		
+				<destinationType>topic</destinationType>
+			</jndiDestination>
+
+
+			<!-- setup queue on broker -->	
+			<queue name="JMS::Queues::SimpleTest_Queue">
+				<clientGroup name="SimpleTest_ClientGroup"/>
+				<sharedState active="true" ordering="none" />
+				<priorityOrdering active="false" />
+			</queue>
+
+			<!-- setup jndi for queue -->
+			<jndiDestination name="SimpleTest_Queue">
+				<jndiProviderUrl>wmjmsnaming://Broker #1@localhost6849</jndiProviderUrl>		
+				<destinationType>queue</destinationType>
+			</jndiDestination>
+
+			<!-- setup jndi connection factory -->
+			<jndiConnectionFactory name="SimpleTest_ConnectionFactory">
+				<jndiProviderUrl>wmjmsnaming://Broker #1@localhost6849</jndiProviderUrl>
+				<cfBrokerHostname>Broker #1</cfBrokerHostname>
+				<cfBrokerPort>6849</cfBrokerPort>
+				<cfBrokerName>Broker #1</cfBrokerName>
+				<cfClientGroup>SimpleTest_ClientGroup</cfClientGroup>
+			</jndiConnectionFactory>	
+
+
+			<!-- setup jndi alias -->
+			<jndiAlias name="SimpleTest_JndiAlias">
+				<description>JndiAliasDescription</description>
+				<initialContextFactory>com.webmethods.jms.naming.WmJmsNamingCtxFactory</initialContextFactory>
+				<providerURL>wmjmsnaming://Broker #1@localhost:6849</providerURL>
+			</jndiAlias>
+
+			<!-- setup connection alias based on jndi -->
+			<connectionAlias name="SimpleTest_JmsConnectionAlias">
+				<description>SimpleTest_JmsConnectionAlias</description>
+				<clientID>SimpleTest_JmsClientId</clientID>
+				<transactionType>0</transactionType>
+				<jndi>
+					<jndiProviderAlias>SimpleTest_JndiAlias</jndiProviderAlias>
+					<connectionFactoryLookupName>SimpleTest_ConnectionFactory</connectionFactoryLookupName>
+				</jndi>
+			</connectionAlias>	
+		</jms>
+
+	</autoConfig>
+</config>
