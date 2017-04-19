@@ -15,6 +15,7 @@
 	<property name="mwsProjectsDir" location="${mwsProjects}" />
 	<property name="rulesProjectsDir" location="${rulesProjects}" />
 	<property name="umProjectsDir" location="${umExport}" />
+	<property name="varsubDir" location="${config.deployer.varsubDir}" />
 	
 	<property name="environmentsDefinition" location="${config.environments}"/>
 
