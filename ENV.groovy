@@ -61,13 +61,6 @@ environments {
                 //pwd = "manage"
 				pwdHandle = "ADMIN_IS_QA"
 			}
-			is_node2 {
-				host = "localhost"
-				port = "8094"
-				username = "Administrator"
-                //pwd = "manage"
-				pwdHandle = "ADMIN_IS_QA"
-			}
 		}
 	}
 	PRE_PROD_WITH_MWS_AND_BPM {
