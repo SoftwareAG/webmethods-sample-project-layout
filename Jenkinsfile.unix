@@ -12,22 +12,22 @@ pipeline {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.fbr.type=${fbrType} build"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} build"
 			}
 		}
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.fbr.type=${fbrType} -Dbda.targetEnv=TEST deploy"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=TEST deploy"
 				echo "Executing tests"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.fbr.type=${fbrType} -Dbda.targetEnv=TEST test"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=TEST test"
 				junit 'report/'
 			}
 		}
 		stage('QA') {
 			steps {
 			    echo "QA stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.fbr.type=${fbrType} -Dbda.targetEnv=QA deploy"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=QA deploy"
 			}
 		}
 	}

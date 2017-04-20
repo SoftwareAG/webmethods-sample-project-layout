@@ -15,7 +15,7 @@ pipeline {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.fbr.type=${fbrType} -Dbda.artifactoryFileSpecName=${artifactoryFileSpecName} build"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.artifactoryFileSpecName=${artifactoryFileSpecName} build"
 				script {
                             def server = Artifactory.server "${artifactoryServerName}"
                             def uploadSpec = readFile "${artifactoryUploadFileSpecName}"                 
@@ -31,16 +31,16 @@ pipeline {
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.fbr.type=${fbrType} deploy"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.build.fbr.type=${fbrType} deploy"
 				echo "Executing tests"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.fbr.type=${fbrType} test"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.build.fbr.type=${fbrType} test"
 				junit 'report/'
 			}
 		}
 		stage('QA') {
 			steps {
 			    echo "QA stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA -Dconfig.fbr.type=${fbrType} deploy"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA -Dconfig.build.fbr.type=${fbrType} deploy"
 			}
 		}
 	}
