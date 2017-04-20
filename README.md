@@ -12,15 +12,18 @@ This sample webMethods project layout should serve as a template for organizing 
 
 Fork the repository to easily create a basis for you webMethods project.
 
-## Process
+## Deployment Pipeline Process
 
-1. Checkout
-2. Build
+The basic example deployment pipeline process is as follows:
+
+1. __Checkout__: Checkout this project from GitHub
+2. __Build__
 	1. Copy file [master_build_Reference/build.properties](./master_build_Reference/build.properties) to "${ABE_HOME}/master_build/"
 	2. Invoke default ANT target in build.xml located at "${ABE_HOME}/master_build/build.xml"
-3. Deploy to Test
-3. Test WmTestSuite on Test
-4. Deploy to QA
+	3. Store resulting File-based Repository in Jenkins workspace
+3. __Deploy__: Deploy to Test
+3. __Test__: Execute WmTestSuite tests on Test target environment
+4. __Deploy__: If WmTestSuite tests have been successfull, deploy to QA
 
 ## Configuration
 
