@@ -1,8 +1,8 @@
 IntegrationServer {
 	defaults =
 			[version                : "9.12",
-			 installDeployerResource: 'true',
-			 test                   : 'true',
+			 installDeployerResource: 'false',
+			 test                   : 'false',
 			 executeACL             : 'Administrators',
 			 useSSL                 : 'false']
 }
@@ -55,6 +55,13 @@ environments {
 	QA {
 		IntegrationServers {
 			is_node1 {
+				host = "localhost"
+				port = "8094"
+				username = "Administrator"
+                //pwd = "manage"
+				pwdHandle = "ADMIN_IS_QA"
+			}
+			is_node2 {
 				host = "localhost"
 				port = "8094"
 				username = "Administrator"
