@@ -35,6 +35,7 @@ The project specific configuration is stored in the file [projects.properties](.
 ** bpmProjects: defines where the BPM Process Models are located
 ** etc.
 * __config.environments__: The location of the environments groovy definition file, e.g. "[ENV.groovy](./ENV.groovy)".
+* __config.deployer.splitDelpoymentSets__: If "true", deployments are split into in multiple deployment sets with a matching number of deployment candidates. See [Splitting Deployments](#splitting-deployments) for details.
 * __config.deployer.varsubDir__: The location of the variable substitions files, please see below for details.
 * __config.build.version__: The build version in the form of "${MAJOR}.${MINOR}.${PATCH}". Adjust to your liking, has to be changed for each release manually in this file. This build version is used to mark the FBRs, and it is passed along to ABE, which for example sets the build property of package's manifest.v3 file to this value.
 * __config.build.fbr.type__: Either "local" or "artifactory":
@@ -123,6 +124,12 @@ environments {
 
 ProjectAutomator can handle cleartext passwords (see above "**pwd**"), but also password handles. A password handle must be defined in Deployer and can be referenced in a Project Automator template by using "**pwdHandle**" instead of "pwd". Please refer to the [webMethods Deployer documentation](http://documentation.softwareag.com/webmethods/wmsuites/wmsuite9-12/Deployer/9-12_Deployer_Users_Guide.pdf) "**Automating Project Creation**".
 
+## Splitting Deployments
+
+By using the configuration parameter "**config.deployer.splitDelpoymentSets**", you can control whether a deployment project should have only one deployment set (and thus only one deployment candidate), which contains all deployment assets to be deployed in one go, or if you want to have multiple deployment sets, one for each target IntegrationServer and one containing all other target nodes (i.e. non-IS nodes).
+
+* __config.deployer.splitDelpoymentSets=false__: A single DeploymentSet is created, which contains all assets. For this single DeploymentSet a single DeploymentMap is created, which points to all target server specified in the environment definition. And finally, a single DeploymentCandidate is created which references the DeploymentMap, so that the deployment of all assets is done in one go.
+* __config.deployer.splitDelpoymentSets=true__: For each IntegrationServer target node specified in the environment definition a separate DeploymentSet, and thus DeploymentMap as well as DeploymentCandiate is created. For all other target nodes (MWS, BPM, TN etc.) a single DelpoymentSet (and DeploymentMap and DeploymentCandidate) is created. Therefore, Deployer does as many deployments as DeploymentSets have been created. Note: variable substitution creation and import is done for each DeploymentMap created.   
 
 ## WmTestSuite Tests
 
