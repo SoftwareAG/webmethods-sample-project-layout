@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="localhost.localdomain" name="com.wm.ps.test.WmTestSuite [FibonachiTest]" tests="2" time="0.284" timestamp="2017-04-20T14:46:52">
+  <properties>
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="testPackageName" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest" />
+    <property name="java.home" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre" />
+    <property name="ant.file.type.testBuild" value="file" />
+    <property name="projectAutomatorDefinition" value="/home/waa/cce/henning_sagdevops-ci-assets/tmp/BDA_TEST_testPipeline_PA_template.definition.xml" />
+    <property name="baseRevision" value="1.0.0.75" />
+    <property name="webMethods.integrationServer.userid" value="Administrator" />
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/endorsed" />
+    <property name="env.LOGNAME" value="jenkins" />
+    <property name="bpmProjectsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/BPM" />
+    <property name="pwd" value="manage" />
+    <property name="SAG_CI_HOME" value="/home/waa/cce/henning_sagdevops-ci-assets" />
+    <property name="env.HUDSON_HOME" value="/var/lib/jenkins" />
+    <property name="build_number" value="75" />
+    <property name="doVarSub" value="true" />
+    <property name="isReportingToJenkins" value="true" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="env.NODE_NAME" value="master" />
+    <property name="java.version" value="1.8.0_121" />
+    <property name="config.deployer.deployerPort" value="8094" />
+    <property name="env.fbrType" value="local" />
+    <property name="ant.file.Repo" value="/home/waa/cce/henning_sagdevops-ci-assets/buildRepo.xml" />
+    <property name="env.NODE_LABELS" value="master" />
+    <property name="fbrRepoName" value="testPipeline_1.0.0.75_fbrRepo" />
+    <property name="env.JENKINS_SERVER_COOKIE" value="durable-d216140cc7b58b83e40058a898854329" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="ant.project.invoked-targets" value="bda.test.executeTestAndReportXML" />
+    <property name="ant.file.type.Build and Deploy Solution" value="file" />
+    <property name="config.deployer.doVarSub" value="true" />
+    <property name="user.name" value="jenkins" />
+    <property name="env.LANG" value="en_US.UTF-8" />
+    <property name="config.deployer.varsubDir" value="resources/vs" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="isTestDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests" />
+    <property name="isProjectsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Packages" />
+    <property name="bpmProjects" value="./assets/BPM/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="abeBuildfileDir" value="master_build" />
+    <property name="user.timezone" value="" />
+    <property name="port" value="8094" />
+    <property name="isUnix" value="true" />
+    <property name="webMethods.integrationServer.port" value="8094" />
+    <property name="path.separator" value=":" />
+    <property name="abeBuildfileFile" value="build.xml" />
+    <property name="ant.file.test" value="/home/waa/cce/henning_sagdevops-ci-assets/buildTest.xml" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="isPackages" value="./assets/IS/Packages" />
+    <property name="ant.project.default-target" value="buildDeployTest" />
+    <property name="env.HOME" value="/var/lib/jenkins" />
+    <property name="isTests" value="./assets/IS/Tests" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.wm.ps.test.WmTestSuite filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest/resources/reports/TEST-FibonachiTest.xml crashfile=/home/waa/cce/henning_sagdevops-ci-assets/junitvmwatcher4826598561921991099.properties propsfile=/home/waa/cce/henning_sagdevops-ci-assets/junit4007045674729135320.properties" />
+    <property name="env.RUN_DISPLAY_URL" value="http://localhost:8080/job/testPipeline/75/display/redirect" />
+    <property name="ant.file" value="/home/waa/cce/henning_sagdevops-ci-assets/build.xml" />
+    <property name="config.build.version" value="1.0.0" />
+    <property name="env.BUILD_TAG" value="jenkins-testPipeline-75" />
+    <property name="config.deployer.deployerHost" value="localhost" />
+    <property name="mwsProjectsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/MWS" />
+    <property name="env.SAG_HOME" value="/home/waa/sag/cc" />
+    <property name="webMethods.integrationServer.password" value="manage" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="config.build.artifactory.repository" value="sag" />
+    <property name="user.language" value="en" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="user" value="Administrator" />
+    <property name="config.build.fbr.type" value="local" />
+    <property name="abeBuildPropertiesReference" value="master_build_Reference/build.properties" />
+    <property name="ant.file.type" value="file" />
+    <property name="failedTestList" value="" />
+    <property name="webMethods.integrationServer.name" value="localhost" />
+    <property name="env.JOB_NAME" value="testPipeline" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="env.BUILD_DISPLAY_NAME" value="#75" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.Build and Deploy Solution" value="/home/waa/cce/henning_sagdevops-ci-assets/build.xml" />
+    <property name="env.JOB_DISPLAY_URL" value="http://localhost:8080/job/testPipeline/display/redirect" />
+    <property name="ant.file.type.Repo" value="file" />
+    <property name="env.BUILD_URL" value="http://localhost:8080/job/testPipeline/75/" />
+    <property name="host" value="localhost" />
+    <property name="fileBasename" value="FibonachiTest" />
+    <property name="environmentsDefinition" value="/home/waa/cce/henning_webmethods-sample-project-layout/ENV.groovy" />
+    <property name="config.build.artifactory.path.org" value="com.sag" />
+    <property name="ant.file.testBuild" value="/home/waa/cce/henning_webmethods-sample-project-layout/build.xml" />
+    <property name="testPackageReportsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest/resources/reports" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="env.HUDSON_SERVER_COOKIE" value="93b8896bb75f2dfd" />
+    <property name="umProjectsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/UniversalMessaging" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.2 compiled on June 10 2014" />
+    <property name="varsubDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/resources/vs" />
+    <property name="ant.file.type.test" value="file" />
+    <property name="rulesProjectsDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/Rules" />
+    <property name="env.SAG_CI_HOME" value="/home/waa/cce/henning_sagdevops-ci-assets" />
+    <property name="env.BUILD_NUMBER" value="75" />
+    <property name="os.name" value="Linux" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Build" value="/home/waa/cce/henning_sagdevops-ci-assets/buildCallABE.xml" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="env.JOB_URL" value="http://localhost:8080/job/testPipeline/" />
+    <property name="config.environments" value="ENV.groovy" />
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" />
+    <property name="env.PATH" value="/sbin:/usr/sbin:/bin:/usr/bin" />
+    <property name="jenkinsReportDir" value="/var/lib/jenkins/workspace/testPipeline/report" />
+    <property name="env.HUDSON_URL" value="http://localhost:8080/" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="env.JENKINS_URL" value="http://localhost:8080/" />
+    <property name="basedir" value="/home/waa/cce/henning_sagdevops-ci-assets" />
+    <property name="java.class.version" value="52.0" />
+    <property name="env.SHLVL" value="4" />
+    <property name="ant.home" value="/usr/share/ant" />
+    <property name="abeHome" value="/home/waa/sag/cc/common/AssetBuildEnvironment" />
+    <property name="env.JENKINS_HOME" value="/var/lib/jenkins" />
+    <property name="env.RUN_CHANGES_DISPLAY_URL" value="http://localhost:8080/job/testPipeline/75/display/redirect?page=changes" />
+    <property name="buildOutputDir" value="/home/waa/cce/henning_sagdevops-ci-assets/tmp/fbr/testPipeline_1.0.0.75_fbrRepo" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/amd64" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="env.USER" value="jenkins" />
+    <property name="config.tmpdir" value="tmp" />
+    <property name="env.currentDir" value="/home/waa/cce/henning_webmethods-sample-project-layout" />
+    <property name="config.deployer.deployerPassword" value="manage" />
+    <property name="ant.project.name" value="Build and Deploy Solution" />
+    <property name="webMethods.test.setup.filename" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest/resources/test/xml/setup/FibonachiTest.xml" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="env.NLSPATH" value="/usr/dt/lib/nls/msg/%L/%N.cat" />
+    <property name="bda.projectName" value="testPipeline" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="mwsProjects" value="./assets/MWS/" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="os.version" value="3.10.0-514.10.2.el7.x86_64" />
+    <property name="user.home" value="/var/lib/jenkins" />
+    <property name="ant.file.ProjectInitializer" value="/home/waa/cce/henning_sagdevops-ci-assets/buildInitProject.xml" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="user.dir" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest" />
+    <property name="env.XFILESEARCHPATH" value="/usr/dt/app-defaults/%L/Dt" />
+    <property name="env.PWD" value="/var/lib/jenkins/workspace/testPipeline" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="useLocalRepository" value="true" />
+    <property name="config.build.buildStorageDir" value="tmp/fbr" />
+    <property name="isConfigDir" value="/home/waa/cce/henning_webmethods-sample-project-layout/${isConfig}" />
+    <property name="java.vm.version" value="25.121-b13" />
+    <property name="java.class.path" value="/home/waa/sag/cc/common/lib/ext/enttoolkit.jar:/home/waa/sag/cc/common/lib/glassfish/gf.javax.mail.jar:/home/waa/sag/cc/common/lib/wm-isclient.jar:/home/waa/sag/cc/IntegrationServer/lib/wm-isserver.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/httpunit.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/junit-4.8.2.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/xmlunit1.0.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/serviceInterceptor.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/ant-junit.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/TestAutomation.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/ant-contrib.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/ant.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/commons-cli-1.2.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/groovy/ant-launcher-1.8.4.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/groovy/groovy-2.4.7.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/groovy/groovy-ant-2.4.7.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/groovy/groovy-sql-2.4.7.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/groovy/groovy-xml-2.4.7.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/ivy-2.4.0.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/serviceMockClient.jar:/home/waa/cce/henning_sagdevops-ci-assets/lib/xmltask-1.16.jar:/usr/share/java/ant/ant-launcher.jar:/usr/share/java/ant/ant.jar" />
+    <property name="bda.logging.log4j.propertiesFile" value="/home/waa/cce/henning_sagdevops-ci-assets/resources/log4j.properties" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
+    <property name="os.arch" value="amd64" />
+    <property name="SAGHome" value="/home/waa/sag/cc" />
+    <property name="bda.targetEnv" value="TEST" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="ant.file.type.build_Deployer" value="file" />
+    <property name="config.deployer.deployerInstallationPath" value="/home/waa/sag/cc/IntegrationServer/instances/deployer/packages/WmDeployer/bin/" />
+    <property name="env.BUILD_ID" value="75" />
+    <property name="ant.file.type.ProjectInitializer" value="file" />
+    <property name="ant.core.lib" value="/usr/share/java/ant/ant.jar" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="build.version" value="testPipeline_1.0.0" />
+    <property name="file.separator" value="/" />
+    <property name="java.runtime.version" value="1.8.0_121-b13" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64/jre/classes" />
+    <property name="env.WORKSPACE" value="/var/lib/jenkins/workspace/testPipeline" />
+    <property name="ant.file.build_Deployer" value="/home/waa/cce/henning_sagdevops-ci-assets/buildDeployer.xml" />
+    <property name="user.country" value="US" />
+    <property name="env.EXECUTOR_NUMBER" value="1" />
+    <property name="env.SHELL" value="/bin/bash" />
+    <property name="ant.file.type.Build" value="file" />
+    <property name="testPackageNamePattern" value="*_Test" />
+    <property name="umExport" value="./assets/UniversalMessaging" />
+    <property name="env.JOB_BASE_NAME" value="testPipeline" />
+    <property name="rulesProjects" value="./assets/Rules/" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="resourcesFolder" value="/home/waa/cce/henning_webmethods-sample-project-layout/assets/IS/Tests/FibonachiTest/resources" />
+    <property name="workspace.dir" value="/var/lib/jenkins/workspace/testPipeline" />
+    <property name="config.deployer.deployerUsername" value="Administrator" />
+    <property name="projectName" value="BDA_TEST_testPipeline" />
+    <property name="env.HUDSON_COOKIE" value="a2089e92-b1c9-445c-8557-369d8f9637ca" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="sun.arch.data.model" value="64" />
+  </properties>
+  <testcase classname="com.wm.ps.test.WmTestCase" name="Straigt Case" time="0.155" />
+  <testcase classname="com.wm.ps.test.WmTestCase" name="TestException" time="0.118" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

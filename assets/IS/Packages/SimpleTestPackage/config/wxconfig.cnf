@@ -1,0 +1,2 @@
+wx.config.incl = auto-config.xml
+wx.config.incl = properties.cnf

@@ -1,22 +1,34 @@
 pipeline {
-    agent any 
-
-    stages {
-        stage('Build'){
-            steps {
-                sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} build"
-            }
-        }
-        stage('Deploy') {
-            steps {
-		sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} deploy"
-            }
-        }
- 	stage('Test') {
-            steps {
-		sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} test"
-		junit 'report/'
-            }
-        }
-    }
+	agent any
+	
+	environment {
+		// currentDir can be set to specific dir for non github testing 
+		//currentDir = "/home/waa/cce/henning_webmethods-sample-project-layout"
+		currentDir = "."
+		fbrType = "local"
+	}
+	
+	stages {
+		stage('Build'){
+			steps {
+			    echo "Build stage"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} build"
+			}
+		}
+		stage('DeployToTest') {
+			steps {
+			    echo "Deploy stage"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=TEST deploy"
+				echo "Executing tests"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=TEST test"
+				junit 'report/'
+			}
+		}
+		stage('QA') {
+			steps {
+			    echo "QA stage"
+				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.targetEnv=QA deploy"
+			}
+		}
+	}
 }

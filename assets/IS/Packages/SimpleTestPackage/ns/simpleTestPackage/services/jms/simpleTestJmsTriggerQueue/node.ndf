@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">webMethods/trigger</value>
+  <value name="node_nsName">simpleTestPackage.services.jms:simpleTestJmsTriggerQueue</value>
+  <value name="node_pkg">SimpleTestPackage</value>
+  <value name="node_comment"></value>
+  <value name="is_public">false</value>
+  <value name="trigger_type">jms-trigger</value>
+  <record name="trigger" javaclass="com.wm.util.Values">
+    <value name="serialSuspendOnError">false</value>
+    <value name="concurrent">false</value>
+    <value name="ordering">0</value>
+    <value name="auditOption">0</value>
+    <record name="auditSettings" javaclass="com.wm.util.Values">
+      <value name="document_data">0</value>
+      <value name="startExecution">false</value>
+      <value name="stopExecution">false</value>
+      <value name="onError">true</value>
+    </record>
+    <record name="redeliveryOptions" javaclass="com.wm.util.Values">
+      <value name="max">0</value>
+      <value name="delayInterval">10000</value>
+      <value name="onRedeliveryFailure">0</value>
+    </record>
+    <value name="joinTimeout">86400000</value>
+    <value name="maxConcurrentThreads">1</value>
+    <value name="inDoubtDetection">false</value>
+    <value name="resolveWithHistory">false</value>
+    <value name="resolutionHistoryTTL">7200000</value>
+    <value name="uniqueId">bYUYYvY9RCtgnmldB0rjbn8tvGY=</value>
+    <value name="aliasName">SimpleTest_JmsConnectionAlias</value>
+    <number name="jmsTriggerType" type="Integer">0</number>
+    <Boolean name="enabled">true</Boolean>
+    <value name="prefetchSize">10</value>
+    <value name="connectionCount">1</value>
+    <value name="inactiveWaitTime">1500</value>
+    <value name="batchSize">1</value>
+    <value name="acknowledgeMode">2</value>
+    <value name="includeOriginalMessage">false</value>
+    <value name="joinType">3</value>
+    <value name="executeUser">Administrator</value>
+    <array name="routingRules" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="ruleName">Rule1</value>
+        <value name="serviceName">simpleTestPackage.services.jms:receiveInvalidAddress</value>
+        <value name="filter"></value>
+      </record>
+    </array>
+    <array name="destinations" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="destination">SimpleTest_Queue</value>
+        <null name="messageSelector"/>
+        <number name="destinationType" type="Integer">0</number>
+      </record>
+    </array>
+  </record>
+</Values>

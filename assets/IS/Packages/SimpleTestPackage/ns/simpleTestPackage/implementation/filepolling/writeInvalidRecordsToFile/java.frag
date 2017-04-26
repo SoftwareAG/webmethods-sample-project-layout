@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">writeInvalidRecordsToFile</value>
+  <array name="sig" type="value" depth="1">
+    <value>[i] field:0:required fileName</value>
+    <value>[i] field:0:required dir</value>
+    <value>[i] recref:1:required invalidRecordList simpleTestPackage.documents.flatfile:invalidRecord</value>
+  </array>
+  <value name="sigtype">java 3.5</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsKU3RyaW5n
+CWZpbGVOYW1lID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJmaWxlTmFt
+ZSIgKTsKU3RyaW5nCWRpciA9IElEYXRhVXRpbC5nZXRTdHJpbmcoIHBpcGVsaW5lQ3Vyc29yLCAi
+ZGlyIiApOwoKRmlsZSBmID0gbmV3IEZpbGUoZGlyLCBmaWxlTmFtZSk7CkJ1ZmZlcmVkV3JpdGVy
+IG91dCA9IG51bGw7CnRyeSB7CglvdXQgPSBuZXcgQnVmZmVyZWRXcml0ZXIobmV3IEZpbGVXcml0
+ZXIoZikpOwoJSURhdGFbXQlpbnZhbGlkUmVjb3JkID0gSURhdGFVdGlsLmdldElEYXRhQXJyYXko
+IHBpcGVsaW5lQ3Vyc29yLCAiaW52YWxpZFJlY29yZExpc3QiICk7CglpZiAoIGludmFsaWRSZWNv
+cmQgIT0gbnVsbCkKCXsKCQlmb3IgKCBpbnQgaSA9IDA7IGkgPCBpbnZhbGlkUmVjb3JkLmxlbmd0
+aDsgaSsrICkKCQl7CgkJCUlEYXRhQ3Vyc29yIGludmFsaWRSZWNvcmRDdXJzb3IgPSBpbnZhbGlk
+UmVjb3JkW2ldLmdldEN1cnNvcigpOwoJCQlTdHJpbmcJcG9zaXRpb24gPSBJRGF0YVV0aWwuZ2V0
+U3RyaW5nKCBpbnZhbGlkUmVjb3JkQ3Vyc29yLCAicG9zaXRpb24iICk7CgkJCVN0cmluZwltc2cg
+PSBJRGF0YVV0aWwuZ2V0U3RyaW5nKCBpbnZhbGlkUmVjb3JkQ3Vyc29yLCAibXNnIiApOwoJCQlp
+bnZhbGlkUmVjb3JkQ3Vyc29yLmRlc3Ryb3koKTsKCgkJCW91dC53cml0ZShwb3NpdGlvbiArICIs
+IiArIG1zZyk7CgkJCW91dC5uZXdMaW5lKCk7CgkJfQoJfQoJCn0gY2F0Y2goIElPRXhjZXB0aW9u
+IGlvZSApIHsKCXRocm93IG5ldyBTZXJ2aWNlRXhjZXB0aW9uKCJjb3VsZCBub3Qgd3JpdGUgZmls
+ZSB0byBwYXRoICIgKyBmaWxlTmFtZSArICI6ICIgKyBpb2UpOwp9IGZpbmFsbHkgewoJaWYoIG91
+dCAhPSBudWxsICkgewoJCXRyeSB7CgkJCW91dC5jbG9zZSgpOwkJCQkJCgkJfSBjYXRjaCggSU9F
+eGNlcHRpb24gaW9lICkgewoJCQkvLyBpZ25vcmUKCQl9Cgl9Cn0K</value>
+</Values>
