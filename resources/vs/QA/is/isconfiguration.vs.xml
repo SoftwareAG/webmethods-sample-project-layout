@@ -17,7 +17,7 @@
     <Property propertyName="NFSDirectories" propertyValue="no"/>
   </Component>
   <Component name="Port.SimpleTestPackage.Regular.5111" type="isport">
-    <Property propertyName="port" propertyValue="5115"/>
+    <Property propertyName="port" propertyValue="5114"/>
     <Property propertyName="bindAddress" propertyValue=""/>
     <Property propertyName="pkg" propertyValue="SimpleTestPackage"/>
     <Property propertyName="enable" propertyValue="false"/>

@@ -25,6 +25,9 @@
 	<target name="init">
 		<echo message="---- init deployment" />
 		<echo message="---- Using deployment scripts from '${SAG_CI_HOME}'"/>
+		<echo message="---- Environment variables:"/>
+		<property environment="my_env" />
+		<echoproperties prefix="my_env"/>
 	</target>
 
 	<target name="buildDeployTest" depends="init">
@@ -35,10 +38,15 @@
 		<echo message="---- starting build" />
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true" />
 	</target>
-	
+
 	<target name="prepareArtifactoryDownloadSpec" depends="init">
 		<echo message="---- Preparing file spec for Deployment" />
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="prepareArtifactoryDownloadSpec" inheritAll="true" />
+	</target>
+
+	<target name="prepareArtifactoryUploadSpec" depends="init">
+		<echo message="---- Preparing file spec for Publish" />
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="prepareArtifactoryUploadSpec" inheritAll="true" />
 	</target>
 	
 

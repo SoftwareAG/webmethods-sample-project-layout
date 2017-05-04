@@ -3,4 +3,4 @@
 /bin/
 /assets/IS/Packages/config/*
 /assets/IS/Packages/**/code/classes/**/*.class
-
+/**/*.bak*

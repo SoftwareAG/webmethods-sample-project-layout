@@ -10,50 +10,62 @@ pipeline {
 		artifactoryUploadFileSpecName = "upload.${artifactoryFileSpecName}"
 		artifactoryDownloadFileSpecName = "download.${artifactoryFileSpecName}"		
 		fbrType = "artifactory"
+		cmd = "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
 	}
 	
 	stages {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.artifactoryFileSpecName=${artifactoryFileSpecName} build"
-				script {
-                            def server = Artifactory.server "${artifactoryServerName}"
-                            def uploadSpec = readFile "${artifactoryUploadFileSpecName}"                 
-                            def buildInfo = Artifactory.newBuildInfo()
-                            buildInfo.env.capture = true
-                            buildInfo.env.collect()                            
-                            // Upload to Artifactory.
-                            server.upload spec: uploadSpec, buildInfo: buildInfo                        
-                            server.publishBuildInfo buildInfo
-				}
+				sh "${cmd} build"
 			}
 		}
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.build.fbr.type=${fbrType} deploy"
+				sh "${cmd} deploy"
 				echo "Executing tests"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=TEST -Dconfig.build.fbr.type=${fbrType} test"
+				sh "${cmd} test"
 				junit 'report/'
+			}
+		}
+		stage('Publish') {
+			steps {
+				echo "Publish stage"
+				sh "${cmd} -Dbda.artifactoryFileSpecName=${artifactoryUploadFileSpecName} prepareArtifactoryUploadSpec"
+				script {
+					def server = Artifactory.server "${artifactoryServerName}"
+					def uploadSpec = readFile "${artifactoryUploadFileSpecName}"
+					def buildInfo = Artifactory.newBuildInfo()
+					buildInfo.env.capture = true
+					buildInfo.env.collect()
+					// Upload to Artifactory.
+					server.upload spec: uploadSpec, buildInfo: buildInfo
+					server.publishBuildInfo buildInfo
+				}
+			}
+		}
+		stage('Download') {
+			steps {
+			    echo "Download stage"
+				sh "${cmd} -Dbda.artifactoryFileSpecName=${artifactoryDownloadFileSpecName} prepareArtifactoryDownloadSpec"
+				script {
+					def server = Artifactory.server "${artifactoryServerName}"
+					def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"					
+					def buildInfo = Artifactory.newBuildInfo()
+					buildInfo.env.capture = true
+					buildInfo.env.collect()
+					
+					// download from Artifactory.
+					server.download spec: downloadSpec, buildInfo: buildInfo
+					server.publishBuildInfo buildInfo
+				}
 			}
 		}
 		stage('QA') {
 			steps {
-			    echo "QA stage"
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA -Dconfig.build.fbr.type=${fbrType} -Dbda.artifactoryFileSpecName=${artifactoryFileSpecName} prepareArtifactoryDownloadSpec"
-				script {
-							def server = Artifactory.server "${artifactoryServerName}"
-							def downloadSpec = readFile "${artifactoryDownloadFileSpecName}"					
-							def buildInfo = Artifactory.newBuildInfo()
-							buildInfo.env.capture = true
-							buildInfo.env.collect()
-							
-							// download from Artifactory.
-							server.download spec: downloadSpec, buildInfo: buildInfo
-							server.publishBuildInfo buildInfo
-				}
-				sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dbda.targetEnv=QA -Dconfig.build.fbr.type=${fbrType} deploy"
+				echo "QA stage"
+				sh "${cmd} deploy"
 			}
 		}
 	}
