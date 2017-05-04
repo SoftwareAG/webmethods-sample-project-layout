@@ -3,7 +3,6 @@ pipeline {
 	
 	environment {
 		// currentDir can be set to specific dir for non github testing 
-		//currentDir = "/home/waa/cce/henning_webmethods-sample-project-layout"
 		currentDir = "."
 		artifactoryServerName = "localArtifactory"
 		artifactoryFileSpecName = "${env.JOB_NAME}.${env.BUILD_NUMBER}.filespec.json"
