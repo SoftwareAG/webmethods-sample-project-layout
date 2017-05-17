@@ -1,6 +1,6 @@
 /logs
-/assets/IS/**/resources/reports/*
 /bin/
 /assets/IS/Packages/config/*
-/assets/IS/Packages/**/code/classes/**/*.class
+/assets/IS/Packages/*/code/classes/**/*.class
 /**/*.bak*
+assets/IS/Tests/*/resources/reports/**/*.*

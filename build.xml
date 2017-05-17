@@ -8,13 +8,12 @@
 	<property name="workspace.dir" location="${env.WORKSPACE}" />
 
 	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
-	<property name="isProjectsDir" location="${isPackages}" />
-	<property name="isConfigDir" location="${isConfig}" />
-	<property name="isTestDir" location="${isTests}" />
-	<property name="bpmProjectsDir" location="${bpmProjects}" />
-	<property name="mwsProjectsDir" location="${mwsProjects}" />
-	<property name="rulesProjectsDir" location="${rulesProjects}" />
-	<property name="umProjectsDir" location="${umExport}" />
+	<property name="isProjectsDir" location="${config.assets.isPackages}" />
+	<property name="isTestDir" location="${config.assets.isTests}" />
+	<property name="bpmProjectsDir" location="${config.assets.bpmProjects}" />
+	<property name="mwsProjectsDir" location="${config.assets.mwsProjects}" />
+	<property name="rulesProjectsDir" location="${config.assets.rulesProjects}" />
+	<property name="umProjectsDir" location="${config.assets.umExport}" />
 	<property name="varsubDir" location="${config.deployer.varsubDir}" />
 	
 	<property name="environmentsDefinition" location="${config.environments}"/>
