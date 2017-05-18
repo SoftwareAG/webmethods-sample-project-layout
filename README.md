@@ -29,13 +29,14 @@ The basic example deployment pipeline process is as follows:
 
 The project specific configuration is stored in the file [projects.properties](./projects.properties). It contains the following configurations:
 
-* __The location of the source assets__, like IS Packages, BPM Processes, etc. These relative paths are mapped to absolute paths in the build.xml. The absolute paths are substituted in the Asset Build Environment's build.properties file into the property "build.source.dir". Please see the file [master_build_Reference/build.properties](./master_build_Reference/build.properties). Examples are:
+* __config.assets.*__: The location of the source assets, like IS Packages, BPM Processes, etc. These relative paths are mapped to absolute paths in the build.xml. The absolute paths are substituted in the Asset Build Environment's build.properties file into the property "build.source.dir". Please see the file [master_build_Reference/build.properties](./master_build_Reference/build.properties). Examples are:
 ** isPackages: defines where the IntegrationServer packages are located, relative to this project
 ** isTests: defines where the WmTestSuite tests are located
 ** bpmProjects: defines where the BPM Process Models are located
 ** etc.
 * __config.environments__: The location of the environments groovy definition file, e.g. "[ENV.groovy](./ENV.groovy)".
 * __config.deployer.splitDelpoymentSets__: If "true", deployments are split into in multiple deployment sets with a matching number of deployment candidates. See [Splitting Deployments](#splitting-deployments) for details.
+* __config.deployer.doVarSub__: Set to "true" in order to execute variable substitution.
 * __config.deployer.varsubDir__: The location of the variable substitions files, please see below for details.
 * __config.build.version__: The build version in the form of "${MAJOR}.${MINOR}.${PATCH}". Adjust to your liking, has to be changed for each release manually in this file. This build version is used to mark the FBRs, and it is passed along to ABE, which for example sets the build property of package's manifest.v3 file to this value.
 * __config.build.fbr.type__: Either "local" or "artifactory":
@@ -159,7 +160,7 @@ _**Note**: currently only IntegrationServer package variable substitutions are s
 
 The VarSub Repository is stored for each project and has the following structure:
 
-* __resources/vs__: Base directory for the VarSub Repository
+* __resources/vs__: Base directory for the VarSub Repository (specified by property "config.deployer.varsubDir")
 	* __${TARGET_ENV}__: For each target environment (e.g. DEV, TEST, QA, PROD) a separate folder must exist which will contain varsub templates for the given target environment.
 		* __${ASSET_TYPE}__: For each asset type (e.g. "is", "mws", "bpm") a separate folder must exist which will contain varsub templates of the given asset type
 			* __${COMPOSITE_NAME}.vs.xml__: For each composite for which a variable substitution exists a separate file must exist with the name of the composiste and the file extension "vs.xml".
