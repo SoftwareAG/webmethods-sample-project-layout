@@ -30,10 +30,10 @@ The basic example deployment pipeline process is as follows:
 The project specific configuration is stored in the file [projects.properties](./projects.properties). It contains the following configurations:
 
 * __config.assets.*__: The location of the source assets, like IS Packages, BPM Processes, etc. These relative paths are mapped to absolute paths in the build.xml. The absolute paths are substituted in the Asset Build Environment's build.properties file into the property "build.source.dir". Please see the file [master_build_Reference/build.properties](./master_build_Reference/build.properties). Examples are:
-** isPackages: defines where the IntegrationServer packages are located, relative to this project
-** isTests: defines where the WmTestSuite tests are located
-** bpmProjects: defines where the BPM Process Models are located
-** etc.
+	* isPackages: defines where the IntegrationServer packages are located, relative to this project
+	* isTests: defines where the WmTestSuite tests are located
+	* bpmProjects: defines where the BPM Process Models are located
+	* etc.
 * __config.environments__: The location of the environments groovy definition file, e.g. "[ENV.groovy](./ENV.groovy)".
 * __config.deployer.splitDelpoymentSets__: If "true", deployments are split into in multiple deployment sets with a matching number of deployment candidates. See [Splitting Deployments](#splitting-deployments) for details.
 * __config.deployer.doVarSub__: Set to "true" in order to execute variable substitution.
