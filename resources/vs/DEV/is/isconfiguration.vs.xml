@@ -16,6 +16,7 @@
     <Property propertyName="runUser" propertyValue="Administrator"/>
     <Property propertyName="NFSDirectories" propertyValue="no"/>
   </Component>
+  <!-- 
   <Component name="Port.SimpleTestPackage.Regular.5111" type="isport">
     <Property propertyName="port" propertyValue="5114"/>
     <Property propertyName="bindAddress" propertyValue=""/>
@@ -23,5 +24,5 @@
     <Property propertyName="enable" propertyValue="false"/>
     <Property propertyName="hostAccessMode" propertyValue="global"/>
     <Property propertyName="hostList" propertyValue=""/>
-  </Component>
+  </Component>-->
 </VarSub>

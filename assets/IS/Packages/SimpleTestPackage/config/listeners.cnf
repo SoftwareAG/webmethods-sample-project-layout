@@ -6,9 +6,9 @@
       <value name="port">c:\tmp\citrus\csv\import</value>
       <value name="protocol">FilePolling</value>
       <value name="pkg">SimpleTestPackage</value>
-      <value name="enabled">true</value>
+      <value name="enabled">false</value>
       <value name="key">FilePollingListener:c:\tmp\citrus\csv\import</value>
-      <value name="portAlias">FilePollingListener_0_SimpleTestPackage_c:\tmp\citrus\csv\import</value>
+      <value name="portAlias">FilePollingListener_0_SimpleTestPackage_c__tmp_citrus_csv_import</value>
       <value name="portDescription">Integration Server FilePolling port: 0</value>
       <value name="factoryKey">webMethods/FilePolling</value>
       <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
@@ -28,30 +28,6 @@
       <value name="maxFilesPerCycle">1</value>
       <value name="lockFileExtension">.lock</value>
     </record>
-    <record name="HTTPListener@5111" javaclass="com.wm.util.Values">
-      <number name="port" type="Integer">5111</number>
-      <value name="protocol">HTTP</value>
-      <value name="pkg">SimpleTestPackage</value>
-      <value name="enabled">true</value>
-      <value name="key">HTTPListener@5111</value>
-      <value name="uniqueID">d2f5ff3cffbffbdc15b80e589f5</value>
-      <value name="portAlias">SimpleTestPort</value>
-      <value name="portDescription">SimpleTestPort</value>
-      <value name="factoryKey">webMethods/HTTP</value>
-      <value name="configURL">/WmRoot/configHTTP.dsp</value>
-      <value name="provider">webMethods</value>
-      <value name="listenerType">Regular</value>
-      <value name="clientAuth">none</value>
-      <value name="idProvider">salesforce.com</value>
-      <value name="ssl">false</value>
-      <value name="maxQueue">200</value>
-      <value name="keepAliveTimeout">20000</value>
-      <value name="internalPort">-1</value>
-      <value name="curDelay">0</value>
-      <value name="stepsize">10000</value>
-      <value name="suspended">false</value>
-      <null name="jsseEnabledProtocols"/>
-    </record>
   </record>
   <record name="access" javaclass="com.wm.util.Values">
     <record name="FilePollingListener:c:\tmp\citrus\csv\import" javaclass="com.wm.util.Values">
@@ -62,27 +38,6 @@
         </list>
       </record>
       <value name="key">FilePollingListener:c:\tmp\citrus\csv\import</value>
-    </record>
-    <record name="HTTPListener@5111" javaclass="com.wm.util.Values">
-      <null name="home"/>
-      <value name="default">exclude</value>
-      <record name="nodes" javaclass="com.wm.util.StringSet">
-        <list name="elements">
-          <value>wm.server:disconnect</value>
-          <value>wm.server:ping</value>
-          <value>wm.server.tx:end</value>
-          <value>wm.server:getClusterNodes</value>
-          <value>wm.server:getServerNodes</value>
-          <value>wm.server.csrfguard:isCSRFGuardEnabled</value>
-          <value>wm.server:noop</value>
-          <value>wm.server.csrfguard:getCSRFSecretToken</value>
-          <value>wm.server.tx:execute</value>
-          <value>wm.server.tx:start</value>
-          <value>wm.server:connect</value>
-          <value>wm.server.tx:restart</value>
-        </list>
-      </record>
-      <value name="key">HTTPListener@5111</value>
     </record>
   </record>
 </Values>
