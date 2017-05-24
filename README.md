@@ -29,6 +29,7 @@ The basic example deployment pipeline process is as follows:
 
 The project specific configuration is stored in the file [projects.properties](./projects.properties). It contains the following configurations:
 
+* __config.project.projectName__: A standard, fixed project name to be used for creating the Deployer project. Overwrite this property by providing the parameter "_bda.projectName_" to the build script (e.g. in Jenkins).
 * __config.assets.*__: The location of the source assets, like IS Packages, BPM Processes, etc. These relative paths are mapped to absolute paths in the build.xml. The absolute paths are substituted in the Asset Build Environment's build.properties file into the property "build.source.dir". Please see the file [master_build_Reference/build.properties](./master_build_Reference/build.properties). Examples are:
 	* isPackages: defines where the IntegrationServer packages are located, relative to this project
 	* isTests: defines where the WmTestSuite tests are located
@@ -299,3 +300,12 @@ These two varsub files can now be copied to other target environment specific fo
 
 In order to create such varsub templates, you can either export a variable substitution file from Deployer and splitting it manually as explained above, or you can use the utility ANT script "buildDeployer_Varsub.xml" provided in the project "[https://github.com/SoftwareAG/sagdevops-ci-assets](https://github.com/SoftwareAG/sagdevops-ci-assets)".
 
+## Custom quiesce mode
+
+A common problem with IS deployments is that trigger (JMS and Messaging) are automatically enabled after the deployment by Deployer, if they have been enabled when they were checked in to the VCS. Although the Deployer variable substitution property "Suspend Triggers During Deployment" exists at the package level, this does not prevent Depoyer from enabling tiggers _after_ the deployment has finished. So Deployer "restores" the state of a trigger on a target node to the one it has in the source system when it was checked in to the VCS.
+
+But quite often it is not desirable that messaging triggers are enabled right after the deployment. Quite often post-deployment checks are to be done, and then users/administrators want to enable triggers in a controlled manner. In order to achieve this, the only "supported" option is to checkin triggers into the VCS only in disabled state. Thus after deployment Deployer does not enable the triggers.
+
+But this option is very error-prone and  inconvenient, since developers have to remember to disable triggers on their local system before checking in.
+
+An alternative solution is what the CI-Assets offer as a capability: change the state of a trigger on the file system after checkout, but before ABE builds the FBR. This is controlled by the project property **"config.build.suspendTriggersInSource"**. If set to "_true_", then the build scripts iterate over each "node.ndf" file in the IS package source dir (see configuration property **"config.assets.isPackages"**), check if it describes a JMS or Messaging Trigger (by checking the attribute "trigger_type") and then set the appropriate values so that this trigger has the state "disabled" (JMS) or "suspended" (Messaging). A backup is created for each trigger which is modified.
