@@ -20,7 +20,7 @@ pipeline {
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				bat "${cmd} deploy -Dbda.targetEnv=TEST"
+				bat "${cmd} deploy -Dbda.targetEnv=TEST -v"
 				echo "Executing tests"
 				bat "${cmd} test -Dbda.targetEnv=TEST"
 				junit 'report/'
