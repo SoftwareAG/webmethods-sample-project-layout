@@ -5,29 +5,31 @@ pipeline {
 		// currentDir can be set to specific dir for non github testing 
 		currentDir = "."
 		fbrType = "local"
-		cmd = "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
+		// set ANT_HOME and overwrite any system set ANT_HOME var
+		ANT_HOME="${env.SAG_HOME}/common/AssetBuildEnvironment/ant"
+		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
 	}
 	
 	stages {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
-				bat "${cmd} build"
+				bat "${cmd} build -Dbda.targetEnv=BUILD"
 			}
 		}
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				bat "${cmd} deploy"
+				bat "${cmd} deploy -Dbda.targetEnv=TEST"
 				echo "Executing tests"
-				bat "${cmd} test"
+				bat "${cmd} test -Dbda.targetEnv=TEST"
 				junit 'report/'
 			}
 		}
 		stage('QA') {
 			steps {
 			    echo "QA stage"
-				bat "${cmd} deploy"
+				bat "${cmd} deploy -Dbda.targetEnv=QA"
 			}
 		}
 	}

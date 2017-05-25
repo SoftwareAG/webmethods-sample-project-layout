@@ -9,7 +9,8 @@ pipeline {
 		artifactoryUploadFileSpecName = "upload.${artifactoryFileSpecName}"
 		artifactoryDownloadFileSpecName = "download.${artifactoryFileSpecName}"		
 		fbrType = "artifactory"
-		cmd = "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
+		ANT_HOME="${env.SAG_HOME}/common/AssetBuildEnvironment/ant"
+		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
 	}
 	
 	stages {

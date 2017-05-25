@@ -45,8 +45,9 @@ environments {
 	TEST {
         IntegrationServers {
             is_node1 {
+				version = "9.9" // overwrite global version property
                 host = "localhost"
-                port = "8094"
+                port = "5599"
                 username = "Administrator"
                 pwd = "manage"
             }
@@ -55,15 +56,17 @@ environments {
 	QA {
 		IntegrationServers {
 			is_node1 {
+				version = "9.9" // overwrite global version property
 				host = "localhost"
-				port = "8094"
+				port = "5599"
 				username = "Administrator"
                 //pwd = "manage"
 				pwdHandle = "ADMIN_IS_QA"
 			}
 			is_node2 {
+				version = "9.9" // overwrite global version property
 				host = "localhost"
-				port = "8094"
+				port = "5699"
 				username = "Administrator"
                 //pwd = "manage"
 				pwdHandle = "ADMIN_IS_QA"
