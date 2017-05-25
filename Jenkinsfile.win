@@ -12,22 +12,22 @@ pipeline {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
-				sh "${cmd} build"
+				bat "${cmd} build"
 			}
 		}
 		stage('DeployToTest') {
 			steps {
 			    echo "Deploy stage"
-				sh "${cmd} deploy"
+				bat "${cmd} deploy"
 				echo "Executing tests"
-				sh "${cmd} test"
+				bat "${cmd} test"
 				junit 'report/'
 			}
 		}
 		stage('QA') {
 			steps {
 			    echo "QA stage"
-				sh "${cmd} deploy"
+				bat "${cmd} deploy"
 			}
 		}
 	}
