@@ -5,10 +5,10 @@ pipeline {
 		// currentDir can be set to specific dir for non github testing 
 		currentDir = "."
 		fbrType = "local"
-		reportDir = "${env.WORKSPACE}/report"
+		reportDir = "report"
 		// set ANT_HOME and overwrite any system set ANT_HOME var
 		ANT_HOME="${env.SAG_HOME}/common/AssetBuildEnvironment/ant"
-		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType} -Dbda.reportDir='${reportDir}'"
+		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
 	}
 	
 	stages {
@@ -16,7 +16,8 @@ pipeline {
 			steps {
 			    echo "Build stage"
 				bat "${cmd} staticCodeAnalysis -Dbda.targetEnv=BUILD"
-				junit "${reportDir}"
+				// empty results are allowed because isccr may be disabled
+				junit allowEmptyResults: true, testResults: "${reportDir}/TEST-*.xml"
 				bat "${cmd} build -Dbda.targetEnv=BUILD"
 			}
 		}
@@ -26,7 +27,7 @@ pipeline {
 				bat "${cmd} deploy -Dbda.targetEnv=TEST"
 				echo "Executing tests"
 				bat "${cmd} test -Dbda.targetEnv=TEST"
-				junit "${reportDir}"
+				junit "${reportDir}/TEST-*.xml"
 			}
 		}
 		stage('QA') {
