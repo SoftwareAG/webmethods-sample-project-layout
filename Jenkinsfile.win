@@ -15,6 +15,7 @@ pipeline {
 		stage('Build'){
 			steps {
 			    echo "Build stage"
+				bat "${cmd} staticCodeAnalysis -Dbda.targetEnv=BUILD"
 				bat "${cmd} build -Dbda.targetEnv=BUILD"
 			}
 		}
