@@ -5,8 +5,6 @@
 
 	<property environment="env" />
 
-	<property name="workspace.dir" location="${env.WORKSPACE}" />
-
 	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
 	<property name="isProjectsDir" location="${config.assets.isPackages}" />
 	<property name="isTestDir" location="${config.assets.isTests}" />
@@ -19,7 +17,6 @@
 	<property name="environmentsDefinition" location="${config.environments}"/>
 
 	<property name="testPackageNamePattern" value="*_Test" />
-	<property name="jenkinsReportDir" value="${workspace.dir}/report" />
 
 	<target name="init">
 		<echo message="---- init deployment" />
@@ -56,6 +53,10 @@
 
 	<target name="test" depends="init">
 		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true" />
+	</target>
+	
+	<target name="_TEST_test" depends="init">
+		<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="_TEST_startTest" inheritAll="true" />
 	</target>
 
 </project>
