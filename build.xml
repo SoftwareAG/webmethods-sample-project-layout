@@ -2,28 +2,46 @@
 <project name="testBuild" default="buildDeployTest" basedir=".">
 	<!-- project.properties -->
 	<property file="project.properties" />
-
-	<property environment="env" />
-
-	<!-- remap the VCS structure defined in project.properties to have absolute paths -->
-	<property name="isProjectsDir" location="${config.assets.isPackages}" />
-	<property name="isTestDir" location="${config.assets.isTests}" />
-	<property name="bpmProjectsDir" location="${config.assets.bpmProjects}" />
-	<property name="mwsProjectsDir" location="${config.assets.mwsProjects}" />
-	<property name="rulesProjectsDir" location="${config.assets.rulesProjects}" />
-	<property name="umProjectsDir" location="${config.assets.umExport}" />
-	<property name="varsubDir" location="${config.deployer.varsubDir}" />
 	
-	<property name="environmentsDefinition" location="${config.environments}"/>
-
 	<property name="testPackageNamePattern" value="*_Test" />
-
-	<target name="init">
+	
+	<target name="init.loadExternalProperties">
+		<description>We use this task to map externally defined environment variables and overwrite internal properties. 
+			All environment variables which are prefixed with "ext." are loaded and stored as a property without the "ext." prefix.
+			This comes handy for example in Jenkins projects where you can now parameterize a build and thus override internal properties without having to change properties in the project itself each time.</description>
+		<echo message="Loading environment variables prefixed with 'ext.' as ant properties..."/>
+		<property environment="env" />
+		<echoproperties prefix="env"></echoproperties>
+		<!-- read in all properties which are prefixed with "ext." -->
+		<propertyset id="externalProperties">
+		  	<propertyref prefix="env.ext"/>
+			<mapper type="glob" from="env.ext.*" to="*"/>
+		</propertyset>
+	    <script language="javascript">
+	    	project.references.externalProperties.getProperties().forEach(function(key, value) {
+	    		// replace property with new value from ext. property
+	    		project.setProperty(key, value);	    	
+	    	});
+	    </script>
+	</target>
+	
+	<target name="init" depends="init.loadExternalProperties">
 		<echo message="---- init deployment" />
 		<echo message="---- Using deployment scripts from '${SAG_CI_HOME}'"/>
 		<echo message="---- Environment variables:"/>
-		<property environment="my_env" />
-		<echoproperties prefix="my_env"/>
+
+		<!-- remap the VCS structure defined in project.properties to have absolute paths -->
+		<property name="isProjectsDir" location="${config.assets.isPackages}" />
+		<property name="isTestDir" location="${config.assets.isTests}" />
+		<property name="bpmProjectsDir" location="${config.assets.bpmProjects}" />
+		<property name="mwsProjectsDir" location="${config.assets.mwsProjects}" />
+		<property name="rulesProjectsDir" location="${config.assets.rulesProjects}" />
+		<property name="umProjectsDir" location="${config.assets.umExport}" />
+		<property name="varsubDir" location="${config.deployer.varsubDir}" />
+		
+		<property name="environmentsDefinition" location="${config.environments}"/>
+		
+		<echoproperties prefix="env"/>
 	</target>
 
 	<target name="buildDeployTest" depends="init">
