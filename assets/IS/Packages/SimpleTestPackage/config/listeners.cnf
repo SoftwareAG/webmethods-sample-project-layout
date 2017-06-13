@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="listeners" javaclass="com.wm.util.Values">
+    <record name="FilePollingListener:c:\tmp\citrus\csv\import" javaclass="com.wm.util.Values">
+      <value name="port">c:\tmp\citrus\csv\import</value>
+      <value name="protocol">FilePolling</value>
+      <value name="pkg">SimpleTestPackage</value>
+      <value name="enabled">false</value>
+      <value name="key">FilePollingListener:c:\tmp\citrus\csv\import</value>
+      <value name="portAlias">FilePollingListener_0_SimpleTestPackage_c__tmp_citrus_csv_import</value>
+      <value name="portDescription">Integration Server FilePolling port: 0</value>
+      <value name="factoryKey">webMethods/FilePolling</value>
+      <value name="configURL">/WmFlatFile/configFilePolling.dsp</value>
+      <value name="provider">webMethods</value>
+      <value name="monitorDir">c:\tmp\citrus\csv\import</value>
+      <value name="recursive">no</value>
+      <value name="clusterEnabled">no</value>
+      <value name="cleanupAtStartup">yes</value>
+      <value name="runUser">Administrator</value>
+      <value name="processingService">simpleTestPackage.services.filepolling:importFile</value>
+      <value name="filePollingInterval">10</value>
+      <value name="logMinMessage">no</value>
+      <value name="NFSDirectories">no</value>
+      <value name="cleanUpFileAge">7</value>
+      <value name="cleanUpInterval">24</value>
+      <value name="maxThreads">1</value>
+      <value name="maxFilesPerCycle">1</value>
+      <value name="lockFileExtension">.lock</value>
+    </record>
+  </record>
+  <record name="access" javaclass="com.wm.util.Values">
+    <record name="FilePollingListener:c:\tmp\citrus\csv\import" javaclass="com.wm.util.Values">
+      <null name="home"/>
+      <value name="default">include</value>
+      <record name="nodes" javaclass="com.wm.util.StringSet">
+        <list name="elements">
+        </list>
+      </record>
+      <value name="key">FilePollingListener:c:\tmp\citrus\csv\import</value>
+    </record>
+  </record>
+</Values>

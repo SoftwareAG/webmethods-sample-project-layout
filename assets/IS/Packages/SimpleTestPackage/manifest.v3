@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="enabled">yes</value>
+  <value name="system_package">no</value>
+  <value name="version">1.0</value>
+  <record name="startup_services" javaclass="com.wm.util.Values">
+    <null name="simpleTestPackage.services.config:autosetup"/>
+  </record>
+  <null name="shutdown_services"/>
+  <null name="replication_services"/>
+  <record name="requires" javaclass="com.wm.util.Values">
+  </record>
+  <value name="listACL">Default</value>
+  <value name="webappLoad">yes</value>
+  <value name="name">SimpleTestPackage</value>
+  <value name="build">9.8.10</value>
+  <null name="description"/>
+  <value name="time">2017-05-23 22:53:40 MESZ</value>
+  <value name="jvm_version">1.8.0_121</value>
+  <value name="publisher">192.168.100.128</value>
+  <value name="patch_nums"></value>
+</Values>

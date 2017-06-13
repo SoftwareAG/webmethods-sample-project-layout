@@ -1,0 +1,7 @@
+/logs
+/bin/
+/assets/IS/Packages/config/*
+/assets/IS/Packages/*/code/classes/**/*.class
+/**/*.bak*
+assets/IS/Tests/*/resources/reports/**/*.*
+ENV99.groovy

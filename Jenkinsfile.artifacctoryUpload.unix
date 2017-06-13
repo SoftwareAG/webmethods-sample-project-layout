@@ -1,0 +1,55 @@
+pipeline {
+	agent any
+	
+	environment {
+		// currentDir can be set to specific dir for non github testing 
+		currentDir = "."
+		artifactoryServerName = "localArtifactory"
+		artifactoryFileSpecName = "${env.JOB_NAME}.${env.BUILD_NUMBER}.filespec.json"
+		artifactoryUploadFileSpecName = "upload.${artifactoryFileSpecName}"
+		artifactoryDownloadFileSpecName = "download.${artifactoryFileSpecName}"		
+		fbrType = "artifactory"
+		ANT_HOME="${env.SAG_HOME}/common/AssetBuildEnvironment/ant"
+		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
+	}
+	
+	stages {
+		stage('Build'){
+			steps {
+			    echo "Build stage"
+				sh "${cmd} build"
+			}
+		}
+		stage('DeployToTest') {
+			steps {
+			    echo "Deploy stage"
+				sh "${cmd} deploy"
+				echo "Executing tests"
+				sh "${cmd} test"
+				junit 'report/'
+			}
+		}
+		stage('Publish') {
+			steps {
+				echo "Publish stage"
+				sh "${cmd} -Dbda.artifactoryFileSpecName=${artifactoryUploadFileSpecName} prepareArtifactoryUploadSpec"
+				script {
+					def server = Artifactory.server "${artifactoryServerName}"
+					def uploadSpec = readFile "${artifactoryUploadFileSpecName}"
+					def buildInfo = Artifactory.newBuildInfo()
+					buildInfo.env.capture = true
+					buildInfo.env.collect()
+					// Upload to Artifactory.
+					server.upload spec: uploadSpec, buildInfo: buildInfo
+					server.publishBuildInfo buildInfo
+				}
+			}
+		}
+		stage('QA') {
+			steps {
+			    echo "QA stage"
+				sh "${cmd} deploy"
+			}
+		}
+	}
+}

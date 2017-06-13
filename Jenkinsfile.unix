@@ -1,22 +1,40 @@
 pipeline {
-    agent any 
-
-    stages {
-        stage('Build'){
-            steps {
-                sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} build"
-            }
-        }
-        stage('Deploy') {
-            steps {
-		sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} deploy"
-            }
-        }
- 	stage('Test') {
-            steps {
-		sh "${env.SAG_HOME}/common/AssetBuildEnvironment/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} test"
-		junit 'report/'
-            }
-        }
-    }
+	agent any
+	
+	environment {
+		// currentDir can be set to specific dir for non github testing 
+		currentDir = "."
+		fbrType = "local"
+		reportDir = "report"
+		// set ANT_HOME and overwrite any system set ANT_HOME var
+		ANT_HOME="${env.SAG_HOME}/common/AssetBuildEnvironment/ant"
+		cmd = "${ANT_HOME}/bin/ant -f ${currentDir}/build.xml -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -Dbda.projectName=${env.JOB_NAME} -Dconfig.build.fbr.type=${fbrType}"
+	}
+	
+	stages {
+		stage('Build'){
+			steps {
+			    echo "Build stage"
+				sh "${cmd} staticCodeAnalysis -Dbda.targetEnv=BUILD"
+				// empty results are allowed because isccr may be disabled
+				junit allowEmptyResults: true, testResults: "${reportDir}/TEST-*.xml"
+				sh "${cmd} build -Dbda.targetEnv=BUILD"
+			}
+		}
+		stage('DeployToTest') {
+			steps {
+			    echo "Deploy stage"
+				sh "${cmd} deploy -Dbda.targetEnv=TEST"
+				echo "Executing tests"
+				sh "${cmd} test -Dbda.targetEnv=TEST"
+				junit "${reportDir}/TEST-*.xml"
+			}
+		}
+		stage('QA') {
+			steps {
+			    echo "QA stage"
+				sh "${cmd} deploy -Dbda.targetEnv=QA"
+			}
+		}
+	}
 }

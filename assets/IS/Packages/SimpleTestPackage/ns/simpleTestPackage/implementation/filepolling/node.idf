@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.io.BufferedWriter</value>
+    <value>java.io.File</value>
+    <value>java.io.FileWriter</value>
+    <value>java.io.IOException</value>
+    <value>com.wm.data.IData</value>
+    <value>com.wm.data.IDataCursor</value>
+    <value>com.wm.data.IDataUtil</value>
+  </array>
+</Values>
