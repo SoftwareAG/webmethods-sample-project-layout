@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <IDataXMLCoder version="1.0">
-  <record javaclass="com.wm.util.Values">
-    <value name="CustomerID">1</value>
-    <value name="FirstName">Sachinqqq</value>
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="FirstName">Sachin</value>
     <value name="LastName">Gupta</value>
     <value name="AccountType">Checking</value>
     <value name="AccountNumber">8971230112</value>
