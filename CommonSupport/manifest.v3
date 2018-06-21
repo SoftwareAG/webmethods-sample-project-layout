@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="enabled">yes</value>
+  <value name="system_package">no</value>
+  <value name="version">1.0</value>
+  <null name="startup_services"/>
+  <null name="shutdown_services"/>
+  <null name="replication_services"/>
+  <null name="requires"/>
+  <null name="listACL"/>
+  <value name="name">CommonSupport</value>
+  <value name="build"></value>
+  <value name="description">BADemo_</value>
+  <value name="time">2011-02-18 10:54:59 GMT+05:30</value>
+  <value name="jvm_version">1.6.0_19</value>
+  <null name="publisher"/>
+  <value name="patch_nums"></value>
+</Values>
