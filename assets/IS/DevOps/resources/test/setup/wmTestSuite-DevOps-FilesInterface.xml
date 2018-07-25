@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="wmTestSuite-DevOps-FilesInterface" name="wmTestSuite-DevOps-FilesInterface">
+    <webMethodsTestCase description="TC-001" name="TC-001">
+        <service folder="DevOps.FilesInterface.Packages.Services" name="FileProcessSvc">
+            <input>
+                <file filename="C:/Work/Demos/DevOps/FilesInterface/TC_In-Out/Input.xml"/>
+            </input>
+            <expected>
+                <file filename="C:/Work/Demos/DevOps/FilesInterface/TC_In-Out/OutputData.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
