@@ -3,10 +3,10 @@
     <webMethodsTestCase description="TC-001" name="TC-001">
         <service folder="DevOps.FilesInterface.Packages.Services" name="FileProcessSvc">
             <input>
-                <file filename="resources/test/xml/data/DevOps_FilesInterface_Packages_Services_FileProcessSvc_pipein_18072603492657807.xml"/>
+                <file filename="resources/test/xml/data/DevOps_FilesInterface_Packages_Services_FileProcessSvc_pipein_18072600182608945.xml"/>
             </input>
             <expected>
-                <file filename="resources/test/xml/data/DevOps_FilesInterface_Packages_Services_FileProcessSvc_pipeout_18072603492657807.xml"/>
+                <file filename="resources/test/xml/data/DevOps_FilesInterface_Packages_Services_FileProcessSvc_pipeout_18072600182608945.xml"/>
             </expected>
         </service>
     </webMethodsTestCase>
