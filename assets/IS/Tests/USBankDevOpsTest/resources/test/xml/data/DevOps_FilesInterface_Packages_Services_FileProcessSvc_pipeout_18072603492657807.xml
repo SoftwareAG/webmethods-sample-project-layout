@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <record name="xmlSchemaDT" javaclass="com.wm.data.ISMemDataImpl">
+      <record name="SaleEnvelope" javaclass="com.wm.data.ISMemDataImpl">
+        <array name="Header" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="SaleListCount">2</value>
+          </record>
+        </array>
+        <array name="SaleList" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <array name="Invoice" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="Surname">Dave</value>
+                <value name="Balance">00.50</value>
+                <value name="Currency">Dollars</value>
+                <array name="Initial" type="value" depth="1">
+                  <value>K</value>
+                  <value>A</value>
+                </array>
+                <array name="Item" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Guns</value>
+                    <value name="Description">SIG P226</value>
+                    <value name="Price">00.30</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>00</value>
+                      <value>01</value>
+                      <value>02</value>
+                    </array>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Ammo</value>
+                    <value name="Description">9MM</value>
+                    <value name="Price">00.20</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>02</value>
+                      <value>03</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                </array>
+              </record>
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="Surname">Linda</value>
+                <value name="Balance">81.84</value>
+                <value name="Currency">Dollars</value>
+                <array name="Initial" type="value" depth="1">
+                  <value>T</value>
+                  <value>J</value>
+                </array>
+                <array name="Item" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">02</value>
+                    <value name="Category">Ammo</value>
+                    <value name="Description">.357 MAG</value>
+                    <value name="Price">22.34</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>04</value>
+                      <value>05</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Optics</value>
+                    <value name="Description">Scope</value>
+                    <value name="Price">36.20</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>06</value>
+                      <value>07</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                </array>
+              </record>
+            </array>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <array name="Invoice" type="record" depth="1">
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="Surname">Dave</value>
+                <value name="Balance">00.50</value>
+                <value name="Currency">Dollars</value>
+                <array name="Initial" type="value" depth="1">
+                  <value>K</value>
+                  <value>A</value>
+                </array>
+                <array name="Item" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Guns</value>
+                    <value name="Description">SIG P226</value>
+                    <value name="Price">00.30</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>00</value>
+                      <value>01</value>
+                      <value>02</value>
+                    </array>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Ammo</value>
+                    <value name="Description">9MM</value>
+                    <value name="Price">00.20</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>02</value>
+                      <value>03</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                </array>
+              </record>
+              <record javaclass="com.wm.data.ISMemDataImpl">
+                <value name="Surname">Linda</value>
+                <value name="Balance">81.84</value>
+                <value name="Currency">Dollars</value>
+                <array name="Initial" type="value" depth="1">
+                  <value>T</value>
+                  <value>J</value>
+                </array>
+                <array name="Item" type="record" depth="1">
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">02</value>
+                    <value name="Category">Ammo</value>
+                    <value name="Description">.357 MAG</value>
+                    <value name="Price">22.34</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>04</value>
+                      <value>05</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                  <record javaclass="com.wm.data.ISMemDataImpl">
+                    <value name="Quantity">01</value>
+                    <value name="Category">Optics</value>
+                    <value name="Description">Scope</value>
+                    <value name="Price">36.20</value>
+                    <array name="Code" type="value" depth="1">
+                      <value>06</value>
+                      <value>07</value>
+                      <value>01</value>
+                    </array>
+                  </record>
+                </array>
+              </record>
+            </array>
+          </record>
+        </array>
+        <array name="Trailer" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="CompletionTime">12.00.00</value>
+          </record>
+        </array>
+      </record>
+    </record>
+    <value name="xmldata">&lt;?xml version="1.0"?&gt;
+&lt;SaleEnvelope&gt;
+  &lt;Header&gt;
+    &lt;SaleListCount&gt;2&lt;/SaleListCount&gt;
+  &lt;/Header&gt;
+  &lt;SaleList&gt;
+    &lt;Invoice&gt;
+      &lt;Surname&gt;Dave&lt;/Surname&gt;
+      &lt;Balance&gt;00.50&lt;/Balance&gt;
+      &lt;Currency&gt;Dollars&lt;/Currency&gt;
+      &lt;Initial&gt;K&lt;/Initial&gt;
+      &lt;Initial&gt;A&lt;/Initial&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Guns&lt;/Category&gt;
+        &lt;Description&gt;SIG P226&lt;/Description&gt;
+        &lt;Price&gt;00.30&lt;/Price&gt;
+        &lt;Code&gt;00&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+        &lt;Code&gt;02&lt;/Code&gt;
+      &lt;/Item&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Ammo&lt;/Category&gt;
+        &lt;Description&gt;9MM&lt;/Description&gt;
+        &lt;Price&gt;00.20&lt;/Price&gt;
+        &lt;Code&gt;02&lt;/Code&gt;
+        &lt;Code&gt;03&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+    &lt;/Invoice&gt;
+    &lt;Invoice&gt;
+      &lt;Surname&gt;Linda&lt;/Surname&gt;
+      &lt;Balance&gt;81.84&lt;/Balance&gt;
+      &lt;Currency&gt;Dollars&lt;/Currency&gt;
+      &lt;Initial&gt;T&lt;/Initial&gt;
+      &lt;Initial&gt;J&lt;/Initial&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;02&lt;/Quantity&gt;
+        &lt;Category&gt;Ammo&lt;/Category&gt;
+        &lt;Description&gt;.357 MAG&lt;/Description&gt;
+        &lt;Price&gt;22.34&lt;/Price&gt;
+        &lt;Code&gt;04&lt;/Code&gt;
+        &lt;Code&gt;05&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Optics&lt;/Category&gt;
+        &lt;Description&gt;Scope&lt;/Description&gt;
+        &lt;Price&gt;36.20&lt;/Price&gt;
+        &lt;Code&gt;06&lt;/Code&gt;
+        &lt;Code&gt;07&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+    &lt;/Invoice&gt;
+  &lt;/SaleList&gt;
+  &lt;SaleList&gt;
+    &lt;Invoice&gt;
+      &lt;Surname&gt;Dave&lt;/Surname&gt;
+      &lt;Balance&gt;00.50&lt;/Balance&gt;
+      &lt;Currency&gt;Dollars&lt;/Currency&gt;
+      &lt;Initial&gt;K&lt;/Initial&gt;
+      &lt;Initial&gt;A&lt;/Initial&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Guns&lt;/Category&gt;
+        &lt;Description&gt;SIG P226&lt;/Description&gt;
+        &lt;Price&gt;00.30&lt;/Price&gt;
+        &lt;Code&gt;00&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+        &lt;Code&gt;02&lt;/Code&gt;
+      &lt;/Item&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Ammo&lt;/Category&gt;
+        &lt;Description&gt;9MM&lt;/Description&gt;
+        &lt;Price&gt;00.20&lt;/Price&gt;
+        &lt;Code&gt;02&lt;/Code&gt;
+        &lt;Code&gt;03&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+    &lt;/Invoice&gt;
+    &lt;Invoice&gt;
+      &lt;Surname&gt;Linda&lt;/Surname&gt;
+      &lt;Balance&gt;81.84&lt;/Balance&gt;
+      &lt;Currency&gt;Dollars&lt;/Currency&gt;
+      &lt;Initial&gt;T&lt;/Initial&gt;
+      &lt;Initial&gt;J&lt;/Initial&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;02&lt;/Quantity&gt;
+        &lt;Category&gt;Ammo&lt;/Category&gt;
+        &lt;Description&gt;.357 MAG&lt;/Description&gt;
+        &lt;Price&gt;22.34&lt;/Price&gt;
+        &lt;Code&gt;04&lt;/Code&gt;
+        &lt;Code&gt;05&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+      &lt;Item&gt;
+        &lt;Quantity&gt;01&lt;/Quantity&gt;
+        &lt;Category&gt;Optics&lt;/Category&gt;
+        &lt;Description&gt;Scope&lt;/Description&gt;
+        &lt;Price&gt;36.20&lt;/Price&gt;
+        &lt;Code&gt;06&lt;/Code&gt;
+        &lt;Code&gt;07&lt;/Code&gt;
+        &lt;Code&gt;01&lt;/Code&gt;
+      &lt;/Item&gt;
+    &lt;/Invoice&gt;
+  &lt;/SaleList&gt;
+  &lt;Trailer&gt;
+    &lt;CompletionTime&gt;12.00.00&lt;/CompletionTime&gt;
+  &lt;/Trailer&gt;
+&lt;/SaleEnvelope&gt;</value>
+  </record>
+</IDataXMLCoder>
