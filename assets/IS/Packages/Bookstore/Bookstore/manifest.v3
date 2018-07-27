@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="enabled">yes</value>
+  <value name="system_package">no</value>
+  <value name="version">1.0</value>
+  <null name="startup_services"/>
+  <null name="shutdown_services"/>
+  <null name="replication_services"/>
+  <null name="requires"/>
+  <null name="listACL"/>
+  <value name="webappLoad">yes</value>
+  <value name="name">Bookstore</value>
+  <value name="build"></value>
+  <value name="description"></value>
+  <value name="time">2016-10-22 01:50:52 CEST</value>
+  <value name="jvm_version">1.8.0_51</value>
+  <value name="publisher">DAETRAIN00363.eur.ad.sag</value>
+  <value name="patch_nums"></value>
+</Values>

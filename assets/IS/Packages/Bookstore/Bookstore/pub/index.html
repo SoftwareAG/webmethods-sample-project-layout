@@ -1,0 +1,90 @@
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<html>
+<head>
+<title>Bookstore v1.0</title>
+<style type="text/css">
+<!--
+h1 {font-family:Trebuchet MS;color:#cccccc;}
+h5 {font-family:Trebuchet MS;color:#233356;}
+body {font-family:Trebuchet MS;color:#233356;}
+.code {font-family:Courier;font-size:small;color:#9999FF;}
+-->
+</style>
+<script type="text/javascript">
+<!--
+-->
+</script>
+
+</head>
+<body>
+<h1>Welcome to the Home Page of the Bookstore Package.</h1>
+<h5>Author: Peter Nevermann<br/>Version: 1.0<br/>Date: 28-Feb-2013</h5>
+<p>This package provides RESTful services dealing with resources of type <b>Book</b>.</p>
+<p>You can use <b>GET</b> requests to retrieve information about books available in the Bookstore. The information is available in two formats: XML and JSON. Use an <b>Accept</b> request header with value <b>text/xml</b> or <b>application/json</b> to specify which type of response format you wish.</p>
+<ul type="square">
+<li>To obtain a list of books use <a href="http://localhost:5555/rest/bookstore/books">http://localhost:5555/rest/bookstore/books</a>.</li>
+<li>To obtain detailed information about a particular book use the ISBN of the book as resource ID. For example: <a href="http://localhost:5555/rest/bookstore/books/9780812979183">http://localhost:5555/rest/bookstore/books/9780812979183</a> retrieves the details of the book with ISBN "9780812979183".</li>
+<li>To obtain the rating and comments users have added about a particular book use the "ratings" path. For example: <a href="http://localhost:5555/rest/bookstore/books/9780812979183/ratings">http://localhost:5555/rest/bookstore/books/9780812979183/ratings</a> retrieves the rating and comments users have posted for the book with ISBN "9780812979183".</li>
+</ul>
+<p>Example:
+<br/>Use a <b>GET</b> request on <a href="http://localhost:5555/rest/bookstore/books/9780812979183">http://localhost:5555/rest/bookstore/books/9780812979183</a> to obtain the details of the book with ISBN "9780812979183".</p>
+<ul>
+<table border="1" cellpadding="10">
+<tr><th>"Accept"<br/>Request Header</th><th>Response Body</th></tr>
+<span class="code">
+<tr><td>text/xml</td>
+<td><span class="code">&lt;?xml version="1.0"?&gt;
+<br/>&lt;book isbn="9780812979183"&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;author&gt;Nassim Nicholas Taleb&lt;/author&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;title&gt;The Black Swan&lt;/title&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;rating&gt;5.0&lt;/rating&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;votes&gt;1&lt;/votes&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;price&gt;17.28&lt;/price&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;description&gt;In business and government, major money is spent on prediction. [...]&lt;/description&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;thumbnailurl&gt;http://localhost:5555/Bookstore/images/thumbnails/9780812979183.png&lt;/thumbnailurl&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;coverurl&gt;http://localhost:5555/Bookstore/images/covers/9780812979183.png&lt;/coverurl&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;ratingsurl&gt;http://localhost:5555/rest/bookstore/books/9780812979183/ratings&lt;/ratingsurl&gt;
+<br/>&lt;/book&gt;</span></td></tr>
+<tr><td>application/json</td>
+<td><span class="code">{
+<br/>&nbsp;&nbsp;&nbsp;"book": {
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@isbn": "9780812979183",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"author": "Nassim Nicholas Taleb",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "The Black Swan",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"rating": "5.0",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"votes": "1",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"price": "17.28",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "In business and government, major money is spent on prediction. [...]",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"thumbnailurl": "http://localhost:5555/Bookstore/images/thumbnails/9780812979183.png",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"coverurl": "http://localhost:5555/Bookstore/images/covers/9780812979183.png",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ratingsurl": "http://localhost:5555/rest/bookstore/books/9780812979183/ratings"
+<br/>&nbsp;&nbsp;&nbsp;}
+<br/>}</span></td></tr>
+</table>
+</ul>
+<p>Note that the services return URLs to retrieve the book details ("detailsurl"), the book ratings ("ratingsurl"), the book's cover image ("coverurl"), and a book's thumbnail image ("thumbnailurl").</p>
+<p>You can add a rating and comments for a book by sending a <b>POST</b> request to the "ratings" path of a resource. 
+<br/>Use an <b>Content-Type</b> request header with value <b>text/xml</b> or <b>application/json</b> to specify whether you are sending your data as XML or JSON.</p>
+<p>Example:
+<br/>Use a <b>POST</b> request on <a href="http://localhost:5555/rest/bookstore/books/9780812979183/ratings">http://localhost:5555/rest/bookstore/books/9780812979183/ratings</a> to send the following rating and comment.</p>
+<ul>
+<table border="1" cellpadding="10">
+<tr><th>"Content-Type"<br/>Request Header</th><th>Request Body</th></tr>
+<tr><td>text/xml</td>
+<td><span class="code">&lt;rating&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;score&gt;5&lt;/score&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;comment&gt;Best book of the year!&lt;/comment&gt;
+<br/>&nbsp;&nbsp;&nbsp;&lt;user&gt;Mike&lt;/user&gt; 
+<br/>&lt;/rating&gt;</span></td></tr>
+<tr><td>application/json</td>
+<td><span class="code">{
+<br/>&nbsp;&nbsp;&nbsp;"rating":&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"score":"5",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"comment":"Best book of the year!",
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"user":"Mike"
+<br/>&nbsp;&nbsp;&nbsp;}
+<br/>}</span></td></tr>
+</table>
+</ul>
+</body>
+</html>
