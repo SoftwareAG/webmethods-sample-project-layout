@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <record name="booklist" javaclass="com.wm.data.ISMemDataImpl">
+      <record name="booklist" javaclass="com.wm.data.ISMemDataImpl">
+        <array name="book" type="record" depth="1">
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9781584883470</value>
+            <value name="author">Eric Weisstein</value>
+            <value name="title">CRC Concise Encyclopedia of Mathematics</value>
+            <value name="rating">3.5</value>
+            <value name="votes">2</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9781584883470</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9781584883470.png</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9780691138718</value>
+            <value name="author">Avner Ash &amp; Robert Gross</value>
+            <value name="title">Fearless symmetry</value>
+            <value name="rating">2.0</value>
+            <value name="votes">3</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9780691138718</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9780691138718.png</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9780812979183</value>
+            <value name="author">Nassim Nicholas Taleb</value>
+            <value name="title">The Black Swan</value>
+            <value name="rating">5.0</value>
+            <value name="votes">1</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9780812979183</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9780812979183.png</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9780525950622</value>
+            <value name="author">Daniel Gardener</value>
+            <value name="title">The Science of Fear</value>
+            <value name="rating">0.0</value>
+            <value name="votes">0</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9780525950622</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9780525950622.png</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9783492051101</value>
+            <value name="author">Atle Naess</value>
+            <value name="title">Die Riemannsche Vermutung</value>
+            <value name="rating">0.0</value>
+            <value name="votes">0</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9783492051101</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9783492051101.png</value>
+          </record>
+          <record javaclass="com.wm.data.ISMemDataImpl">
+            <value name="@isbn">9781584885085</value>
+            <value name="author">Douglas R. Stinson</value>
+            <value name="title">Cryptography</value>
+            <value name="rating">0.0</value>
+            <value name="votes">0</value>
+            <value name="detailsurl">http://localhost:5555/wm-message/9781584885085</value>
+            <value name="thumbnailurl">http://localhost:5555/Bookstore/images/thumbnails/9781584885085.png</value>
+          </record>
+        </array>
+      </record>
+    </record>
+  </record>
+</IDataXMLCoder>
