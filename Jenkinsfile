@@ -27,7 +27,8 @@ podTemplate(
             hostPath: '/var/run/docker.sock',
             mountPath: '/var/run/docker.sock'
         )
-    ]
+    ],
+    imagePullSecrets: [ 'regcred' ],
 ) {
     node('mypod') {
         def commitId
