@@ -11,6 +11,7 @@ podTemplate(
         containerTemplate(
             name: 'ci-is', 
             image: 'docker.devopsinitiative.com/softwareag/ci-is:10.2-jenkins',
+            alwaysPullImage: true,
             ttyEnabled: true,
             command: '/opt/softwareag/entrypoint.sh'
         )
