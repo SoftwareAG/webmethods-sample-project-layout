@@ -57,7 +57,7 @@ podTemplate(
         }
         stage('Image') {
             container('docker') {
-                sh "ls -R"
+                sh "docker login -u ${env.NEXUS_USR} -p ${env.NEXUS_PSW} docker.devopsinitiative.com"
                 sh "cp target/bookstore/build/IS/*.zip image/"
                 sh "cd image; for pkg in *.zip; do basefilename=`echo \${pkg} | sed 's/.zip\$//'`; md5sum \${basefilename}.zip > \${basefilename}.md5; done"
                 sh "cd image; docker build -t docker.devopsinitiative.com/bookstore:1 -f Dockerfile ."
