@@ -57,7 +57,7 @@ podTemplate(
         }
         stage('Image') {
             container('docker') {
-
+                sh "ls -R"
             }
         }
     }
