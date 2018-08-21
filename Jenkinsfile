@@ -17,12 +17,12 @@ podTemplate(
         )
 
     ],
-	envVars: [
-		secretEnvVar(key: 'DOCKER_USR', secretName: 'docker-store-cred', secretKey: 'username'),
-		secretEnvVar(key: 'DOCKER_PSW', secretName: 'docker-store-cred', secretKey: 'password'),
-		secretEnvVar(key: 'NEXUS_USR', secretName: 'docker-nexus-cred', secretKey: 'username'),
-		secretEnvVar(key: 'NEXUS_PSW', secretName: 'docker-nexus-cred', secretKey: 'password')
-	],
+    envVars: [
+        secretEnvVar(key: 'DOCKER_USR', secretName: 'docker-store-cred', secretKey: 'username'),
+        secretEnvVar(key: 'DOCKER_PSW', secretName: 'docker-store-cred', secretKey: 'password'),
+        secretEnvVar(key: 'NEXUS_USR', secretName: 'docker-nexus-cred', secretKey: 'username'),
+        secretEnvVar(key: 'NEXUS_PSW', secretName: 'docker-nexus-cred', secretKey: 'password')
+    ],
     volumes: [
         hostPathVolume(
             hostPath: '/var/run/docker.sock',
@@ -38,22 +38,27 @@ podTemplate(
             commitId = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
         }
         def repository
-	stage('Build'){
+        stage('Build'){
             container('ci-is') {
-		sh "/bin/bash ./wait_for_is.sh"
+                sh "/bin/bash ./wait_for_is.sh"
                 sh "/opt/softwareag/common/lib/ant/bin/ant -DSAGHome=/opt/softwareag -DSAG_CI_HOME=/opt/softwareag/sagdevops-ci-assets -DprojectName=${env.JOB_NAME} build"
-                }
             }
+        }
         stage('Deploy') {
             container('ci-is') {
-    		sh "/opt/softwareag/common/lib/ant/bin/ant -DSAGHome=/opt/softwareag -DSAG_CI_HOME=/opt/softwareag/sagdevops-ci-assets -DprojectName=${env.JOB_NAME} deploy"
-                }
+                sh "/opt/softwareag/common/lib/ant/bin/ant -DSAGHome=/opt/softwareag -DSAG_CI_HOME=/opt/softwareag/sagdevops-ci-assets -DprojectName=${env.JOB_NAME} deploy"
             }
-     	stage('Test') {
+        }
+        stage('Test') {
             container('ci-is') {
-    		sh "/opt/softwareag/common/lib/ant/bin/ant -DSAGHome=/opt/softwareag -DSAG_CI_HOME=/opt/softwareag/sagdevops-ci-assets -DprojectName=${env.JOB_NAME} test"
-   		junit 'report/'
+                sh "/opt/softwareag/common/lib/ant/bin/ant -DSAGHome=/opt/softwareag -DSAG_CI_HOME=/opt/softwareag/sagdevops-ci-assets -DprojectName=${env.JOB_NAME} test"
+                junit 'report/'
             }
-       }
+        }
+        stage('Image') {
+            container('docker') {
+
+            }
+        }
     }
 }
