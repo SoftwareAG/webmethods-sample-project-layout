@@ -60,7 +60,7 @@ podTemplate(
                 sh "ls -R"
                 sh "cp target/bookstore/build/IS/*.zip image/"
                 sh "cd image"
-                sh "for pkg in *.zip; do basefilename=`echo ${pkg} | sed 's/.zip$//'`; md5sum ${basefilename}.zip > ${basefilename}.md5; done"
+                sh "for pkg in *.zip; do basefilename=`echo \${pkg} | sed 's/.zip\$//'`; md5sum \${basefilename}.zip > \${basefilename}.md5; done"
                 sh "docker build -t docker.devopsinitiative.com/bookstore:1 -f Dockerfile ."
                 sh "docker push docker.devopsinitiative.com/bookstore:1"
             }
