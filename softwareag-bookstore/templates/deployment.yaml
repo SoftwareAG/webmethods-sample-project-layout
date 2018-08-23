@@ -1,0 +1,107 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "softwareag-bookstore.fullname" . }}
+  labels:
+    app: {{ template "softwareag-bookstore.name" . }}
+    chart: {{ template "softwareag-bookstore.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "softwareag-bookstore.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "softwareag-bookstore.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      securityContext:
+        runAsUser: {{ default 0 .Values.RunAsUser }}
+{{- if and (.Values.RunAsUser) (.Values.FsGroup) }}
+{{- if not (eq .Values.RunAsUser 0.0) }}
+        fsGroup: {{ .Values.FsGroup }}
+{{- end }}
+{{- end }}
+      imagePullSecrets: 
+      - name: regcred
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: is
+          containerPort: 5555
+          protocol: TCP
+        volumeMounts:
+        livenessProbe:
+          initialDelaySeconds: 80
+          periodSeconds: 30
+          exec:
+            command:
+            - curl
+            - -H
+            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+            - http://localhost:5555/health
+#          httpGet:
+#            path: /health
+#            port: is
+#            httpHeaders:
+#              - name: Authorization
+#                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+        readinessProbe:
+          initialDelaySeconds: 80
+          periodSeconds: 30
+          exec:
+            command:
+            - curl
+            - -H
+            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+            - http://localhost:5555/health
+#          httpGet:
+#            path: /health
+#            port: is
+#            httpHeaders:
+#              - name: Authorization
+#                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+    {{- with .Values.nodeSelector }}
+    nodeSelector:
+{{ toYaml . | indent 6 }}
+    {{- end }}
+#        - name: es-logger
+#          image: busybox
+#          args: [/bin/sh, -c, 'touch /mnt/log/SAG_EventDataStore.log /mnt/log/SAG_EventDataStore_deprecation.log /mnt/log/SAG_EventDataStore_index_indexing_slowlog.log /mnt/log/SAG_EventDataStore_index_search_slowlog.log /mnt/log/startup.log && tail -f /mnt/log/SAG_EventDataStore.log /mnt/log/SAG_EventDataStore_deprecation.log /mnt/log/SAG_EventDataStore_index_indexing_slowlog.log /mnt/log/SAG_EventDataStore_index_search_slowlog.log /mnt/log/startup.log']
+#          volumeMounts:
+#          - name: bookstore-logs
+#            mountPath: /mnt/log
+#
+#        - name: fluentd-sidecar-es
+#          image: "gcr.io/google_containers/fluentd-sidecar-es:1.0"
+#          env:
+#          - name: FILES_TO_COLLECT
+#            value: "SAG_EventDataStore.log SAG_EventDataStore_deprecation.log SAG_EventDataStore_index_indexing_slowlog.log SAG_EventDataStore_index_search_slowlog.log startup.log"
+#          resources:
+#            requests:
+#              cpu: 100m
+#              memory: 200M
+#          volumeMounts:
+#          - name: bookstore-logs
+#            readOnly: true
+#            mountPath: /mnt/log
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes:
+{{- if .Values.Persistence.volumes }}
+{{ toYaml .Values.Persistence.volumes | indent 6 }}
+{{- end }}

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "softwareag-bookstore.fullname" . }}
+  labels:
+    app: {{ template "softwareag-bookstore.name" . }}
+    chart: {{ template "softwareag-bookstore.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.runtimeport }}
+      targetPort: 5555
+      protocol: TCP
+      name: api
+  selector:
+    app: {{ template "softwareag-bookstore.name" . }}
+    release: {{ .Release.Name }}
