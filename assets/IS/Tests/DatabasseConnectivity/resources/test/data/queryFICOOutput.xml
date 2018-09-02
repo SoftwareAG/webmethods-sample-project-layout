@@ -9,6 +9,9 @@
     </record>
     <record name="queryCustomerCreditOutput" javaclass="com.wm.data.ISMemDataImpl">
       <array name="results" type="record" depth="1">
+        <record javaclass="com.wm.data.ISMemDataImpl">
+          <number name="FICOSCORE" type="java.math.BigDecimal">800</number>
+        </record>
       </array>
     </record>
   </record>
