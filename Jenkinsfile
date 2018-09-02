@@ -27,7 +27,7 @@ podTemplate(
                 def registry = "docker.devopsinitiative.com"
                 repository = "${registry}/bookstore"
                 sh "helm list"
-		sh "helm delete softwareag-bookstore --purge"
+		#sh "helm delete softwareag-bookstore --purge"
                 sh "helm install --wait --set image.repository=${repository},image.tag=1 --name softwareag-bookstore softwareag-bookstore"
             }
         }
