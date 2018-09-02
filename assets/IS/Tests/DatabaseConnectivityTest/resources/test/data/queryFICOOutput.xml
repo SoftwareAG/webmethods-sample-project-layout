@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <record name="queryCustomerCreditInput" javaclass="com.wm.data.ISMemDataImpl">
+      <value name="FIRSTNAME_1">Sachin</value>
+      <value name="LASTNAME_2">Gupta</value>
+      <value name="SSN_3">123-12-1234</value>
+    </record>
+    <record name="queryCustomerCreditOutput" javaclass="com.wm.data.ISMemDataImpl">
+      <array name="results" type="record" depth="1">
+        <record javaclass="com.wm.data.ISMemDataImpl">
+          <number name="FICOSCORE" type="java.math.BigDecimal">800</number>
+        </record>
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>
