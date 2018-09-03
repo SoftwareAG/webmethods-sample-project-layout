@@ -28,7 +28,7 @@ podTemplate(
                 repository = "${registry}/bookstore"
                 sh "helm list"
 		 sh "helm delete softwareag-bookstore --purge"
-                sh "helm install --wait --set image.repository=${repository},image.tag=2 --name softwareag-bookstore softwareag-bookstore"
+                sh "helm install --wait --set image.repository=${repository},image.tag=3 --name softwareag-bookstore softwareag-bookstore"
             }
         }
     }
