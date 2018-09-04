@@ -28,7 +28,8 @@ podTemplate(
                 repository = "${registry}/bookstore"
                 sh "helm list"
 		 sh "helm delete softwareag-bookstore --purge"
-                sh "helm install --wait --set image.repository=${repository},image.tag=3 --name softwareag-bookstore softwareag-bookstore"
+                sh "helm install --wait --set image.repository=${repository},image.tag=bbbf486 --name softwareag-bookstore softwareag-bookstore"
+                sh 'curl -u Administrator:manage -X POST "http://apigateway.devopsinitiative.com/rest/apigateway/v103/apis" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@bookstore.swagger" -F "apiName=Bookstore" -F "apiDescription=Bookstore API" -F "apiVersion=V3" -F "type=swagger"'
             }
         }
     }
