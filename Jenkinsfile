@@ -32,7 +32,7 @@ podTemplate(
                 def registry = "docker.devopsinitiative.com"
                 repository = "${registry}/bookstore"
                 sh "helm list"
-                sh "helm update --install --wait --set image.repository=${repository},image.tag=bbbf486 softwareag-bookstore softwareag-bookstore"
+                sh "helm upgrade --install --wait --set image.repository=${repository},image.tag=bbbf486 softwareag-bookstore softwareag-bookstore"
                 sh "curl -u ${env.API_GATEWAY_USR}:${env.API_GATEWAY_PSW} -X POST 'http://apigateway.devopsinitiative.com/rest/apigateway/v103/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger'"
             }
         }
