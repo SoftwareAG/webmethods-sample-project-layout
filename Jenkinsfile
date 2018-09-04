@@ -33,7 +33,7 @@ podTemplate(
                 repository = "${registry}/bookstore"
                 sh "helm list"
                 sh "helm upgrade --install --wait --set image.repository=${repository},image.tag=bbbf486 softwareag-bookstore softwareag-bookstore"
-                sh "api-id=\$(curl -u Administrator:manage -X POST 'https://api.devopsinitiative.com/rest/apigateway/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger' | jq -r '.apiResponse.api.id'  ) echo \${api-id}"
+                sh "apiid=\$(curl -u Administrator:manage -X POST 'https://api.devopsinitiative.com/rest/apigateway/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger' | jq -r '.apiResponse.api.id'  ) echo $apiid"
             }
         }
     }
