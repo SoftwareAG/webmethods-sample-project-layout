@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.0" CLEANUP="true">
+
+  <!-- nodes -->
+
+<INVOKE SERVICE="DatabaseConnectivity.OData._CustomerCredit.SYSTEM_CONSUMERCREDITSCORE._ODataInteractions:ODataPut">
+  <COMMENT></COMMENT>
+</INVOKE>
+</FLOW>

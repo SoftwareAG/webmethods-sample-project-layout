@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">odataService</value>
+  <value name="node_nsName">DatabaseConnectivity.OData:CustomerCredit</value>
+  <value name="node_pkg">DatabaseConnectivity</value>
+  <null name="node_comment"/>
+  <record name="ODataSchema" javaclass="com.wm.util.Values">
+    <value name="Namespace">DatabaseConnectivity.OData:CustomerCredit</value>
+    <null name="Alias"/>
+    <value name="ODataVersion">v2</value>
+    <array name="EntityType" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="Name">SYSTEM_CONSUMERCREDITSCORE</value>
+        <value name="SourceId">SYSTEM.CONSUMERCREDITSCORE</value>
+        <value name="ConnectionAlias">DatabaseConnectivity.Connections:OracleXE</value>
+        <value name="AdapterType">JDBCAdapter</value>
+        <array name="Property" type="record" depth="1">
+          <record javaclass="com.wm.util.Values">
+            <value name="Name">FIRSTNAME</value>
+            <value name="Type">String</value>
+            <value name="SourceId">FIRSTNAME</value>
+            <value name="JavaType">STRING</value>
+            <Boolean name="IsKey">false</Boolean>
+            <record name="PropertyFacets" javaclass="com.wm.util.Values">
+              <Boolean name="Nullable">true</Boolean>
+              <null name="Default"/>
+              <value name="MaxLength">20</value>
+              <Boolean name="FixedLength">false</Boolean>
+              <Boolean name="Unicode">true</Boolean>
+              <null name="Collation"/>
+            </record>
+            <Boolean name="IsScalar">true</Boolean>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="Name">LASTNAME</value>
+            <value name="Type">String</value>
+            <value name="SourceId">LASTNAME</value>
+            <value name="JavaType">STRING</value>
+            <Boolean name="IsKey">false</Boolean>
+            <record name="PropertyFacets" javaclass="com.wm.util.Values">
+              <Boolean name="Nullable">true</Boolean>
+              <null name="Default"/>
+              <value name="MaxLength">20</value>
+              <Boolean name="FixedLength">false</Boolean>
+              <Boolean name="Unicode">true</Boolean>
+              <null name="Collation"/>
+            </record>
+            <Boolean name="IsScalar">true</Boolean>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="Name">SSN</value>
+            <value name="Type">String</value>
+            <value name="SourceId">SSN</value>
+            <value name="JavaType">STRING</value>
+            <Boolean name="IsKey">false</Boolean>
+            <record name="PropertyFacets" javaclass="com.wm.util.Values">
+              <Boolean name="Nullable">true</Boolean>
+              <null name="Default"/>
+              <value name="MaxLength">20</value>
+              <Boolean name="FixedLength">false</Boolean>
+              <Boolean name="Unicode">true</Boolean>
+              <null name="Collation"/>
+            </record>
+            <Boolean name="IsScalar">true</Boolean>
+          </record>
+          <record javaclass="com.wm.util.Values">
+            <value name="Name">FICOSCORE</value>
+            <value name="Type">Decimal</value>
+            <value name="SourceId">FICOSCORE</value>
+            <value name="JavaType">BIGDECIMAL</value>
+            <Boolean name="IsKey">false</Boolean>
+            <record name="PropertyFacets" javaclass="com.wm.util.Values">
+              <Boolean name="Nullable">true</Boolean>
+              <null name="Default"/>
+              <number name="Precision" type="Integer">5</number>
+              <number name="Scale" type="Integer">0</number>
+            </record>
+            <Boolean name="IsScalar">true</Boolean>
+          </record>
+        </array>
+        <array name="NavigationProperty" type="record" depth="1">
+        </array>
+      </record>
+    </array>
+    <array name="ComplexType" type="record" depth="1">
+    </array>
+    <array name="Association" type="record" depth="1">
+    </array>
+    <Boolean name="useCustomFilter">false</Boolean>
+  </record>
+  <value name="nsODataServiceNodeVersion">V1</value>
+  <Boolean name="useCustomFilter">false</Boolean>
+  <array name="nsODataServiceNodeReferences" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="entityTypeName">SYSTEM_CONSUMERCREDITSCORE</value>
+      <array name="entityTypeReferences" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="etOperationType">DELETE</value>
+          <value name="etServiceName">DatabaseConnectivity.OData._CustomerCredit.SYSTEM_CONSUMERCREDITSCORE:_delete</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="etOperationType">PUT</value>
+          <value name="etServiceName">DatabaseConnectivity.OData._CustomerCredit.SYSTEM_CONSUMERCREDITSCORE:_update</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="etOperationType">POST</value>
+          <value name="etServiceName">DatabaseConnectivity.OData._CustomerCredit.SYSTEM_CONSUMERCREDITSCORE:_insert</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="etOperationType">GET</value>
+          <value name="etServiceName">DatabaseConnectivity.OData._CustomerCredit.SYSTEM_CONSUMERCREDITSCORE:_retrieve</value>
+        </record>
+      </array>
+    </record>
+  </array>
+</Values>
