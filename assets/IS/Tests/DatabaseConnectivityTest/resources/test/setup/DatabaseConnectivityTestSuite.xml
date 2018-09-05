@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <webMethodsTestSuite description="DatabaseConnectivityTestSuite" name="DatabaseConnectivityTestSuite">
     <webMethodsTestCase name="TC1-queryFICO">
+        <mock folder="DatabaseConnectivity.Services" lifetime="suite" name="queryCustomerCredit">
+            <pipeline filename="resources/test/data/queryFICOOutput.xml"/>
+        </mock>
         <service folder="DatabaseConnectivity.Services" name="queryCustomerCredit">
             <input>
                 <file filename="resources/test/data/queryFICOInput.xml"/>
