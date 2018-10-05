@@ -1,0 +1,62 @@
+# Default values for softwareag-bookstore.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+RunAsUser: 10000
+FsGroup: 10000
+
+image:
+  repository: docker.devopsinitiative.com/bookstore
+  tag: stable
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  runtimeport: 5555
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #   memory: 128Mi
+  requests:
+   cpu: 10m
+   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+Persistence:
+  Enabled: false
+  ## A manually managed Persistent Volume and Claim
+  ## Requires Persistence.Enabled: true
+  ## If defined, PVC must be created manually before volume will be bound
+  # ExistingClaim:
+
+  ## jenkins data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # StorageClass: "-"
+
+  # Annotations: {}
+  # AccessMode: ReadWriteOnce
+  # Size: 8Gi
+  # volumes:
+  #  - name: nothing
+  #    emptyDir: {}
+  # mounts:
+  #  - mountPath: /var/nothing
+  #    name: nothing
+  #    readOnly: true
