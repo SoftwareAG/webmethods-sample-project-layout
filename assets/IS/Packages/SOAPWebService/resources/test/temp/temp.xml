@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="" name="TestSuite">
+    <webMethodsTestCase description="This test case was created automatically using a wrapper" name="SOAPWebService.Services:queryCustomerFICO( 18090507020526244)">
+        <service folder="SOAPWebService.Services" name="queryCustomerFICO">
+            <input>
+                <file filename="C:\SoftwareAG\IntegrationServer\instances\default\packages\SOAPWebService\resources\\test\data\SOAPWebService_Services_queryCustomerFICO_pipein_18090507020526244.xml"/>
+            </input>
+            <expected>
+                <file filename="C:\SoftwareAG\IntegrationServer\instances\default\packages\SOAPWebService\resources\\test\data\SOAPWebService_Services_queryCustomerFICO_pipeout_18090507020526244.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>

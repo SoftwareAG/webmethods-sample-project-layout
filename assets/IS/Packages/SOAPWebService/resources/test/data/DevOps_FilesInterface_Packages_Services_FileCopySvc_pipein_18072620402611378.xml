@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <value name="SourceFilename">C:\Work\Demos\DevOps\FilesInterface\InDir\Sales-Region1.csv</value>
+    <value name="Destination">C:\Work\Demos\DevOps\FilesInterface\ProcessDir</value>
+  </record>
+</IDataXMLCoder>

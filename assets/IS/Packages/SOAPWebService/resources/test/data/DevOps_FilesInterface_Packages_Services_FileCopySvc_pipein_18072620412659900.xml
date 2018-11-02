@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="SourceFilename">C:\Work\Demos\DevOps\FilesInterface\InDir\Sales-Region1.csv</value>
+    <value name="Destination">C:\Work\Demos\DevOps\FilesInterface\ProcessDir</value>
+    <value name="__wmTestUUID">d50e6775-2548-42d1-afcc-5909d18f248a</value>
+  </record>
+</IDataXMLCoder>
