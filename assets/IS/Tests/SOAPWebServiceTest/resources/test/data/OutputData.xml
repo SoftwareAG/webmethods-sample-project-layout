@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <value name="FirstName">Sachin</value>
+    <value name="LastName">Gupta</value>
+    <value name="SSN">123-12-1234</value>
+    <value name="FICO">825</value>
+  </record>
+</IDataXMLCoder>

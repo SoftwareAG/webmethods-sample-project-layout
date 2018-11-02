@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="SOAPWebServiceTestSuite" name="SOAPWebServiceTestSuite">
+    <webMethodsTestCase name="TC01-QueryFICOScore">
+        <service folder="SOAPWebService.Services" name="queryCustomerFICO">
+            <input>
+                <file filename="resources/test/data/InputData.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/test/data/OutputData.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
