@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
  Copyright © 2010 - 2013 Apama Ltd.
  Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
@@ -17,7 +18,7 @@
    limitations under the License.                                                            
 -->
 
-<?xml version="1.0"?>
+
 <project name="testBuild" default="buildDeployTest" basedir="." >
         <!-- project.properties -->
 	<property file="project.properties"/>
