@@ -4,8 +4,8 @@
 
 replicaCount: 1
 
-RunAsUser: 10000
-FsGroup: 10000
+RunAsUser: 1724
+FsGroup: 1724
 
 image:
   repository: docker.devopsinitiative.com/bookstore
