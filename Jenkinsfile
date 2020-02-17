@@ -31,7 +31,7 @@ podTemplate(
             container ('helm') {
                 def registry = "docker.devopsinitiative.com"
                 def repository = "${registry}/bookstore"
-                def tag = "6038c84"
+                def tag = "96a5c09"
                 sh "helm list"
                 sh "helm upgrade --install --force --wait --timeout=600 --set image.repository=${repository},image.tag=${tag} softwareag-bookstore softwareag-bookstore"
                 def API_ID = sh ( script: "curl -u Administrator:manage -X POST 'https://api.devopsinitiative.com/rest/apigateway/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger' | jq -r '.apiResponse.api.id'",returnStdout:true).trim()
