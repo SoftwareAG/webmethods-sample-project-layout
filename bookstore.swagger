@@ -197,4 +197,3 @@ definitions:
     properties:
       book:
         $ref: "#/definitions/book_1"
-

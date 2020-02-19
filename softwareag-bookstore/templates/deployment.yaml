@@ -40,33 +40,33 @@ spec:
         livenessProbe:
           initialDelaySeconds: 80
           periodSeconds: 30
-          exec:
-            command:
-            - curl
-            - -H
-            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
-            - http://localhost:5555/health
-#          httpGet:
-#            path: /health
-#            port: is
-#            httpHeaders:
-#              - name: Authorization
-#                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+#          exec:
+#            command:
+#            - curl
+#            - -H
+#            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+#            - http://localhost:5555/health
+          httpGet:
+            path: /health
+            port: is
+            httpHeaders:
+              - name: Authorization
+                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
         readinessProbe:
           initialDelaySeconds: 80
           periodSeconds: 30
-          exec:
-            command:
-            - curl
-            - -H
-            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
-            - http://localhost:5555/health
-#          httpGet:
-#            path: /health
-#            port: is
-#            httpHeaders:
-#              - name: Authorization
-#                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+#          exec:
+#            command:
+#            - curl
+#            - -H
+#            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
+#            - http://localhost:5555/health
+          httpGet:
+            path: /health
+            port: is
+            httpHeaders:
+              - name: Authorization
+                value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
         resources:
 {{ toYaml .Values.resources | indent 10 }}
     {{- with .Values.nodeSelector }}
