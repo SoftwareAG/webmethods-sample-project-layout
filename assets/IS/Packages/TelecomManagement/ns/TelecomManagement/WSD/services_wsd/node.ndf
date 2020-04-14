@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">webServiceDescriptor</value>
+  <value name="node_nsName">TelecomManagement.WSD:services_wsd</value>
+  <value name="node_pkg">TelecomManagement</value>
+  <value name="node_comment"></value>
+  <value name="is_public">false</value>
+  <Boolean name="inbound">true</Boolean>
+  <Boolean name="WSICompliant">false</Boolean>
+  <value name="SOAPProtocol">SOAP 1.1 Protocol</value>
+  <value name="targetNamespace">http://10.0.0.103/TelecomManagement.WSD:services_wsd</value>
+  <Boolean name="attachmentEnabled">false</Boolean>
+  <number name="mtomThreshold" type="Integer">0</number>
+  <null name="externalWSDL"/>
+  <null name="externalWSDLURL"/>
+  <value name="WSDLURL">http://10.0.0.103:5550/ws/TelecomManagement.WSD:services_wsd?WSDL</value>
+  <value name="definitionName">services_wsd</value>
+  <value name="version">_9_6</value>
+  <null name="schemaDomain"/>
+  <Boolean name="rawArray">true</Boolean>
+  <array name="handlerList" type="record" depth="1">
+  </array>
+  <array name="binderList" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="binderName">TelecomManagement_WSD_services_wsd_Binder</value>
+      <value name="portAddress"></value>
+      <value name="portAlias">ProviderEndPoint</value>
+      <value name="bindingName">TelecomManagement_WSD_services_wsd_Binder</value>
+      <value name="bindingStyle">document</value>
+      <value name="bindingUse">literal</value>
+      <value name="bindingType">SOAP</value>
+      <value name="portName">TelecomManagement_WSD_services_wsd_Port</value>
+      <value name="portTypeName">services_wsd_PortType</value>
+      <value name="bindingTransport">http://schemas.xmlsoap.org/soap/http</value>
+      <value name="transportType">http</value>
+      <record name="operationMap" javaclass="com.wm.util.Values">
+        <value name="TelecomManagement_WSD_services_wsd_Binder_retrieveServiceTypes">retrieveServiceTypes</value>
+        <value name="TelecomManagement_WSD_services_wsd_Binder_retrieveIdTypes">retrieveIdTypes</value>
+        <value name="TelecomManagement_WSD_services_wsd_Binder_submitRequest">submitRequest</value>
+        <value name="TelecomManagement_WSD_services_wsd_Binder_retrievePlanTypes">retrievePlanTypes</value>
+      </record>
+      <value name="SOAPProtocol">SOAP 1.1 Protocol</value>
+      <value name="SOAPDirective">ws</value>
+      <Boolean name="useCSQ">false</Boolean>
+    </record>
+  </array>
+  <array name="operationList" type="record" depth="1">
+    <record javaclass="com.wm.util.Values">
+      <value name="operationName">retrievePlanTypes</value>
+      <value name="serviceName">TelecomManagement.Services.MasterData:retrievePlanTypes</value>
+      <record name="requestElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrievePlanTypes</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrievePlanTypes</value>
+          <number name="nsOwnerType" type="Integer">1</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+      <record name="responseElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrievePlanTypesResponse</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrievePlanTypes</value>
+          <number name="nsOwnerType" type="Integer">2</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+    </record>
+    <record javaclass="com.wm.util.Values">
+      <value name="operationName">retrieveServiceTypes</value>
+      <value name="serviceName">TelecomManagement.Services.MasterData:retrieveServiceTypes</value>
+      <record name="requestElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrieveServiceTypes</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrieveServiceTypes</value>
+          <number name="nsOwnerType" type="Integer">1</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+      <record name="responseElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrieveServiceTypesResponse</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrieveServiceTypes</value>
+          <number name="nsOwnerType" type="Integer">2</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+    </record>
+    <record javaclass="com.wm.util.Values">
+      <value name="operationName">retrieveIdTypes</value>
+      <value name="serviceName">TelecomManagement.Services.MasterData:retrieveIdTypes</value>
+      <record name="requestElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrieveIdTypes</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrieveIdTypes</value>
+          <number name="nsOwnerType" type="Integer">1</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+      <record name="responseElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">retrieveIdTypesResponse</value>
+          <value name="nsOwner">TelecomManagement.Services.MasterData:retrieveIdTypes</value>
+          <number name="nsOwnerType" type="Integer">2</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+    </record>
+    <record javaclass="com.wm.util.Values">
+      <value name="operationName">submitRequest</value>
+      <value name="serviceName">TelecomManagement.Services:submitRequest</value>
+      <record name="requestElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">submitRequest</value>
+          <value name="nsOwner">TelecomManagement.Services:submitRequest</value>
+          <number name="nsOwnerType" type="Integer">1</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+      <record name="responseElement" javaclass="com.wm.util.Values">
+        <array name="headers" type="record" depth="1">
+        </array>
+        <record name="body" javaclass="com.wm.util.Values">
+          <value name="name">submitRequestResponse</value>
+          <value name="nsOwner">TelecomManagement.Services:submitRequest</value>
+          <number name="nsOwnerType" type="Integer">2</number>
+          <Boolean name="addedByClient">false</Boolean>
+          <value name="originalDocName"></value>
+        </record>
+        <array name="faults" type="record" depth="1">
+        </array>
+      </record>
+    </record>
+  </array>
+  <record name="namespaces" javaclass="com.wm.util.Values">
+    <value name="tns">http://10.0.0.103/TelecomManagement.WSD:services_wsd</value>
+    <value name="wsdl">http://schemas.xmlsoap.org/wsdl/</value>
+    <value name="xsd">http://www.w3.org/2001/XMLSchema</value>
+    <value name="http">http://schemas.xmlsoap.org/wsdl/http/</value>
+    <value name="mime">http://schemas.xmlsoap.org/wsdl/mime/</value>
+    <value name="soapenc">http://schemas.xmlsoap.org/soap/encoding/</value>
+    <value name="soap12">http://schemas.xmlsoap.org/wsdl/soap12/</value>
+    <value name="soap">http://schemas.xmlsoap.org/wsdl/soap/</value>
+    <value name="soapjms">http://www.w3.org/2010/soapjms/</value>
+  </record>
+  <Boolean name="HeadersInPipelineEnabled">false</Boolean>
+  <Boolean name="validateSOAPResponse">true</Boolean>
+  <Boolean name="validateSchemaUsingXerces">true</Boolean>
+  <Boolean name="enableCompatibility">false</Boolean>
+  <Boolean name="registerDoctypes">false</Boolean>
+  <Boolean name="allTypes">false</Boolean>
+  <Boolean name="generateXOPObjectForBase64Binary">false</Boolean>
+  <null name="originURI"/>
+  <null name="modifiable"/>
+  <null name="policyAttachmentList"/>
+  <Boolean name="filterLoginCredentials">false</Boolean>
+  <value name="outboundCallbackServiceName"></value>
+</Values>
