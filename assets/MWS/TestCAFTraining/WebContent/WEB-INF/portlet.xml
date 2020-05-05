@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd ">
+	<portlet>
+		<portlet-name>SamplePortlet</portlet-name>
+		<portlet-class>com.webmethods.caf.faces.portlet.FacesPortlet</portlet-class>
+		<init-param>
+			<name>ANNOTATED_PORTLET_ACTIONS</name>
+			<value>true</value>
+		</init-param>
+		<init-param>
+			<name>com.webmethods.caf.faces.portlet.INIT_VIEW</name>
+			<value>/SamplePortlet/default.view</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>caf.war.TestCAFTraining.sampleportlet.SamplePortletResources</resource-bundle>
+		<portlet-info>
+			<title>SamplePortlet</title>
+		</portlet-info>
+	<portlet-preferences>
+		<preference>
+			<name>OrderId</name>
+			<read-only>false</read-only>
+		</preference></portlet-preferences></portlet>
+	<user-attribute>
+		<name>user.default.time_zone</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.default.time.format</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.default.date.format</name>
+	</user-attribute>
+	<user-attribute>
+		<name>user.default.number.format</name>
+	</user-attribute>
+</portlet-app>

@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<view>
+  <property name='pageManagedBean' value='SamplePortletDefaultviewView' />
+  <property name='preferencesBean' value='SamplePortlet' />
+  <design-time-attribute name='portlet' value='SamplePortlet' />
+  <control component-type='com.webmethods.caf.faces.output.ErrorMessages' renderer-type='com.webmethods.caf.faces.output.ErrorMessages'>
+    <property name='id' value='messages' />
+  </control>
+  <control component-type='com.webmethods.caf.faces.command.CommandForm' renderer-type='com.webmethods.caf.faces.Form'>
+    <property name='defaultFocus' value='_first' />
+    <property name='id' value='defaultForm' />
+    <control component-type='com.webmethods.caf.faces.command.DisjointForm' renderer-type='com.webmethods.caf.faces.command.DisjointForm'>
+      <property name='id' value='disjointForm' />
+      <control component-type='javax.faces.HtmlPanelGroup' renderer-type='com.webmethods.caf.faces.panel.BlockPanel'>
+        <property name='id' value='employeeBasicDetailsBlock' />
+        <control component-type='com.webmethods.caf.faces.panel.ScrollingPanel' renderer-type='com.webmethods.caf.faces.panel.ScrollingPanel'>
+          <property name='height' value='500px' />
+          <property name='id' value='scrollingPanel' />
+          <property name='width' value='75%' />
+          <control component-type='com.webmethods.caf.faces.panel.DisableablePanel' renderer-type='com.webmethods.caf.faces.panel.DisableablePanel'>
+            <property name='disabled' value='#{SamplePortletDefaultviewView.asyncRequest}' />
+            <property name='id' value='disableablePanel1' />
+            <control component-type='com.webmethods.caf.faces.panel.StaticRow' renderer-type='com.webmethods.caf.faces.panel.StaticRow'>
+              <property name='id' value='staticRow' />
+              <property name='width' value='100%' />
+              <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+                <property name='id' value='staticCell' />
+                <property name='width' value='50%' />
+                <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+                  <property name='id' value='propertyLine2' />
+                  <property name='label' value='First Name' />
+                  <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+                    <property name='dir' value='RTL' />
+                    <property name='id' value='txifirstName' />
+                    <property name='readonly' value='true' />
+                    <property name='required' value='true' />
+                    <property name='requiredMessage' value='First name is a required field' />
+                    <property name='title' value='Specify your first name here' />
+                    <property name='value' value='#{SamplePortletDefaultviewView.firstName}' />
+                    <property name='width' value='input10' />
+                  </control>
+                </control>
+              </control>
+              <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+                <property name='id' value='staticCell1' />
+                <property name='width' value='50%' />
+                <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+                  <property name='id' value='propertyLine21' />
+                  <property name='label' value='Last Name' />
+                  <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+                    <property name='dir' value='RTL' />
+                    <property name='id' value='txifirstName1' />
+                    <property name='readonly' value='true' />
+                    <property name='required' value='true' />
+                    <property name='requiredMessage' value='First name is a required field' />
+                    <property name='title' value='Specify your first name here' />
+                    <property name='value' value='#{SamplePortletDefaultviewView.firstName}' />
+                    <property name='width' value='input10' />
+                  </control>
+                  <control component-type='com.webmethods.caf.faces.panel.Tooltip' renderer-type='com.webmethods.caf.faces.panel.Tooltip'>
+                    <property name='for' value='defaultForm:txifirstName1' />
+                    <property name='id' value='tooltip' />
+                    <control component-type='javax.faces.HtmlOutputText' renderer-type='com.webmethods.caf.faces.Text'>
+                      <property name='id' value='htmlOutputText1' />
+                      <property name='raw' value='true' />
+                      <property name='value' value='Please specify the last name here' />
+                    </control>
+                  </control>
+                </control>
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.panel.StaticRow' renderer-type='com.webmethods.caf.faces.panel.StaticRow'>
+              <property name='id' value='staticRow1' />
+              <property name='width' value='100%' />
+              <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+                <property name='id' value='staticCell2' />
+                <property name='width' value='50%' />
+                <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+                  <property name='id' value='propertyLine22' />
+                  <property name='label' value='Gender' />
+                  <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+                    <property name='dir' value='RTL' />
+                    <property name='id' value='txifirstName2' />
+                    <property name='readonly' value='true' />
+                    <property name='required' value='true' />
+                    <property name='requiredMessage' value='First name is a required field' />
+                    <property name='title' value='Specify your first name here' />
+                    <property name='value' value='#{SamplePortletDefaultviewView.firstName}' />
+                    <property name='width' value='input10' />
+                  </control>
+                </control>
+              </control>
+              <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+                <property name='id' value='staticCell11' />
+                <property name='width' value='50%' />
+                <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+                  <property name='id' value='propertyLine211' />
+                  <property name='label' value='Date of Birth' />
+                  <control component-type='com.webmethods.caf.faces.input.DateInput' renderer-type='com.webmethods.caf.faces.input.DateInput'>
+                    <property name='id' value='dateInput' />
+                    <property name='pattern' value='dd/MM/yyyy' />
+                    <property name='showTime' value='false' />
+                    <property name='value' value='#{SamplePortletDefaultviewView.dateOfBirth}' />
+                    <property name='valuePattern' value='MM/dd/yyyy' />
+                    <property name='width' value='input6' />
+                    <property name='yearMenuRange' value='#{environment[&quot;StartYear&quot;]}:#{environment[&quot;CurrentYear&quot;]}' />
+                  </control>
+                </control>
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.panel.HideablePanel' renderer-type='com.webmethods.caf.faces.panel.HideablePanel'>
+              <property name='id' value='hideablePanel' />
+              <control component-type='com.webmethods.caf.faces.command.async.Hidden' renderer-type='com.webmethods.caf.faces.command.async.Hidden'>
+                <property name='forms' value='defaultForm:disjointForm' />
+                <property name='id' value='hidden' />
+                <property name='refresh' value='defaultForm:disjointForm:employeeBasicDetailsBlock' />
+              </control>
+            </control>
+          </control>
+        </control>
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.standard.HtmlInputTextarea' renderer-type='com.webmethods.caf.faces.Textarea'>
+      <property name='id' value='htmlInputTextarea' />
+      <property name='rows' value='10' />
+      <property name='width' value='input40' />
+    </control>
+    <control component-type='com.webmethods.caf.faces.SelectOneMenu' renderer-type='com.webmethods.caf.faces.Menu'>
+      <property name='disabledClass' value='disabled' />
+      <property name='enabledClass' value='enabled' />
+      <property name='id' value='htmlSelectOneMenu' />
+      <property name='required' value='true' />
+      <property name='requiredMessage' value='Active employee selection is a required field' />
+      <property name='value' value='#{SamplePortletDefaultviewView.activeEmployee}' />
+      <property name='width' value='input20' />
+      <control component-type='javax.faces.SelectItem' renderer-type=''>
+        <property name='id' value='selectItem' />
+        <property name='itemLabel' value='Please select an option' />
+        <property name='itemValue' value='sel' />
+      </control>
+      <control component-type='javax.faces.SelectItem' renderer-type=''>
+        <property name='id' value='selectItem1' />
+        <property name='itemLabel' value='Yes' />
+        <property name='itemValue' value='1' />
+      </control>
+      <control component-type='javax.faces.SelectItem' renderer-type=''>
+        <property name='id' value='selectItem2' />
+        <property name='itemLabel' value='No' />
+        <property name='itemValue' value='0' />
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.select.SelectBooleanRadioButton' renderer-type='com.webmethods.caf.faces.Radio'>
+      <property name='id' value='selectBooleanRadioButton' />
+      <property name='label' value='Yes' />
+      <property name='name' value='Yes' />
+    </control>
+    <control component-type='com.webmethods.caf.faces.select.SelectOneRadio' renderer-type='com.webmethods.caf.faces.Radio'>
+      <property name='disabledClass' value='disabled' />
+      <property name='enabledClass' value='enabled' />
+      <property name='id' value='htmlSelectOneRadio' />
+      <property name='width' value='input20' />
+      <control component-type='javax.faces.SelectItem' renderer-type=''>
+        <property name='id' value='selectItem3' />
+        <property name='itemLabel' value='Yes' />
+        <property name='itemValue' value='1' />
+      </control>
+      <control component-type='javax.faces.SelectItem' renderer-type=''>
+        <property name='id' value='selectItem4' />
+        <property name='itemLabel' value='No' />
+        <property name='itemValue' value='0' />
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+      <property name='id' value='propertyLine' />
+      <property name='label' value='Preferred Colours' />
+      <control component-type='com.webmethods.caf.faces.select.SelectManyCheckbox' renderer-type='com.webmethods.caf.faces.Checkbox'>
+        <property name='disabledClass' value='disabled' />
+        <property name='enabledClass' value='enabled' />
+        <property name='id' value='htmlSelectManyCheckbox' />
+        <property name='layout' value='pageDirection' />
+        <property name='value' value='#{SamplePortletDefaultviewView.preferredColours}' />
+        <property name='width' value='input20' />
+        <control component-type='javax.faces.SelectItem' renderer-type=''>
+          <property name='id' value='selectItem5' />
+          <property name='itemLabel' value='Red' />
+          <property name='itemValue' value='Red' />
+        </control>
+        <control component-type='javax.faces.SelectItem' renderer-type=''>
+          <property name='id' value='selectItem6' />
+          <property name='itemLabel' value='Green' />
+          <property name='itemValue' value='Green' />
+        </control>
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.panel.PropertyGroup' renderer-type='com.webmethods.caf.faces.panel.PropertyGroup'>
+      <property name='id' value='propertyGroup' />
+      <property name='label' value='Address Details' />
+      <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+        <property name='id' value='propertyLine3' />
+        <property name='label' value='House Number' />
+        <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+          <property name='id' value='htmlInputText' />
+          <property name='width' value='input20' />
+        </control>
+      </control>
+      <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+        <property name='id' value='propertyLine31' />
+        <property name='label' value='Street Name' />
+        <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+          <property name='id' value='htmlInputText1' />
+          <property name='width' value='input20' />
+        </control>
+        <control component-type='com.webmethods.caf.faces.panel.DisableablePanel' renderer-type='com.webmethods.caf.faces.panel.DisableablePanel'>
+          <property name='id' value='disableablePanel' />
+        </control>
+      </control>
+      <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+        <property name='id' value='propertyLine311' />
+        <property name='label' value='City' />
+        <control component-type='javax.faces.HtmlInputText' renderer-type='com.webmethods.caf.faces.Text'>
+          <property name='id' value='htmlInputText11' />
+          <property name='width' value='input20' />
+        </control>
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+      <property name='id' value='propertyLine4' />
+      <property name='label' value='Product Description' />
+      <control component-type='javax.faces.HtmlOutputText' renderer-type='com.webmethods.caf.faces.Text'>
+        <property name='id' value='htmlOutputText' />
+        <property name='raw' value='true' />
+        <property name='value' value='insert text here' />
+      </control>
+      <control component-type='com.webmethods.caf.faces.output.FormattedText' renderer-type='com.webmethods.caf.faces.output.FormattedText'>
+        <property name='id' value='formattedText' />
+        <property name='value' value='insert text here' />
+      </control>
+      <control component-type='javax.faces.HtmlGraphicImage' renderer-type='com.webmethods.caf.faces.Image'>
+        <property name='height' value='50%' />
+        <property name='id' value='htmlGraphicImage' />
+      </control>
+    </control>
+    <control component-type='com.webmethods.caf.faces.panel.BlockEdgePanel' renderer-type='com.webmethods.caf.faces.panel.BlockEdgePanel'>
+      <property name='id' value='blockEdgePanel' />
+      <facet name='rightEdge'>
+        <control component-type='com.webmethods.caf.faces.panel.StaticRow' renderer-type='com.webmethods.caf.faces.panel.StaticRow'>
+          <property name='id' value='staticRow2' />
+          <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+            <property name='id' value='staticCell3' />
+            <control component-type='com.webmethods.caf.faces.command.async.Button' renderer-type='com.webmethods.caf.faces.command.async.Button'>
+              <property name='action' value='#{SamplePortletDefaultviewView.initialize}' signature='java.lang.String action()' />
+              <property name='id' value='submitCommandButton1' />
+              <property name='refresh' value='defaultForm:employeeBasicDetailsBlock' />
+              <property name='value' value='Save' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+            <property name='id' value='staticCell4' />
+            <control component-type='javax.faces.HtmlCommandButton' renderer-type='com.webmethods.caf.faces.Button'>
+              <property name='action' value='#{SamplePortletDefaultviewView.submitFormData}' signature='java.lang.String action()' />
+              <property name='id' value='submitCommandButton' />
+              <property name='value' value='Submit' />
+            </control>
+          </control>
+        </control>
+      </facet>
+    </control>
+  </control>
+</view>

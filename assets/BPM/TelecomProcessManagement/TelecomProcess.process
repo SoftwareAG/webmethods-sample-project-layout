@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<businessProcessDiagram xmlns="http://www.webmethods.com/bpm/2006/"
+  Id="ccc931a2-7e3b-4712-9bb7-787a3407ba1d" bpmnStyle="false" build="1"
+  canvasPool="1" creator="Administrator" description=""
+  failProcessOnStepFailure="false" focalRole="Focal role"
+  name="TelecomProcess" processCategory="" rnSync="false"
+  runtimeVersion="1" transitionLabelPref="expression"
+  unSynchJoinDeadPath="true" version="10.1.0">
+  <kpiDimensions/>
+  <systemKPIs>
+    <systemKPI Id="" description="" name="Volume" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Cycle Time" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Error Count" unitOfMeasure=""/>
+  </systemKPIs>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="ProcessData" name="{ProcessNamespace}ProcessData" type="{pub.prt}ProcessData"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="RequestDetails" name="{ProcessNamespace}RequestDetails" type="{TelecomManagement.Docs}RequestDetails"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="Review RequestInputEnv"
+    name="{ProcessNamespace}Review RequestInputEnv" type="{pub.task}TaskQueueInfo"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="Review RequestOutputEnv"
+    name="{ProcessNamespace}Review RequestOutputEnv" type="{pub.task}TaskCompletionInfo"/>
+  <timeout calendarAlias="" calendarTime="0:0:0"
+    dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+    dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+    dynamicFieldName="" isCalendarTimeout="false" isStaticTimeout="true"
+    isXPathTimeout="false" pipelineCalendarAlias=""
+    pipelineCalendarDays="" pipelineCalendarHours=""
+    pipelineCalendarMinutes="" timeoutStyle="RELATIVE"
+    timeoutType="processTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+  <pool Id="c808c315-fc9f-45a7-9255-1e47bf7c4d56" blue="128"
+    containerType="BPMN_SUBPROCESS" external="true"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false" label="Pool"
+    labelBlue="255" labelGreen="204" labelRed="153" logicalServer=""
+    loopMaximum="0" loopMaximumField="" name="1"
+    orientation="horizontal" red="128" retryCount="0" stepLock="false"
+    uid="P2" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" italicFont="false"/>
+    <poolReference Id="f7f2a52c-8055-4a79-b0e3-1208cbef96d5"
+      label="Telecom Management" logicalServer="TS" poolName="12"
+      stepLock="false" uid="S9" useCorrelation="false" x="275" y="41">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" italicFont="false"/>
+    </poolReference>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+  </pool>
+  <pool Id="515a43bd-8bb5-4d4b-8cc1-1558e6256e4d" blue="128"
+    containerType="BPMN_SUBPROCESS" external="false"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false"
+    label="Telecom Management" labelBlue="255" labelGreen="204"
+    labelRed="153" logicalServer="" loopMaximum="0" loopMaximumField=""
+    name="12" orientation="vertical" red="128" retryCount="0"
+    stepLock="false" uid="P13" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" italicFont="false"/>
+    <receiveStep Id="9c7bda0f-c87b-421c-8acd-f8074529da6b"
+      allowsSynchronousReply="false" edaEventQName="" edaSubFilter=""
+      edaSubFilterLang="" eventType="START"
+      externalizeConditions="false" height="28"
+      isStartStepServiceRequired="true" label="Receive Request"
+      labelHeight="-1" labelWidth="-1" logicalServer="TS"
+      outputMessageType="{TelecomManagement.Docs}RequestDetails"
+      receiveProtocol="SUBSCRIPTION" receiveType="EMPTY"
+      stepLock="false" uid="S15" useCorrelation="false" width="28"
+      x="23" y="104">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <output name="{ProcessNamespace}RequestDetails"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <wmExpressionFilter/>
+    </receiveStep>
+    <invokeStep Id="3375ec0d-12f8-4953-af7e-46d3a4db2184"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/TelecomProcessTasks"
+      invokeId="4A8E0F77-4962-36D2-085A-FE8C19377031" invokeLocation=""
+      invokeName="ReviewRequest" invokeType="TASK"
+      isCompensating="false" isTestAfter="false" label="Review Request"
+      labelHeight="-1" labelWidth="-1" logicalServer="TS"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="TASK" stepLock="false" uid="S16"
+      useCorrelation="false" width="93" x="106" y="104">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}Review RequestInputEnv"/>
+      <input name="{ProcessNamespace}RequestDetails"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}Review RequestOutputEnv"/>
+      <output name="{ProcessNamespace}RequestDetails"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <terminateStep Id="2d0dc26e-7ae5-483f-9767-2e119ab8102a"
+      escalateFailure="true" height="28" label="End Process"
+      labelHeight="-1" labelWidth="-1" logicalServer="TS"
+      stepLock="false" terminateStatus="DONE" uid="S18"
+      useCorrelation="false" width="28" x="82" y="335">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+    </terminateStep>
+    <gatewayStep Id="51841944-5af4-484d-860c-033be0078ecd"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="34"
+      label="Check Review outcome" labelHeight="-1" labelWidth="-1"
+      logicalServer="TS" retryCount="0" stepLock="false" uid="S20"
+      useCorrelation="false" width="34" x="76" y="225">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}RequestDetails"/>
+      <output name="{ProcessNamespace}RequestDetails"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <invokeStep Id="90253c42-7bc4-4e2a-bf4b-6356bc1ce661"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="" invokeId="" invokeLocation=""
+      invokeName="" invokeType="ISSERVICE" isCompensating="false"
+      isTestAfter="false" label="Process Request" labelHeight="-1"
+      labelWidth="-1" logicalServer="TS" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S22"
+      useCorrelation="false" width="93" x="166" y="230">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <transition Id="ef93e4f1-c135-4341-899d-6ef3fd354411" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S15"
+      sourceLocation="51,118" sourceTerminal="RIGHT" target="S16"
+      targetLocation="106,134" targetTerminal="LEFT" uid="T17">
+      <bendpoint index="0" location="354,189" weight="0.5"/>
+      <bendpoint index="1" location="354,205" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="d1d2243b-b00e-4aa6-8c43-cb77474b8016" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S16"
+      sourceLocation="152,164" sourceTerminal="BOTTOM" target="S20"
+      targetLocation="93,225" targetTerminal="TOP" uid="T21">
+      <bendpoint index="0" location="428,264" weight="0.5"/>
+      <bendpoint index="1" location="369,264" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="af1e5045-9a21-4b64-8a8f-0f1d67db26ec" blue="255"
+      conditionDescription="Rejected"
+      conditionText="RequestDetails/requestStatus = Reject"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S20" sourceLocation="93,259" sourceTerminal="BOTTOM"
+      target="S18" targetLocation="96,335" targetTerminal="TOP" uid="T23">
+      <bendpoint index="0" location="369,368" weight="0.5"/>
+      <bendpoint index="1" location="372,368" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="42" x="367" y="354">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="requestStatus"
+          leftOperand="{ProcessNamespace}RequestDetails" operator="=" rightOperand="'Reject'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="b7346dcc-7524-45dd-9675-a45b0cc3a0e6" blue="255"
+      conditionDescription="Approve"
+      conditionText="RequestDetails/requestStatus = Approved"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S20" sourceLocation="110,242" sourceTerminal="RIGHT"
+      target="S22" targetLocation="166,260" targetTerminal="LEFT" uid="T24">
+      <bendpoint index="0" location="414,313" weight="0.5"/>
+      <bendpoint index="1" location="414,331" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="205" x="408" y="308">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="requestStatus"
+          leftOperand="{ProcessNamespace}RequestDetails" operator="=" rightOperand="'Approved'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="5905c5e9-78ab-4baf-a917-357852472a38" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S22"
+      sourceLocation="212,290" sourceTerminal="BOTTOM" target="S18"
+      targetLocation="110,349" targetTerminal="RIGHT" uid="T25">
+      <bendpoint index="0" location="488,420" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+    <swimlane Id="636f4346-369e-439a-b9d1-13d228f4d3e1" blue="204"
+      green="255" height="700" label="Customer Service" labelBlue="255"
+      labelGreen="238" labelRed="221" name="Customer Service" red="255"
+      uid="W14" width="286">
+      <documentation/>
+    </swimlane>
+  </pool>
+  <documentation/>
+  <qualityOfService expressPipeline="true" minLogLevel="5"
+    optimizeLocally="true" volatileTracking="false" volatileTransition="true"/>
+  <edaIntrinsics processEvent="false" stepEvent="false"/>
+  <easeOfOperations enableProcessForTrackingInTarget="false" enableProcessInTarget="false"/>
+</businessProcessDiagram>
