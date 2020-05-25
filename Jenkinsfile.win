@@ -5,7 +5,7 @@ pipeline {
 	    stage('ISCCR'){
             steps {
 				
-                bat "cd C:/d-drive/GCS_IS_ContinuousCodeReview_v6.1.0/codereview.bat -Dcode.review.directory=C:/SoftwareAG105/IntegrationServer/instances/default/packages -Dcode.review.pkgname=AIANZRetrieveByIdTypeV11 -Dcode.review.pkgprefix=AIANZ"
+                bat "C:/d-drive/GCS_IS_ContinuousCodeReview_v6.1.0/codereview.bat -Dcode.review.directory=C:/SoftwareAG105/IntegrationServer/instances/default/packages -Dcode.review.pkgname=AIANZRetrieveByIdTypeV11 -Dcode.review.pkgprefix=AIANZ"
             }
         }
         stage('Build'){
