@@ -4,7 +4,7 @@ podTemplate(
     containers: [
         containerTemplate(
             name: 'helm', 
-            image: 'ianmward/k8s-helm:41e8122be393',
+            image: 'ianmward/k8s-helm:master',
             ttyEnabled: true,
             command: 'cat'
         )
