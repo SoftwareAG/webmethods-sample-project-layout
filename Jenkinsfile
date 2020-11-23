@@ -35,8 +35,8 @@ podTemplate(
                 def tag = "2b7aaf7 "
                 sh "helm  list"
                 sh "helm  upgrade --install --force --timeout=10m0s --set image.repository=${repository},image.tag=${tag} softwareag-bookstore softwareag-bookstore"
-                def API_ID = sh ( script: "curl -u Administrator:manage -X POST 'http://api-gateway.eks-iw.au-poc.com/rest/apigateway/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger' | jq -r '.apiResponse.api.id'",returnStdout:true).trim()
-                sh "curl -u Administrator:manage -X PUT 'http://api-gateway.eks-iw.au-poc.com/rest/apigateway/apis/'${API_ID}'/activate' -H 'accept: application/json' -H 'Content-Type: multipart/form-data'"
+                def API_ID = sh ( script: "curl -u Administrator:manage -X POST 'http://api-gateway:5555/rest/apigateway/apis' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'file=@bookstore.swagger' -F 'apiName=Bookstore' -F 'apiDescription=Bookstore API' -F 'apiVersion=V3' -F 'type=swagger' | jq -r '.apiResponse.api.id'",returnStdout:true).trim()
+                sh "curl -u Administrator:manage -X PUT 'http://api-gateway:5555/rest/apigateway/apis/'${API_ID}'/activate' -H 'accept: application/json' -H 'Content-Type: multipart/form-data'"
             }
         }
     }
