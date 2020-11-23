@@ -1,0 +1,25 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
+name: softwareag-bookstore
+version: 0.1.0
+
+...
+files:
+  softwareag-bookstore-0.1.0.tgz: sha256:9333ead8daf21031a37ed4a501ad5e8dc72e7a30885674de7f6833b119cbc734
+-----BEGIN PGP SIGNATURE-----
+
+wsDcBAEBCgAQBQJezbT+CRAnH9MhcetFMwAAVxQMADv1tjZL6T+PUZP7Rfki+l+7
+kmy3fCLR4OZh0cHT3G4hWFfNIfhCvYVnJRC5TAzdh90bLiBC+ms5VSZ7GXYwcApR
+8EJ0qM5tuZPSxI6kJjKaB9tmxptIafrm9llLH0WbuVffbteJgbEKar3O8BBAyO57
+Wdvpecc0hPD1oC7dQ/HcwlyWJxsJ6HAQjeeS0kKhoUhJw5vYyWZ68B1lOLdZ/WIt
+GGfT5sg0P38rAI3GB9lum5iWxjOwjqyrvuKwFAkGoDq9Qu5rV1SsF2yblL71p5oc
+v0PY04Almhd0C3Ae2acMZj7tO73+Z98rKao+a7mEVIPahJfogqAptBu0uL2ZoQUC
+4ZSyRzN70zoJG9mx/nhwkMR7ERtVNObeybrhWrSvK+hgoNT75D4O2T97pvqVAn8S
+6EMToqHcrJUgQ4lbjPj7XvkCE6gYPLwLy5TP2A7+kZWG+9zk62ZMn+OsBsgnRPW3
+ld5BAkd5UezGlyWdI3QZjCrsIn2f6Kk8LAd5QAFZJg==
+=xF4U
+-----END PGP SIGNATURE-----

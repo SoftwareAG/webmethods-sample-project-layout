@@ -1,0 +1,52 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  creationTimestamp: "2019-09-12T14:22:25Z"
+  generation: 1
+  labels:
+    app: prometheus
+    chart: prometheus-0.0.51
+    heritage: Tiller
+    prometheus: kube-prometheus
+    release: kube-prometheus
+  name: kube-prometheus
+  namespace: monitoring
+  resourceVersion: "5457121"
+  selfLink: /apis/monitoring.coreos.com/v1/namespaces/monitoring/prometheuses/kube-prometheus
+  uid: be0fef05-d568-11e9-8dea-0670d703d580
+spec:
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - podAffinityTerm:
+          labelSelector:
+            matchLabels:
+              app: prometheus
+              prometheus: kube-prometheus
+          topologyKey: kubernetes.io/hostname
+        weight: 100
+  additionalScrapeConfigs:
+    name: additional-scrape-configs
+    key: prometheus-additional.yaml
+  alerting:
+    alertmanagers:
+    - name: kube-prometheus-alertmanager
+      namespace: monitoring
+      port: http
+  baseImage: quay.io/prometheus/prometheus
+  externalUrl: prometheus.devopsinitiative.com
+  imagePullSecrets: []
+  logLevel: info
+  paused: false
+  replicas: 1
+  resources: {}
+  retention: 24h
+  routePrefix: /
+  ruleSelector:
+    matchLabels:
+      prometheus: kube-prometheus
+  serviceAccountName: kube-prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      prometheus: kube-prometheus
+  version: v2.4.3

@@ -1,0 +1,6 @@
+- job_name: 'bookstore'
+  static_configs:
+  - targets: ['softwareag-bookstore:5555']
+- job_name: 'microgateway'
+  static_configs:
+  - targets: ['softwareag-microgateway:4485']
