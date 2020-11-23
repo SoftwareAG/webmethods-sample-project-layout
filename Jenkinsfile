@@ -1,6 +1,7 @@
 podTemplate(
     label: 'mypod', 
     inheritFrom: 'default',
+    serviceAccount: 'jenkins',
     containers: [
         containerTemplate(
             name: 'helm', 
