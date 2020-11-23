@@ -4,7 +4,7 @@ info:
   description: "Bookstore API Sample"
   version: "1.0"
   title: "Bookstore API"
-host: "softwareag-bookstore.development:5555"
+host: "softwareag-bookstore.default:5555"
 basePath: "/rad/bookstore:BooksRAD"
 schemes:
 - "http"
