@@ -1,52 +1,33 @@
-apiVersion: monitoring.coreos.com/v1
-kind: Prometheus
+apiVersion: v1
+kind: Secret
 metadata:
-  creationTimestamp: "2019-09-12T14:22:25Z"
-  generation: 1
+  name: exporter-msr-monitoring-secret
+  namespace: monitor
+type: Opaque
+data:
+  username: QWRtaW5pc3RyYXRvcg==
+  password: bWFuYWdl
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: exporter-msr-monitoring
+  namespace: monitor
   labels:
-    app: prometheus
-    chart: prometheus-0.0.51
-    heritage: Tiller
-    prometheus: kube-prometheus
     release: kube-prometheus
-  name: kube-prometheus
-  namespace: monitoring
-  resourceVersion: "5457121"
-  selfLink: /apis/monitoring.coreos.com/v1/namespaces/monitoring/prometheuses/kube-prometheus
-  uid: be0fef05-d568-11e9-8dea-0670d703d580
 spec:
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - podAffinityTerm:
-          labelSelector:
-            matchLabels:
-              app: prometheus
-              prometheus: kube-prometheus
-          topologyKey: kubernetes.io/hostname
-        weight: 100
-  additionalScrapeConfigs:
-    name: additional-scrape-configs
-    key: prometheus-additional.yaml
-  alerting:
-    alertmanagers:
-    - name: kube-prometheus-alertmanager
-      namespace: monitoring
-      port: http
-  baseImage: quay.io/prometheus/prometheus
-  externalUrl: prometheus.devopsinitiative.com
-  imagePullSecrets: []
-  logLevel: info
-  paused: false
-  replicas: 1
-  resources: {}
-  retention: 24h
-  routePrefix: /
-  ruleSelector:
+  jobLabel: msr
+  selector:
     matchLabels:
-      prometheus: kube-prometheus
-  serviceAccountName: kube-prometheus
-  serviceMonitorSelector:
-    matchLabels:
-      prometheus: kube-prometheus
-  version: v2.4.3
+      app: softwareag-bookstore
+  endpoints:
+  - port: api
+    path: /metrics
+    interval: 15s
+    basicAuth:
+      username:
+        name: exporter-msr-monitoring-secret
+        key: username
+      password:
+        name: exporter-msr-monitoring-secret
+        key: password
