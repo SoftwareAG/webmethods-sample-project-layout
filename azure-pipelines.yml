@@ -23,6 +23,7 @@ steps:
     command: 'upgrade'
     chartType: 'Name'
     chartName: 'softwareag-bookstore'
+    releaseName: bookstore
     overrideValues: 'image.repository=demolabacr.azurecr.io/wmd-bookstore, image.tag=2'
     force: true
     arguments: '--timeout=10m0s'
