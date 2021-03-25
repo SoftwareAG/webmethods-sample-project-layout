@@ -1,0 +1,28 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+  
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscription: 'ANZ Demo Lab(42b15b9e-f06c-4055-af2f-e24798bdf664)'
+    azureResourceGroup: 'DemoLabRG'
+    kubernetesCluster: 'DemoLabCluster'
+    namespace: 'nodetours'
+    command: 'upgrade'
+    chartType: 'Name'
+    chartName: 'softwareag-bookstore'
+    overrideValues: 'image.repository=demolabacr.azurecr.io/wmd-bookstore, image.tag=2'
+    force: true
+    arguments: '--timeout=10m0s'
