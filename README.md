@@ -21,3 +21,4 @@ You can find additional information in the [Software AG TECHcommunity](http://te
 ____________________
 Contact us at [TECHcommunity](mailto:technologycommunity@softwareag.com?subject=Github/SoftwareAG) if you have any questions.
 change
+change
