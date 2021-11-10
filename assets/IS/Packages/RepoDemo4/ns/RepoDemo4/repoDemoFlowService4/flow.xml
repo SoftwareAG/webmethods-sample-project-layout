@@ -3,7 +3,7 @@
 <FLOW VERSION="3.0" CLEANUP="true">
 
   <!-- nodes -->
-
+<test comment>
 <MAP TIMEOUT="" MODE="STANDALONE">
   <COMMENT></COMMENT>
 </MAP>
