@@ -17,6 +17,6 @@ These tools are provided as-is and without warranty or support. They do not cons
 ____________________
 For more information you can Ask a Question in the [Tech Community Forums](https://tech.forums.softwareag.com/tags/c/forum/1/webmethods).
 
-You can find additional information in the [Software AG TECHcommunity](https://tech.forums.softwareag.com/tag/webmethods).
+You can find additional information in the [Software AG Tech Community](https://tech.forums.softwareag.com/tag/webmethods).
 ____________________
 Contact us at [Tech Community](mailto:technologycommunity@softwareag.com?subject=Github/SoftwareAG) if you have any questions.
