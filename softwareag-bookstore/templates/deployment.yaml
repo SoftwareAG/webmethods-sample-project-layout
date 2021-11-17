@@ -35,6 +35,12 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        env:
+        - name: SAG_IS_CONFIG_PROPERTIES 
+          value: /opt/softwareag/IntegrationServer/properties/application.properties
+        volumeMounts:
+        - name: {{ .Values.name }}-properties
+          mountPath: /opt/softwareag/IntegrationServer/properties
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: is
@@ -106,6 +112,9 @@ spec:
 {{ toYaml . | indent 8 }}
     {{- end }}
       volumes:
+        - name: {{ .Values.name }}-properties
+          configMap:
+            name: {{ .Values.name }}-properties
 {{- if .Values.Persistence.volumes }}
 {{ toYaml .Values.Persistence.volumes | indent 6 }}
 {{- end }}
