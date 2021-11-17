@@ -7,14 +7,8 @@ data:
         message = Hello from config 1
 
   application.properties: |-
-      bookstore.connections.DBConnection.password = {AES}5WRqqeRxVlItnZq0mUycdg\=\=
-      bookstore.connections.DBConnection.serverName = sqlserver.greenzone
-      cloudstreamsdatabaseconfig.DatabaseConfig.pg.PgMenConfiguration.perfDataEnabled = false      
-      cloudstreamsdatabaseconfig.DatabaseConfig.pg.PgMenConfiguration.reportInterval = 60
-      cloudstreamsdatabaseconfig.DatabaseConfig.pg.jdbc.active = false
-      cloudstreamsdatabaseconfig.DatabaseConfig.pg.publish.events = false
-      cloudstreamslargefileconfig.LargeFileConfig.wst.largedata.binaryStreamEnabled = false        
-      cloudstreamslargefileconfig.LargeFileConfig.wst.largedata.threshold = 5242880
+      artConnection.Bookstore.bookstore.connections.DBConnection.password = {AES}5WRqqeRxVlItnZq0mUycdg\=\=
+      artConnection.Bookstore.bookstore.connections.DBConnection.serverName = sqlserver.greenzone
       healthindicators.Adapters.enabled = true
       healthindicators.Cluster.enabled = true
       healthindicators.Cluster.properties.threshold.value = 2
@@ -32,21 +26,3 @@ data:
       healthindicators.Sessions.enabled = true
       healthindicators.Sessions.properties.threshold.value = 85
       healthindicators.UMAliases.enabled = true
-      jms.DEFAULT_IS_JMS_CONNECTION.clientID = DEFAULT_IS_JMS_CLIENT
-      jms.PE_NONTRANSACTIONAL_ALIAS.clientID = ISec40efc1_fd24_4eaa_b7d7_e6cc361c58fb
-      jndi.DEFAULT_IS_JNDI_PROVIDER.providerURL = nsp\://localhost\:9000
-      keystore.DEFAULT_IS_KEYSTORE.keyAlias.ssos.keyAliasPassword = {AES}Y5IgMqjfvkgbg7p5VUZztw\=\=
-      keystore.DEFAULT_IS_KEYSTORE.ksLocation = ../common/conf/keystore.jks
-      keystore.DEFAULT_IS_KEYSTORE.ksPassword = {AES}Y5IgMqjfvkgbg7p5VUZztw\=\=
-      messaging.IS_DES_CONNECTION.CLIENTPREFIX = J_jRQtEolDEurgAVIwwwADXaZQs_
-      messaging.IS_UM_CONNECTION.CLIENTPREFIX = J_jRQtEolDEurgAVIwwwADXaZQs_
-      messaging.IS_UM_CONNECTION.url = nsp\://localhost\:9000
-      settings.watt.server.compile = /opt/softwareag/jvm/jvm/bin/javac -classpath {0} -d {1} {2}
-      truststore.DEFAULT_IS_TRUSTSTORE.ksLocation = ../common/conf/platform_truststore.jks
-      truststore.DEFAULT_IS_TRUSTSTORE.ksPassword = {AES}Y5IgMqjfvkgbg7p5VUZztw\=\=
-      user.Administrator.password = {AES}51A7OYlXRhDTR5FvtZDLpijiXXRIFnaQj2KNkWyPKNHx2lVk/3u1tVFruckBqVPW01k2k4GMPNUApxYxG7ReRbs+/ZTs4tOWFf5TcI8wKXo\=
-      user.Developer.password = {AES}R6PJdmBika4AvO5S6ZLDDRcO3k3zOY9D3mkeSMnwevyJXuvyD3whXQKO2zLzvDHDZTpxGccPrRLIm/yqOQX8dW//qkxZcKl2ctUir3qDJmM\=
-      user.Replicator.password = {AES}5gB8Dt3TiWa7quN+IQXxtJRN9v3rAeW9iNYoRupTj2/3EcEdGjoRIt9Eeo0BL9XeeJ3+biejtVFDuvYa/AAoSvfFdS/PMw8322cJkaDR2pI\=
-      settings.watt.server.autodeploy.alwaysUseHotDeployment = true
-      settings.watt.server.autodeploy.enabled = true
-      settings.watt.server.autodeploy.interval = 5
