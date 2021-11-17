@@ -49,13 +49,8 @@ spec:
         volumeMounts:
         livenessProbe:
           initialDelaySeconds: 80
-          periodSeconds: 30
-#          exec:
-#            command:
-#            - curl
-#            - -H
-#            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
-#            - http://localhost:5555/health
+          periodSeconds: 5
+          failureThreshold: 20
           httpGet:
             path: /health
             port: is
@@ -64,13 +59,8 @@ spec:
                 value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
         readinessProbe:
           initialDelaySeconds: 80
-          periodSeconds: 30
-#          exec:
-#            command:
-#            - curl
-#            - -H
-#            - "Authorization: Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
-#            - http://localhost:5555/health
+          periodSeconds: 5
+          failureThreshold: 20
           httpGet:
             path: /health
             port: is
@@ -83,26 +73,6 @@ spec:
     nodeSelector:
 {{ toYaml . | indent 6 }}
     {{- end }}
-#        - name: es-logger
-#          image: busybox
-#          args: [/bin/sh, -c, 'touch /mnt/log/SAG_EventDataStore.log /mnt/log/SAG_EventDataStore_deprecation.log /mnt/log/SAG_EventDataStore_index_indexing_slowlog.log /mnt/log/SAG_EventDataStore_index_search_slowlog.log /mnt/log/startup.log && tail -f /mnt/log/SAG_EventDataStore.log /mnt/log/SAG_EventDataStore_deprecation.log /mnt/log/SAG_EventDataStore_index_indexing_slowlog.log /mnt/log/SAG_EventDataStore_index_search_slowlog.log /mnt/log/startup.log']
-#          volumeMounts:
-#          - name: bookstore-logs
-#            mountPath: /mnt/log
-#
-#        - name: fluentd-sidecar-es
-#          image: "gcr.io/google_containers/fluentd-sidecar-es:1.0"
-#          env:
-#          - name: FILES_TO_COLLECT
-#            value: "SAG_EventDataStore.log SAG_EventDataStore_deprecation.log SAG_EventDataStore_index_indexing_slowlog.log SAG_EventDataStore_index_search_slowlog.log startup.log"
-#          resources:
-#            requests:
-#              cpu: 100m
-#              memory: 200M
-#          volumeMounts:
-#          - name: bookstore-logs
-#            readOnly: true
-#            mountPath: /mnt/log
     {{- with .Values.affinity }}
       affinity:
 {{ toYaml . | indent 8 }}
