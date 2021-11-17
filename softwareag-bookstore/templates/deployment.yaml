@@ -46,7 +46,6 @@ spec:
         - name: is
           containerPort: 5555
           protocol: TCP
-        volumeMounts:
         livenessProbe:
           initialDelaySeconds: 80
           periodSeconds: 5
