@@ -47,7 +47,7 @@ spec:
           containerPort: 5555
           protocol: TCP
         livenessProbe:
-          initialDelaySeconds: 80
+          initialDelaySeconds: 30
           periodSeconds: 5
           failureThreshold: 20
           httpGet:
@@ -57,7 +57,7 @@ spec:
               - name: Authorization
                 value: "Basic QWRtaW5pc3RyYXRvcjptYW5hZ2U="
         readinessProbe:
-          initialDelaySeconds: 80
+          initialDelaySeconds: 30
           periodSeconds: 5
           failureThreshold: 20
           httpGet:
