@@ -9,6 +9,9 @@ data:
   application.properties: |-
       artConnection.Bookstore.bookstore.connections.DBConnection.password = {AES}5WRqqeRxVlItnZq0mUycdg\=\=
       artConnection.Bookstore.bookstore.connections.DBConnection.serverName = sqlserver.greenzone
+      jdbc.common.dbURL = jdbc\:wm\:sqlserver\://sqlserver.greenzone;databaseName\=webmdb
+      jdbc.common.password = {AES}Y5IgMqjfvkgbg7p5VUZztw\=\=
+      jdbc.common.userid = webm
       healthindicators.Adapters.enabled = true
       healthindicators.Cluster.enabled = true
       healthindicators.Cluster.properties.threshold.value = 2
