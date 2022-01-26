@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<duplicateCheckResponse creationTime="2006-06-12T10:03:12.646-0400">
+  <duplicateLoans>
+    <relevanceStatus>Relevant</relevanceStatus>
+    <loanNumber>0000000001</loanNumber>
+    <branch>TOTAL ADVANTEDGE LLC          </branch>
+    <underwritingDecisionExpirationDate>2005-04-27</underwritingDecisionExpirationDate>
+    <lockDate>2005-12-20</lockDate>
+    <lockIndicator>Y</lockIndicator>
+    <tmoLoanStageDate>2005-04-27</tmoLoanStageDate>
+    <product>C30       </product>
+    <propertyAddress>937 S MEYER                   </propertyAddress>
+    <propertyCity>TUCSON                    </propertyCity>
+    <propertyState>AZ</propertyState>
+    <propertyZip>85701</propertyZip>
+  </duplicateLoans>
+</duplicateCheckResponse>

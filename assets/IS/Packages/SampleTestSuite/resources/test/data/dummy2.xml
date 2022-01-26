@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="value">22</value>
+  </record>
+</IDataXMLCoder>

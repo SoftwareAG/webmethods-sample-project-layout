@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<duplicateCheckRequest>
+  <lienType>1</lienType>
+  <borrowerSSN>111111111</borrowerSSN>
+  <propertyAddress>937 S MEYER</propertyAddress>
+  <propertyZip>85701</propertyZip>
+</duplicateCheckRequest>

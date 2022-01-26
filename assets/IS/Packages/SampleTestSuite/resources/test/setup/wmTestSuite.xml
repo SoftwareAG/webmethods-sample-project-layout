@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="Sample tests for the WmServiceMockSamples implementation" name="TS_wmTestSuite.xml">
+    <webMethodsTestCase description="Generate a Test Wizard" name="TC_concat">
+        <service folder="Demo.services" name="concat">
+            <input>
+                <file filename="resources/test/data/Demo_services_concat_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/test/data/Demo_services_concat_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>

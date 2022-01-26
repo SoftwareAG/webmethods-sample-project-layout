@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <record name="getPotentialDuplicatesOutput" javaclass="com.wm.data.ISMemDataImpl">
+      <array name="results" type="record" depth="1">
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <value name="num1">2</value>
+    <value name="num2">5</value>
+  </record>
+</IDataXMLCoder>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <record name="getPotentialDuplicatesOutput" javaclass="com.wm.data.ISMemDataImpl">
+      <array name="results" type="record" depth="1">
+        <record javaclass="com.wm.data.ISMemDataImpl">
+          <value name="originationSource">W</value>
+          <value name="bizType">RT</value>
+          <value name="lockExpirationDate">20050427</value>
+          <value name="floatLoanIndicator">Y</value>
+          <value name="uwFinalDecisionCode">0</value>
+          <value name="uwDecisionExpiryDate">20050427</value>
+          <value name="canDate">20050427</value>
+          <value name="loanCloseStatusType">T</value>
+          <value name="fileReceivedAtRocDate">20050221</value>
+          <value name="loanReadyToFundIndicator">P</value>
+          <value name="regisDate">20051221</value>
+          <value name="loanSubmitToUwDate">20050427</value>
+          <value name="loanNumber">0000000001</value>
+          <value name="branch">TOTAL ADVANTEDGE LLC          </value>
+          <value name="underwritingDecisionCode">0</value>
+          <value name="underwritingDecisionExpirationDate">20050427</value>
+          <value name="lockDate">20051220</value>
+          <value name="lockIndicator">Y</value>
+          <value name="tmoLoanStageCode">3</value>
+          <value name="tmoLoanStageDate">20050427</value>
+          <value name="product">C30       </value>
+          <value name="borrowerFirstName">.          </value>
+          <value name="borrowerLastName">XX             </value>
+          <value name="propertyAddress">937 S MEYER                   </value>
+          <value name="propertyCity">TUCSON                    </value>
+          <value name="propertyState">AZ</value>
+          <value name="propertyZip">85701</value>
+        </record>
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>

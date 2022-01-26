@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <record name="response" javaclass="com.wm.data.ISMemDataImpl">
+      <value name="@creationTime">/^20\d{2}-\d{2}-\d{2}T.*$/</value>
+      <array name="duplicateLoans" type="record" depth="1">
+        <record javaclass="com.wm.data.ISMemDataImpl">
+          <value name="relevanceStatus">Relevant</value>
+          <value name="loanNumber">0000000001</value>
+          <value name="branch">TOTAL ADVANTEDGE LLC          </value>
+          <value name="underwritingDecisionExpirationDate">2005-04-27</value>
+          <value name="lockDate">2005-12-20</value>
+          <value name="lockIndicator">Y</value>
+          <value name="tmoLoanStageDate">2005-04-27</value>
+          <value name="product">C30       </value>
+          <value name="propertyAddress">937 S MEYER                   </value>
+          <value name="propertyCity">TUCSON                    </value>
+          <value name="propertyState">AZ</value>
+          <value name="propertyZip">85701</value>
+        </record>
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>

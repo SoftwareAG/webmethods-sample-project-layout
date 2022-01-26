@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <value name="lienType">1</value>
+    <value name="borrowerSSN">111111111</value>
+    <value name="propertyAddress">937 S MEYER</value>
+    <value name="propertyZip">85701</value>
+    <record name="response" javaclass="com.wm.data.ISMemDataImpl">
+    </record>
+  </record>
+</IDataXMLCoder>
