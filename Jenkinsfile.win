@@ -40,7 +40,7 @@ pipeline {
         }
      stage('CodeReview') {
             steps {
-				echo '-----Invoke CodeReview------------'			
+				echo '-----Invoke CodeReview------***------'			
 				build 'CodeReview'
             }
         }   
