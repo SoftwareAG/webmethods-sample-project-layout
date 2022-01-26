@@ -38,5 +38,11 @@ pipeline {
 		junit 'report/'
             }
         }
+    stage('CodeReview') {
+            steps {
+		         echo '-----Invoke CodeReview------------ '			
+			     build 'CodeReview'
+            }
+        }
     }
 }
