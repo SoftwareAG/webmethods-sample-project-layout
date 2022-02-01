@@ -1,32 +1,76 @@
-/*
-* Copyright © 2010 - 2013 Apama Ltd.
-* Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
-*
-* SPDX-License-Identifier: Apache-2.0
-*
-*   Licensed under the Apache License, Version 2.0 (the "License");
-*   you may not use this file except in compliance with the License.
-*   You may obtain a copy of the License at
-*
-*       http://www.apache.org/licenses/LICENSE-2.0
-*
-*   Unless required by applicable law or agreed to in writing, software
-*   distributed under the License is distributed on an "AS IS" BASIS,
-*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-*   See the License for the specific language governing permissions and
-*   limitations under the License.                                                            
-*
-*/
-
 pipeline {
     agent any 
-
+	environment {
+		ZIPNAME = "webmethods-${BUILD_NUMBER}.zip"
+		APPNAME = 'tla00_wbm(wm107_instance_is)' // This is the name o the XLD application
+		APP_TLA = 'TLA'
+		PROJECT = 'tla00'
+		GROUP_ID = 'tla00_wbm'
+		ZIP_PATH = '/opt/webmethods107/IntegrationServer/instances/default/replicate/inbound'
+		XML_PATH = '/opt/webmethods107/IntegrationServer/instances/default/properties'
+		WBM_APPNAME = 'wm107_instance_is' //WBM_APPNAME is the name of the application in webmethods
+	}
+	parameters {
+		choice(name: 'TARGET_INSTANCE', choices: ['INSTANCE'], description: 'Pick the target IS instance the wM Code you want to deploy')
+		choice(name: 'TARGET_ENV', choices: ['DV'], description: 'Pick the target environment the wM Code you want to deploy')
+		string(name: 'BUILD_BRANCH', defaultValue: 'release/*', description: 'Name of the Branch')
+	}
+	
     stages {
-        stage('Build'){
+		stage('Clean Workspace'){
+			steps{
+				echo 'Cleaning the jenkins Workspace before the build'
+				always {
+					cleanWs()
+				}
+				echo "Deleting OLD artifacts if any"
+				sh "rm -rf zips/webmethods-*.zip"
+			}
+		}// Cleaning the jenkins Workspace before the build
+		stage('git commit') {
+			steps{
+				script{
+					gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+					SCMREVISION = gitCommit.take(8)
+					currentBuild.description = APPNAME
+					echo """
+							ZIP_PATH : ${ZIP_PATH}
+							XML_PATH : ${XML_PATH}
+							ZIPNAME  : ${ZIPNAME}
+							BUILD_BRANCH : ${BUILD_BRANCH}
+							SCMREVISION : ${SCMREVISION}
+							APPNAME : ${APPNAME}
+							"""
+				}
+			}
+		}
+        stage('Build deployables'){
             steps {
-                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} build"
+				echo 'Starting to build webMethods assets using webMethods ABE'
+                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${GROUP_ID}_${WBM_APPNAME} -DAPP_TLA=${APP_TLA} -DTARGET_INSTANCE=${TARGET_INSTANCE} _DTARGET_ENV=${TARGET_ENV} build"
             }
-        }
+        }// End Build deployables
+		stage('remove files'){
+			steps{
+				script{
+					dir("target/${GROUP_ID}_${WBM_APPNAME}/build/IS"){
+						string fileContents = new File("${env.WORKSPACE}/assets/IS/config-deployment/${APP_TLA}_DeploymentSet.txt").text
+						println fileContents
+						files = findFiles glob: '*zip*'
+						println files
+						for(file in files){
+							if (fileContents.contains("${file.name}")){
+								println "keeping file: ${file.name}"
+							}
+							else {
+								println "deleting file ${file.name}"
+								sh "rm -f ${file.name}"
+							}
+						}
+					}
+				}
+			}
+		}
         stage('Deploy') {
             steps {
 		sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} deploy"
