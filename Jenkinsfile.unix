@@ -47,7 +47,7 @@ pipeline {
         stage('Build deployables'){
             steps {
 				echo 'Starting to build webMethods assets using webMethods ABE'
-                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${GROUP_ID}_${WBM_APPNAME} -DAPP_TLA=${APP_TLA} -DTARGET_INSTANCE=${TARGET_INSTANCE} _DTARGET_ENV=${TARGET_ENV} build"
+                sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${GROUP_ID}_${WBM_APPNAME} -DAPP_TLA=${APP_TLA} -DTARGET_INSTANCE=${TARGET_INSTANCE} build"
             }
         }// End Build deployables
 		stage('remove files'){
