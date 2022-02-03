@@ -54,7 +54,7 @@ pipeline {
 			steps{
 				script{
 					dir("target/${GROUP_ID}_${WBM_APPNAME}/build/IS"){
-						string fileContents = new File("${env.WORKSPACE}/assets/IS/config-deployment/${APP_TLA}_DeploymentSet.txt").text
+						string fileContents = new File("${env.WORKSPACE}/assets/IS/config-deployment/${APP_TLA}_DeploymentSet.txt")
 						println fileContents
 						files = findFiles glob: '*zip*'
 						println files
