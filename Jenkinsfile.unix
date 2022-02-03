@@ -50,27 +50,6 @@ pipeline {
                 sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${GROUP_ID}_${WBM_APPNAME} -DAPP_TLA=${APP_TLA} -DTARGET_INSTANCE=${TARGET_INSTANCE} -DTARGET_ENV =${TARGET_ENV} build"
             }
         }// End Build deployables
-		stage('remove files'){ 
-			steps{
-				script{
-					dir("target/${GROUP_ID}_${WBM_APPNAME}/build/IS"){
-						string fileContents = new File("${env.WORKSPACE}/assets/IS/config-deployment/${APP_TLA}_DeploymentSet.txt")
-						println fileContents
-						files = findFiles glob: '*zip*'
-						println files
-						for(file in files){
-							if (fileContents.contains("${file.name}")){
-								println "keeping file: ${file.name}"
-							}
-							else {
-								println "deleting file ${file.name}"
-								sh "rm -f ${file.name}"
-							}
-						}
-					}
-				}
-			}
-		}
         stage('Deploy') {
             steps {
 		sh "${env.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${env.SAG_HOME} -DSAG_CI_HOME=${env.SAG_CI_HOME} -DprojectName=${env.JOB_NAME} deploy"
