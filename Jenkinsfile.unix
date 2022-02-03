@@ -6,8 +6,8 @@ pipeline {
 		APP_TLA = 'DMO'
 		PROJECT = 'dmo00'
 		GROUP_ID = 'dmo00_wbm'
-		ZIP_PATH = '/opt/webmethods107/IntegrationServer/instances/default/replicate/inbound'
-		XML_PATH = '/opt/webmethods107/IntegrationServer/instances/default/properties'
+		ZIP_PATH = '/opt/softwareag/IntegrationServer/instances/default/replicate/inbound'
+		XML_PATH = '/opt/softwareag/IntegrationServer/instances/default/properties'
 		WBM_APPNAME = 'wm107_instance_is' //WBM_APPNAME is the name of the application in webmethods
 	}
 	parameters {
