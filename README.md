@@ -19,4 +19,5 @@ For more information you can Ask a Question in the [Tech Community Forums](https
 
 You can find additional information in the [Software AG Tech Community](https://tech.forums.softwareag.com/tag/webmethods).
 ____________________
-Contact us at [Tech Community](mailto:technologycommunity@softwareag.com?subject=Github/SoftwareAG) if you have any questions.
+
+test - test - test
