@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project default="build-bpm-acdl-project" basedir="."
+	name="webMethods Business Process Model">
+
+	<!-- These properties need to be modified when doing a stand alone ant call -->
+	<property name="default.build.output.dir" value="${basedir}" />
+	<property name="default.sag.install.dir" value="" />
+	<property name="default.build.version" value="" />
+	<property name="default.build.timestamp" value="" />
+	<property name="sag.master.build.dir" value="" />
+
+
+	<!-- Optional properties to help filter down what models you want -->
+	<property name="default.bpm.acdl.model.ids" value="" />
+	<property name="default.bpm.acdl.model.names" value="" />
+	<property name="default.bpm.acdl.model.version" value="" />
+	
+	<!-- Property list needed to be filled for BAM based models -->
+	<property name="default.bpm.acdl.bam.model.ids" value="" />
+
+	<!-- Do not modify -->
+	<property name="run.process.main.class.name"
+		value="com.softwareag.process.build.acdl.ProcessSolutionsAssembler" />
+	<taskdef classpath="${sag.master.build.dir}/master_build/lib/ant-contrib.jar"
+		resource="net/sf/antcontrib/antlib.xml" />	
+	<!--Do not modify  -->	
+	
+	<target name="loadProperties" if="loadBuildProperties">
+		<property name="build.output.dir" value="${default.build.output.dir}" />
+		<property name="sag.install.dir" value="${default.sag.install.dir}" />
+		<property name="build.version" value="${default.build.version}" />
+		<property name="build.timestamp" value="${default.build.timestamp}" />
+		<property name="bpm.acdl.model.ids" value="${default.bpm.acdl.model.ids}" />
+		<property name="bpm.acdl.model.names" value="${default.bpm.acdl.model.names}" />
+		<property name="bpm.acdl.model.version" value="${default.bpm.acdl.model.version}" />
+		<antcall target="create-acdl" inheritall="true" inheritRefs="true" />
+	</target>
+	
+	<target name="check">
+		<property name="check.build.output.dir" value="$${build.output.dir}" />
+		<property name="check.sag.install.dir" value="$${sag.install.dir}" />
+		<property name="check.build.version" value="$${build.version}" />
+		<condition property="loadBuildProperties">
+			<or>
+				<equals arg1="${check.build.output.dir}" arg2="${build.output.dir}" />
+				<equals arg1="${check.sag.install.dir}" arg2="${sag.install.dir}" />
+				<equals arg1="${check.build.version}" arg2="${build.version}" />
+			</or>
+		</condition>
+		<if>
+			<equals arg1="${build.output.dir}" arg2="" />
+			<then>
+				<property name="${build.output.dir}" value="${base.dir}" />
+			</then>
+		</if>
+		<if>
+			<equals arg1="${loadBuildProperties}" arg2="$${loadBuildProperties}" />
+			<then>
+				<antcall target="create-acdl" inheritall="true" inheritRefs="true" />
+			</then>
+			<else>
+				<antcall target="loadProperties" inheritall="true"
+					inheritRefs="true" />
+			</else>
+		</if>
+
+	</target>
+
+
+	<target name="create-acdl">
+		<if>
+			<equals arg1="${master-classpath}" arg2="$${master-classpath}" />
+			<then>
+				<path id="master-classpath">
+					<fileset dir="${sag.master.build.dir}/BPM/lib">
+						<include name="wm-process-build.jar" />
+					</fileset>
+					<fileset dir="${sag.install.dir}/common/lib/">
+						<include name="wm-acdl-common.jar" />
+						<include name="wm-isclient.jar" />
+						<include name="wm-bpm-processmodel.jar" />
+						<include name="wm-metadata-core.jar" />
+						<include name="wm-scg-core.jar" />
+						<include name="wm-g11nutils.jar" />
+					</fileset>
+
+					<fileset dir="${sag.install.dir}/common/lib/ext">
+						<include name="xercesImpl.jar" />
+						<include name="xml-apis.jar" />
+					</fileset>
+
+				</path>
+			</then>
+		</if>
+		<if>
+			<equals arg1="${bpm.acdl.bam.model.ids}" arg2="$${bpm.acdl.bam.model.ids}" />
+			<then>
+				<property name="bpm.acdl.bam.all.model.ids" value="${default.bpm.acdl.bam.model.ids}" />
+			</then>
+			<else>
+				<if>
+           <equals arg1="${bpm.acdl.bam.model.ids}" arg2="" />
+			     <then>
+				    <property name="bpm.acdl.bam.all.model.ids" value="${default.bpm.acdl.bam.model.ids}" />
+			     </then>
+			     <else>
+            <property name="bpm.acdl.bam.all.model.ids" value="${bpm.acdl.bam.model.ids};${default.bpm.acdl.bam.model.ids}" />
+           </else>
+        </if>   
+			</else>
+      </if>
+		<java fork="true" classname="${run.process.main.class.name}"
+			classpathref="master-classpath" failonerror="true">
+			<sysproperty key="process.acdl.workspace.dir" value="${basedir}" />
+			<sysproperty key="process.acdl.process.models" value="${bpm.acdl.model.ids}" />
+			<sysproperty key="process.acdl.search.model.version" value="${bpm.acdl.model.version}" />
+			<sysproperty key="build.number" value="${build.version}" />
+			<sysproperty key="build.output.dir" value="${build.output.dir}" />
+			<sysproperty key="build.timestamp" value="${build.timestamp}" />
+			<sysproperty key="bpm.acdl.bam.model.ids" value="${bpm.acdl.bam.all.model.ids}" />
+			<sysproperty key="debug" value="${debug}" />
+		</java>
+	</target>
+	<target name="clean"></target>
+	<target name="build-bpm-acdl-project"
+		description="This task will generates the acdls for the process from the passed configurations">
+		<echo message="Generating Process ACDL" />
+		<antcall target="check" inheritall="true" inheritRefs="true" />
+	</target>
+
+</project>

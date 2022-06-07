@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>TestCAFTraining</display-name>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>com.webmethods.caf.faces.servlet.CAFFacesServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <description>State saving method: &quot;client&quot; or &quot;server&quot; (= default) See JSF Specification 2.5.2</description>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.webmethods.caf.faces.view.FILTER</param-name>
+    <param-value>.*\.view</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.webmethods.caf.faces.view.CACHE</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <description>Formats the HTML output</description>
+    <param-name>com.webmethods.caf.faces.context.PRETTY_PRINT</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <description>Since CAF uses its own FacesServlet impl, this flag is needed to force the faces-config to be loaded</description>
+    <param-name>com.sun.faces.forceLoadConfiguration</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <filter>
+    <description>Handles multipart form POSTs (file uploads); required by FileInput control.</description>
+    <filter-name>Multipart Filter</filter-name>
+    <filter-class>com.webmethods.caf.faces.servlet.MultipartFilter</filter-class>
+    <init-param>
+      <description>Max allowed upload size in bytes (defaults to &quot;10 MB&quot;).</description>
+      <param-name>MAX_UPLOAD_DISK_SIZE</param-name>
+      <param-value>10 MB</param-value>
+    </init-param>
+    <init-param>
+      <description>Max upload size cached in memory (defaults to &quot;100 KB&quot;).</description>
+      <param-name>MAX_UPLOAD_RAM_SIZE</param-name>
+      <param-value>100 KB</param-value>
+    </init-param>
+    <init-param>
+      <description>Path to temporary directory in which to store uploads
+that are too large to keep in memory (defaults to &quot;temp&quot;).</description>
+      <param-name>TEMP_UPLOAD_DIR_PATH</param-name>
+      <param-value>temp</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>Multipart Filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.webmethods.caf.faces.application.CAFConfigureListener</listener-class>
+  </listener>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.view</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <description>Compresses the response stream to reduce the network bandwith usage.</description>
+    <filter-name>CompressionFilter</filter-name>
+    <filter-class>com.webmethods.caf.faces.servlet.GZIPFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CompressionFilter</filter-name>
+    <url-pattern>*.css</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CompressionFilter</filter-name>
+    <url-pattern>*.js</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CompressionFilter</filter-name>
+    <url-pattern>*.view</url-pattern>
+  </filter-mapping>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Pages</web-resource-name>
+      <url-pattern>*.xhtml</url-pattern>
+      <url-pattern>*.view</url-pattern>
+      <url-pattern>*.jsp</url-pattern>
+      <url-pattern>*.html</url-pattern>
+      <url-pattern>*.htm</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>Everyone</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <env-entry>
+    <description/>
+    <env-entry-name>CurrentYear</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+  <env-entry>
+    <description/>
+    <env-entry-name>StartYear</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+  </env-entry>
+</web-app>
