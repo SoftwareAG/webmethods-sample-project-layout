@@ -1,5 +1,5 @@
 # webmethods-sample-project-layout
-Sample project layout for webMethods assets. This sample also demostrates CI quick set up together with https://github.com/SoftwareAG/sagdevops-ci-assets
+Sample project layout for webMethods assets. This sample also demonstrates CI quick set up together with https://github.com/SoftwareAG/sagdevops-ci-assets
 
 ## Jump Start with webMethods Structure
 The best way to start your webMethods project would be to fork this repo directly in github. This will allow you to directly have a set-up copy of layout that will be completely under your control.
