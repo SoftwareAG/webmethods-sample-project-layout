@@ -12,6 +12,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -21,6 +22,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -39,6 +41,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -49,6 +52,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -59,6 +63,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -85,6 +90,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -100,13 +106,14 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/numTwo;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/numTwo;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
   <value name="xml">1</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">numTwo</value>
     <value name="field_type">string</value>
@@ -119,13 +126,14 @@
 </DATA>
 </MAPSET>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/numOne;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/numOne;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
   <value name="xml">0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">numOne</value>
     <value name="field_type">string</value>
@@ -156,6 +164,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -165,6 +174,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -183,6 +193,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -193,6 +204,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -203,6 +215,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -213,6 +226,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -239,6 +253,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -254,13 +269,14 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/fibonachiNumber;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/fibonachiNumber;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
   <value name="xml">0</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">fibonachiNumber</value>
     <value name="field_type">string</value>
@@ -285,6 +301,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">clearPipelineInput</value>
     <value name="field_type">record</value>
@@ -295,6 +312,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">preserve</value>
         <value name="field_type">string</value>
@@ -315,6 +333,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -330,7 +349,7 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/preserve;1;1">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/preserve;1;1">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -339,6 +358,7 @@
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">preserve</value>
     <value name="field_type">string</value>
@@ -360,6 +380,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -369,6 +390,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">preserve</value>
         <value name="field_type">string</value>
@@ -380,6 +402,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -398,6 +421,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -408,6 +432,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -418,6 +443,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -428,6 +454,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -454,6 +481,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -491,6 +519,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -500,6 +529,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -518,6 +548,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -528,6 +559,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -538,6 +570,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -556,6 +589,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -571,13 +605,14 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/fibonachiNumber;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/fibonachiNumber;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
   <value name="xml">1</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">fibonachiNumber</value>
     <value name="field_type">string</value>
@@ -602,6 +637,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">clearPipelineInput</value>
     <value name="field_type">record</value>
@@ -612,6 +648,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">preserve</value>
         <value name="field_type">string</value>
@@ -632,6 +669,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -647,7 +685,7 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/preserve;1;1">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/preserve;1;1">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -656,6 +694,7 @@
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">preserve</value>
     <value name="field_type">string</value>
@@ -677,6 +716,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -686,6 +726,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">preserve</value>
         <value name="field_type">string</value>
@@ -697,6 +738,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -715,6 +757,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -725,6 +768,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -735,6 +779,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -745,6 +790,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -771,6 +817,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -818,16 +865,19 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">subtractIntsInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
+        <value name="node_type">field</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num1</value>
         <value name="field_type">string</value>
@@ -837,7 +887,8 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
+        <value name="node_type">field</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num2</value>
         <value name="field_type">string</value>
@@ -856,15 +907,18 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -883,6 +937,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -893,6 +948,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -903,6 +959,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -922,13 +979,14 @@
 <MAPCOPY FROM="/n;1;0" TO="/num1;1;0">
 </MAPCOPY>
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/num2;1;0">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/num2;1;0">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
   <value name="xml">2</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">num2</value>
     <value name="field_type">string</value>
@@ -948,15 +1006,18 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num1</value>
         <value name="field_type">string</value>
@@ -967,6 +1028,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num2</value>
         <value name="field_type">string</value>
@@ -977,6 +1039,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -995,6 +1058,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -1005,6 +1069,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -1015,6 +1080,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -1024,7 +1090,8 @@
         <value name="is_global">false</value>
       </record>
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
+        <value name="node_type">field</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1043,16 +1110,19 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">subtractIntsOutput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
+        <value name="node_type">field</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1099,6 +1169,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">addIntsInput</value>
     <value name="field_type">record</value>
@@ -1109,6 +1180,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num1</value>
         <value name="field_type">string</value>
@@ -1119,6 +1191,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num2</value>
         <value name="field_type">string</value>
@@ -1137,6 +1210,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -1146,6 +1220,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -1164,6 +1239,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -1174,6 +1250,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -1184,6 +1261,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -1194,6 +1272,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">$retries</value>
         <value name="field_type">string</value>
@@ -1223,6 +1302,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -1232,6 +1312,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num1</value>
         <value name="field_type">string</value>
@@ -1242,6 +1323,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num2</value>
         <value name="field_type">string</value>
@@ -1252,6 +1334,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -1270,6 +1353,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -1280,6 +1364,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -1290,6 +1375,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -1300,6 +1386,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1318,6 +1405,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">addIntsOutput</value>
     <value name="field_type">record</value>
@@ -1328,6 +1416,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1362,6 +1451,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -1371,6 +1461,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num1</value>
         <value name="field_type">string</value>
@@ -1381,6 +1472,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">num2</value>
         <value name="field_type">string</value>
@@ -1391,6 +1483,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -1409,6 +1502,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -1419,6 +1513,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -1429,6 +1524,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -1439,6 +1535,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1457,6 +1554,7 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
@@ -1466,6 +1564,7 @@
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
         <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
         <value name="node_comment"></value>
         <record name="node_hints" javaclass="com.wm.util.Values">
           <value name="field_usereditable">true</value>
@@ -1484,6 +1583,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numOne</value>
         <value name="field_type">string</value>
@@ -1494,6 +1594,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">numTwo</value>
         <value name="field_type">string</value>
@@ -1504,6 +1605,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">fibonachiNumber</value>
         <value name="field_type">string</value>
@@ -1514,6 +1616,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">value</value>
         <value name="field_type">string</value>
@@ -1524,6 +1627,7 @@
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">$retries</value>
         <value name="field_type">string</value>
@@ -1559,16 +1663,19 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">clearPipelineInput</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
     <array name="rec_fields" type="record" depth="1">
       <record javaclass="com.wm.util.Values">
-        <value name="node_type">unknown</value>
+        <value name="node_type">field</value>
+        <value name="node_subtype">unknown</value>
         <value name="is_public">false</value>
         <value name="field_name">preserve</value>
         <value name="field_type">string</value>
@@ -1589,9 +1696,11 @@
 <Values version="2.0">
   <record name="xml" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_type">record</value>
     <value name="field_dim">0</value>
+    <value name="wrapper_type">IData</value>
     <value name="nillable">true</value>
     <value name="form_qualified">false</value>
     <value name="is_global">false</value>
@@ -1604,7 +1713,7 @@
 
   <!-- nodes -->
 
-<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" FIELD="/preserve;1;1">
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/preserve;1;1">
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
@@ -1613,6 +1722,7 @@
   </array>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
+    <value name="node_subtype">unknown</value>
     <value name="is_public">false</value>
     <value name="field_name">preserve</value>
     <value name="field_type">string</value>
