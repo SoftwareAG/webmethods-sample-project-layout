@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="testBuild" default="buildDeployTest" basedir="." >
+        <!-- project.properties -->
+	<property file="project.properties"/>
+
+        <property name="workspace.dir" location="."/>
+
+        <!-- remap the VCS structure defined in project.properties to have absolute paths -->
+        <property name="isProjectsDir" location="${isPackages}"/>
+        <property name="isTestDir" location="${isTests}"/>
+        <property name="bpmProjectsDir" location="${bpmProjects}"/>
+        <property name="mwsProjectsDir" location="${mwsProjects}"/>
+        <property name="rulesProjectsDir" location="${rulesProjects}"/>
+        <property name="umProjectsDir" location="${umExport}"/>
+        
+        <property name="buildOutputDir" value="${workspace.dir}/target/${projectName}/build"/>
+        <property name="repositoryName" value="${projectName}Repo"/>
+        <property name="testPackageNamePattern" value="*_Test"/>
+        <property name="jenkinsReportDir" value="${workspace.dir}/report"/>
+
+
+	<target name="buildDeployTest" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="buildDeployTest" inheritAll="true"/>
+	</target>
+
+        <target name="build" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="build" inheritAll="true"/>
+	</target>
+
+        <target name="deploy" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="deploy" inheritAll="true"/>
+	</target>
+
+        <target name="test" depends="">
+        	<ant dir="${SAG_CI_HOME}" antfile="${SAG_CI_HOME}/build.xml" target="test" inheritAll="true"/>
+	</target>
+	
+</project>
+

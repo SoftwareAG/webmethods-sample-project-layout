@@ -74,7 +74,7 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment"></value>
+  <value name="node_comment">    </value>
   <value name="stateless">no</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
@@ -83,7 +83,6 @@
   <value name="audit_level">off</value>
   <value name="check_internal_acls">no</value>
   <value name="icontext_policy">$null</value>
-  <value name="svcInvkURLAlias"></value>
   <value name="system_service">no</value>
   <value name="retry_max">0</value>
   <value name="retry_interval">0</value>
@@ -98,6 +97,27 @@
     <value name="stopExecution">false</value>
     <value name="onError">true</value>
   </record>
+  <record name="circuitbreakersettings" javaclass="com.wm.util.Values">
+    <value name="enabled">false</value>
+    <value name="failureEvent">1</value>
+    <value name="timeoutPeriod">60</value>
+    <value name="failureThreshold">5</value>
+    <value name="failurePeriod">60</value>
+    <value name="openAction">1</value>
+    <null name="serviceToInvoke"/>
+    <value name="resetPeriod">300</value>
+    <value name="cancelThreadOnTimeout">false</value>
+  </record>
+  <array name="allowedHTTPMethods" type="value" depth="1">
+    <value>TRACE</value>
+    <value>HEAD</value>
+    <value>DELETE</value>
+    <value>POST</value>
+    <value>GET</value>
+    <value>OPTIONS</value>
+    <value>PUT</value>
+    <value>PATCH</value>
+  </array>
   <value name="pipeline_option">1</value>
   <null name="originURI"/>
   <value name="modifiable">true</value>
