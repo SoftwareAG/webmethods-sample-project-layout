@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.0" CLEANUP="true">
+
+  <!-- nodes -->
+
+<SEQUENCE EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="STANDALONE">
+  <COMMENT>WebService Descriptor and Operation</COMMENT>
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/wsdOperationName;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">calculateMarks</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<BRANCH SWITCH="/_port">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP NAME="SoapDemo_ws_ProviderDemo_Port" MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/binding;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SoapDemo_ws_ProviderDemo_Binder</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/address;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">http://192.168.0.7:5555/ws/SoapDemo.ws:ProviderDemo/SoapDemo_ws_ProviderDemo_Port</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<MAP NAME="$default" MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/binding;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SoapDemo_ws_ProviderDemo_Binder</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/address;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">http://192.168.0.7:5555/ws/SoapDemo.ws:ProviderDemo/SoapDemo_ws_ProviderDemo_Port</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+</BRANCH>
+
+<BRANCH SWITCH="/_url">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP NAME="$null" MODE="STANDALONE">
+  <COMMENT></COMMENT>
+</MAP>
+
+<MAP NAME="$default" MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPCOPY NAME="Link" FROM="/_url;1;0" TO="/address;1;0">
+</MAPCOPY>
+</MAP>
+</BRANCH>
+
+<BRANCH SWITCH="/binding">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="SoapDemo_ws_ProviderDemo_Binder" EXIT-ON="FAILURE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPCOPY NAME="Link" FROM="/tns:calculateMarks;4;0;SOAPWSDEMO.services.ConsumerDemo_.docTypes:docTypeRef_tns_calculateMarks" TO="/request;2;0/tns:calculateMarks;2;0">
+</MAPCOPY>
+
+<MAPDELETE NAME="Dropper" FIELD="/binding;1;0">
+</MAPDELETE>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/wsdBinderName;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SoapDemo_ws_ProviderDemo_Binder</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/soapProtocol;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SOAP 1.1 Protocol</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<INVOKE SERVICE="pub.client:soapClient">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="INPUT">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/method;2;0/localName;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">calculateMarks</value>
+</Values>
+</DATA>
+</MAPSET>
+
+<MAPSET NAME="Setter" OVERWRITE="true" VARIABLES="false" GLOBALVARIABLES="false" FIELD="/soapAction;1;0">
+  <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SoapDemo_ws_ProviderDemo_Binder_calculateMarks</value>
+</Values>
+</DATA>
+</MAPSET>
+</MAP>
+
+<MAP MODE="OUTPUT">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPCOPY NAME="Link" FROM="/header;2;0/requestLines;2;0" TO="/transportInfo;2;0/requestHeaders;2;0">
+</MAPCOPY>
+
+<MAPCOPY NAME="Link" FROM="/header;2;0/lines;2;0" TO="/transportInfo;2;0/responseHeaders;2;0">
+</MAPCOPY>
+
+<MAPCOPY NAME="Link" FROM="/header;2;0/status;1;0" TO="/transportInfo;2;0/status;1;0">
+</MAPCOPY>
+
+<MAPCOPY NAME="Link" FROM="/header;2;0/statusMessage;1;0" TO="/transportInfo;2;0/statusMessage;1;0">
+</MAPCOPY>
+
+<MAPDELETE NAME="Dropper" FIELD="/targetInputSignature;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/targetOutputSignature;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/request;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapAction;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/method;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapProtocol;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/encoding;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/header;2;0">
+</MAPDELETE>
+</MAP>
+</INVOKE>
+
+<BRANCH SWITCH="/soapStatus">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<SEQUENCE NAME="0" EXIT-ON="FAILURE">
+  <COMMENT>The server successfully returned the results.</COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPCOPY NAME="Link" FROM="/response;2;0/tns:calculateMarksResponse;2;0" TO="/tns:calculateMarksResponse;4;0;SOAPWSDEMO.services.ConsumerDemo_.docTypes:docTypeRef_tns_calculateMarksResponse">
+</MAPCOPY>
+
+<MAPDELETE NAME="Dropper" FIELD="/response;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapBody;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/address;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/header;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapStatus;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapData;3;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/SOAP-FAULT;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapAction;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/ProviderDemo_PortType_calculateMarksResponse;2;0/auth;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapResponseData;3;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdOperationName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdBinderName;1;0">
+</MAPDELETE>
+</MAP>
+</SEQUENCE>
+
+<SEQUENCE NAME="$default" EXIT-ON="FAILURE">
+  <COMMENT>The server returned a SOAP fault.</COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="STANDALONE">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAPDELETE NAME="Dropper" FIELD="/soapBody;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/address;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapStatus;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapData;3;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapAction;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/;2;0/auth;2;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/soapResponseData;3;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdOperationName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdBinderName;1;0">
+</MAPDELETE>
+
+<MAPCOPY NAME="Link" FROM="/response;2;0/fault;2;0" TO="/fault;2;0">
+</MAPCOPY>
+
+<MAPDELETE NAME="Dropper" FIELD="/response;2;0">
+</MAPDELETE>
+</MAP>
+</SEQUENCE>
+</BRANCH>
+</SEQUENCE>
+</BRANCH>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdOperationName;1;0">
+</MAPDELETE>
+
+<MAPDELETE NAME="Dropper" FIELD="/wsdBinderName;1;0">
+</MAPDELETE>
+</SEQUENCE>
+</FLOW>
